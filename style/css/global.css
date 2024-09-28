@@ -1,0 +1,35 @@
+@import url(_variable.css);
+
+@font-face {
+  font-family: 'EldenRingFont';
+  src: url('../font/Mantinia\ Regular.otf') format('opentype');
+  font-weight:lighter;
+  font-style: normal;
+}
+body {
+    cursor: url('/curseur/cursor.png'), auto;
+    
+  }
+  
+button:hover, input:hover {
+    cursor: url('/curseur/pointer.png'), pointer;
+  }
+/* Application du style global pour chaque page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "EldenRingFont", Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    width: 100dvw;
+    height: 100dvh;   
+}
+
+
+
+/* footer */
+
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,151 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    overflow: none;
+    outline: none;
+}
+input{
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+body{
+    
+}
+.container-login{
+    width: 100%;
+    height: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.left-login{
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-bg);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.right-login{
+    width: 100%;
+    height: 100%;
+    background-image: url("/Images/maliketh.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.texte-container-login{
+    height: fit-content;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+}
+.texte-container-login h1{
+    font-size: 8em;
+    margin-bottom: -65px;
+}
+.texte-container-login h2{
+    margin-bottom: -56px;
+    font-size: 6em;
+}
+.texte-container-login h4{
+
+    font-size: 2em;
+}
+.form-container{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    flex-direction: column;
+    
+
+}
+
+.form-container form{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+ 
+}
+.div-social{
+ 
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-social ul{
+    display: flex;
+    gap: 20px;
+}
+.user-pass-container{
+    width: 100%;
+    height: 50px;
+    
+ 
+}
+.user-pass-container p{
+    margin-bottom: 0.25em;
+}
+.uspc-1{
+    margin-bottom: 3em;
+}
+.uspc-2{
+    margin-bottom: 1.75em;
+}
+.user-pass-container input{
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid black;
+}
+.forgot-and-logged{
+    width: 100%;
+   
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+ 
+}
+.checkbox  input{
+    background-color: white;
+    border: 1px solid black;
+}
+.forgot-and-logged input{
+    width: 20px;
+    height: 20px;
+
+}
+.submit-button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 1.25em;
+    margin-bottom: 0.25em;
+    cursor: pointer;
+}
+.create-new-account{
+    width: fit-content;
+    border-bottom: 1px solid black;
+}
