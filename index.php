@@ -24,7 +24,7 @@
         <div class="left-login">
             
             <div class="texte-container-login">
-                <div class="blur-effect-container"></div>
+                
                 <h1>Elden Ring</h1>
                 <h2>Made by</h2>
                 <h4>laurentiu</h4>
@@ -51,12 +51,20 @@
                     <button type="submit" class="submit-button">LOGIN</button>
                     <div class="create-new-account">Create new Account</div>
                 </form>
-                
+                <div class="show-card">
+                    <div>
+                        <img class="img1" src="/Images/Cartes/malenia.png" alt="">
+                        <img class="img2" src="/Images/Cartes/ranni.png" alt="">
+                        <img class="img3" src="/Images/Cartes/maliketh.png" alt="">
+                        <img class="img4" src="/Images/Cartes/mohg.png" alt="">
+                    </div>
+                </div>
             </div>
-            <div class="blur-effect-container2"></div>
+            
+         
         </div>
         <div class="right-login" id="slideIMG">
-            img
+            
         </div>
     </div>
 

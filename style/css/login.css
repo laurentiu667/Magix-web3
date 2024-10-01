@@ -15,6 +15,7 @@ input{
 }
 
 body{
+    min-width: 500px;
     
 }
 .container-login{
@@ -22,7 +23,7 @@ body{
     height: 100%;
     
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 .left-login{
     width: 100%;
@@ -34,15 +35,11 @@ body{
 }
 
 .right-login{
-    width: 100%;
-    height: 100%;
-    background-image: url("/Images/maliketh.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: 1s;
+    display: none;
 }
+
 .texte-container-login{
-    height: 40%;
+    height: 30%;
     width: 100%;
     text-align: center;
     font-weight: 300;
@@ -51,36 +48,78 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    /* background-color: green; */
 }
 .texte-container-login h1{
-    font-size: 8em;
-    margin-bottom: -65px;
+    font-size: 5em;
+    margin-bottom: -35px;
 }
 .texte-container-login h2{
-    margin-bottom: -56px;
-    font-size: 6em;
+    margin-bottom: -30px;
+    margin-left: -60px;
+    font-size: 3em;
 }
 .texte-container-login h4{
     color: rgb(150, 30, 30);
     font-size: 2em;
 }
 .form-container{
-    height: 60%;
+    height: 70%;
     display: flex;
     align-items: center;
-    margin-top: 10%;
+    
     
     flex-direction: column;
+    /* background-color: blue; */
     
 }
+.show-card{
+    height: 100%;
+    width: 100%;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+.show-card div{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+
+.show-card img{
+    width: fit-content;
+    height: 160px;
+    transition: transform 0.3s ease;
+}
+.img1 {
+    transform: rotate(-30deg) translateY(-10px);
+}
+
+.img2 {
+    transform: rotate(-10deg) translateY(-5px);
+}
+
+.img3 {
+    transform: rotate(10deg) translateY(-5px);
+}
+
+.img4 {
+    transform: rotate(30deg) translateY(-10px);
+}
+.show-card img:hover {
+    transform: translateY(-50px) !important;
+}
 .form-container form{
     width: 50%;
     display: flex;
     justify-content: start;
     flex-direction: column;
-    height: 100%;
-
+    height: fit-content;
+    /* background-color: red; */
  
 }
 .div-social{
@@ -156,26 +195,6 @@ body{
     border-bottom: 1px solid black;
 }
 
-.blur-effect-container{
-    width: 50%;
-    height: 30px;
-    position: absolute;
-    background-color: #d24e01;
-    top: 0;
-    left: 0;
-    filter: blur(100px);
-    
-    
-}
-.blur-effect-container2{
-    width: 50%;
-    height: 30px;
-    position: absolute;
-    background-color: rgba(255, 0, 0, 0.486);
-    bottom: 0;
-    left: 0;
-    filter: blur(100px);
-}
 
 
 /* Partie animation */
@@ -187,3 +206,74 @@ body{
 
 }
 
+
+
+
+
+
+@media only screen and (min-width: 800px){
+    .texte-container-login h1{
+        font-size: 5em;
+        margin-bottom: -35px;
+    }
+    .texte-container-login h2{
+        margin-bottom: -30px;
+        margin-left: -60px;
+        font-size: 3em;
+    }
+    .texte-container-login h4{
+        color: rgb(150, 30, 30);
+        font-size: 2em;
+    }
+    
+    
+   
+}
+@media only screen and (min-width: 1000px){
+    .container-login{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .right-login{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("/Images/maliketh.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: 1s;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    .texte-container-login h1{
+        font-size: 6em;
+        margin-bottom: -40px;
+    }
+    .texte-container-login h2{
+        margin-bottom: -40px;
+        margin-left: -30px;
+        font-size: 4em;
+    }
+    .texte-container-login h4{
+        color: rgb(150, 30, 30);
+        font-size: 2em;
+    }
+}
+@media only screen and (min-width: 1400px){
+    .texte-container-login h1{
+        font-size: 8em;
+        margin-bottom: -65px;
+    }
+    .texte-container-login h2{
+        margin-bottom: -56px;
+        font-size: 6em;
+    }
+    .texte-container-login h4{
+        color: rgb(150, 30, 30);
+        font-size: 2em;
+    }
+}
+@media only screen and (min-width: 1600px){
+    
+}
