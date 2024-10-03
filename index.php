@@ -72,4 +72,4 @@
  
 
 <?php
-    require_once("partial/footer.php");
+    require_once("partial/layout/footer.php");

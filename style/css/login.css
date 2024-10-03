@@ -200,8 +200,9 @@ body{
 /* Partie animation */
 
 .submit-button:hover{
-    background-color: rgba(150, 30, 30, 0.753);
+    background-color: rgba(255, 255, 255, 0.753);
     color: black;
+    border: 1px solid black;
 
 
 }
@@ -241,7 +242,7 @@ body{
         background-image: url("/Images/maliketh.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-        transition: 1s;
+        transition: all 0.3s cubic-bezier(1,0.54,.5,.51);
     }
 }
 
