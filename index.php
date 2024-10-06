@@ -14,10 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style\css\global.css">
     <link rel="stylesheet" href="style\css\login.css">
-    <script src="/script/login.js" defer></script>
-    <title>Document</title>
+    <script defer src="/script/login.js" ></script>
+    <title>Login</title>
 </head>
 <body>
+    <div class="user-not-exist">
+        sorry but the user do not exist
+    </div>
    
     <div class="container-login">
    
@@ -32,14 +35,14 @@
 
             <div class="form-container">
                 
-                <form action="" method="post">
-                    <div class="user-pass-container uspc-1">
+                
+                <div class="user-pass-container uspc-1">
                         <p>Username</p>
                         <input type="text" name="username" id="username">
                     </div>
                     <div class="user-pass-container uspc-2">
                         <p>Password</p>
-                        <input type="text" name="username" id="username">
+                        <input type="password" name="password" id="password">
                     </div>
                     <div class="forgot-and-logged">
                         <div class="checkbox">
@@ -48,9 +51,9 @@
                         </div>
                         <div class="forgot-password">Forgot password ?</div>
                     </div>
-                    <button type="submit" class="submit-button">LOGIN</button>
-                    <div class="create-new-account">Create new Account</div>
-                </form>
+                    <button type="submit" id="submit" class="submit-button">LOGIN</button>
+                <div class="create-new-account">Create new Account</div>
+                
                 <div class="show-card">
                     <div>
                         <img class="img1" src="/Images/Cartes/malenia.png" alt="">
