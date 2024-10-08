@@ -11,7 +11,7 @@ body {
     
   }
   
-button:hover, input:hover {
+button:hover, input:hover, .button-menu {
     cursor: url('/curseur/pointer.png'), pointer;
   }
 /* Application du style global pour chaque page */

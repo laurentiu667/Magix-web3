@@ -1,0 +1,49 @@
+body{
+    background-image: url(/Images/maliketh.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+  
+}
+.container-menu{
+    border-radius: 4px;
+    width: 80%;
+    height: 80%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.288);
+    box-shadow: inset 0 0 10rem rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.chat-menu{
+    width: 70%;
+    height: 100%;
+
+}
+.liste-button{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    flex-direction: column;
+}
+.button-menu{
+    width: 90%;
+    height: 10%;
+    background-color: black;
+    text-align: center;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: calc(0.75em + 1vw);
+    letter-spacing: .1em;
+
+}

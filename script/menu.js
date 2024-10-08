@@ -11,11 +11,11 @@ const applyStyles = iframe => {
 		fontSize : "20px",
 		hideIcons : false,
 		inputBackgroundColor : "red",
-		inputFontColor : "blue",
+		inputFontColor : "transparent",
 		height : "700px",
-		padding: "5px",
+		padding: "0px",
 		memberListFontColor : "#ff00dd",
-		borderColor : "blue",
+		borderColor : "transparent",
 		memberListBackgroundColor : "red",
 		hideScrollBar: true, // pour cacher le scroll bar
 	}

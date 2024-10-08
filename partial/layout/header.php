@@ -7,5 +7,7 @@
     <?php if (isset($scriptsrc)): ?>
         <script src="<?php echo $scriptsrc; ?>"></script>
     <?php endif; ?>
+    <link rel="stylesheet" href="style/css/menu.css">
+    <link rel="stylesheet" href="style/css/global.css">
 </head>
 <body>
