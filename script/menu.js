@@ -1,6 +1,14 @@
-window.addEventListener("load"), () => {
-    applyStyles(document.querySelector("iframe"));
-}
+window.addEventListener("load", () => {
+    applyStyles(document.querySelector("#iframe"));
+	
+	let commencer_partie = document.querySelector("#partie_lancer");
+
+	commencer_partie.addEventListener("click", () => {
+		console.log(234);
+		window.location.href = "arenaProto.php";
+	})
+
+});
 
 
 const applyStyles = iframe => {
@@ -24,3 +32,5 @@ const applyStyles = iframe => {
             iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
     }, 100);
 }
+
+

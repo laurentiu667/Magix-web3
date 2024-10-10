@@ -1,0 +1,40 @@
+body{
+    background-color: black !important;
+}
+
+.container-game{
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.container-ennemi{
+   
+}
+
+
+.container-joueur, .container-ennemi{
+
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.container-joueur .container-ennemi, div{
+
+    border: 1px solid white;
+
+}
+
+.container-joueur-cards{
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+.card-container{
+    background-color: green;
+}
+.deck-container{
+    background-color: yellow;
+}
