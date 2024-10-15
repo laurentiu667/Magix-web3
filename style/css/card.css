@@ -1,3 +1,37 @@
 
+.card{
+    width: 140px;
+    height: 200px;
+    
+    transition: all 0.3s cubic-bezier(1,1,0,1);
+    background-image: url("/Images/Cartes/plasstidusax.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+} 
+#card-1{
 
-/*# sourceMappingURL=card.css.map */
+}
+
+#card-2{
+    
+}
+
+#card-3{
+    
+}
+
+#card-4{
+    
+}
+
+#card-5{
+    
+}
+
+.card:hover{
+    width: 150px;
+    height: 210px;
+    z-index: 5 !important;
+    transform: translateY(-30px) !important;
+}
