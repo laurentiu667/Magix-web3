@@ -1,37 +1,53 @@
 
 .card{
-    width: 140px;
-    height: 200px;
+    width: 230px;
+    height: 260px;
     
     transition: all 0.3s cubic-bezier(1,1,0,1);
     background-image: url("/Images/Cartes/plasstidusax.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+    font-size: 1.25em;
+
 } 
-#card-1{
 
+.card > div{
+    display: grid;
+    place-items: center;
 }
 
-#card-2{
-    
+.attack{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    top: 0;
+    left: 20px;
+    color: white;
+}
+.cost{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(100, 0, 0);
+    top: 0;
+    right: 20px;
+    color: white;
 }
 
-#card-3{
-    
-}
-
-#card-4{
-    
-}
-
-#card-5{
-    
+.hp{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(9, 107, 0);
+    bottom: 0;
+    left: 20px;
+    color: rgb(255, 255, 255);
 }
 
 .card:hover{
-    width: 150px;
-    height: 210px;
-    z-index: 5 !important;
+   
     transform: translateY(-30px) !important;
 }

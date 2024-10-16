@@ -1,49 +1,212 @@
 body{
    
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;   
+    
   
 }
-.container-menu{
-    border-radius: 4px;
-    width: 80%;
-    height: 80%;
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.288);
-    box-shadow: inset 0 0 10rem rgb(0, 0, 0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
+:root{
+    --space-cadet: #202342ff;
+    --violet: #7032FFff;
+    --blue-crayola: #4D7CFEff;
+    --space-cadet-2: #252849ff;
+    --space-cadet-3: #2D325Aff;
+    --bright-pink-crayola: #F75165ff;
 }
 
-.chat-menu{
-    width: 70%;
+.container-menu {
+    position: relative; /* Add this line */
     height: 100%;
+    width: 100%;
+    background-image: url("/Images/backgroundmenu.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+  
+ 
 
 }
-.liste-button{
-    width: 30%;
-    height: 100%;
+.title-menu{
+
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
     flex-direction: column;
-}
-.button-menu{
-    width: 90%;
-    height: 10%;
-    background-color: black;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    color: white;
+  
+}
+.wrapper-menu{
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-rows: 2fr 3fr 1fr;
+}
+
+
+
+.The{
+    font-size: 4em;
+    position: absolute;
+    margin-top: -30px;
+    color: rgb(255, 255, 255);
+    margin-left: 90px;
+}
+.EldenRing{
+    font-size: 10em;
+    position: absolute;
+    margin-top: 140px;
+    color: rgb(175, 118, 11);
+}
+.X{
+    font-size: 4em;
+    margin-top: 205px;
+    position: absolute;
+    margin-left: 100px;
+    color: rgb(175, 118, 11);
+}
+.Magix{
+    font-size: 6em;
+    position: absolute;
+    margin-top: 250px;
+    margin-left: -350px;
+    color: rgb(255, 255, 255);
+}
+.Game{
+    font-size: 6em;
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 670px;
+    color: rgb(255, 255, 255);
+}
+
+.version{
     display: grid;
     place-items: center;
-    font-size: calc(0.75em + 1vw);
-    letter-spacing: .1em;
+    text-align: center;
+}
 
+.list-menu{
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 160px;
+    
+    
+}
+.list-menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    font-size: 1.25em;
+
+}
+.list-menu ul li {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    color: white;
+}
+.list-menu ul li:hover{
+    font-size: 1.5em;
+}
+
+
+.list-menu ul li::before,
+.list-menu ul li::after {
+    content: "";
+    background-size: contain;
+    display: inline-block;
+    width: 0px; /* Initial width */
+    height: 0px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease; /* Transition for width */
+}
+
+.list-menu ul li:hover::before {
+    background-image: url('/Images/right.png');
+    width: 30px; /* Width on hover */
+    height: 30px;
+    animation: pulse 0.3s infinite; /* Apply pulse animation */
+}
+
+.list-menu ul li:hover::after {
+    background-image: url('/Images/left.png');
+    width: 30px; /* Width on hover */
+    height: 30px;
+    animation: pulse 0.3s infinite; /* Apply pulse animation */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1.3);
+    }
+}
+
+
+
+
+
+.iframe-container{
+    display: none;
+   
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+
+}
+#iframe{
+    border: none;
+    
+}
+
+
+
+@media only screen and (max-width: 930px){
+    
+.The{
+    font-size: 2.3em;
+    position: absolute;
+    margin-top: 30px;
+    color: rgb(255, 255, 255);
+    margin-left: 90px;
+}
+.EldenRing{
+    font-size: 5em;
+    position: absolute;
+    margin-top: 140px;
+    color: rgb(175, 118, 11);
+}
+.X{
+    font-size: 2em;
+    margin-top: 140px;
+    position: absolute;
+    margin-left: 50px;
+    color: rgb(175, 118, 11);
+}
+.Magix{
+    font-size: 3em;
+    position: absolute;
+    margin-top: 200px;
+    margin-left: -160px;
+    color: rgb(255, 255, 255);
+}
+.Game{
+    font-size: 3em;
+    position: absolute;
+    margin-top: 200px;
+    margin-right: 320px;
+    color: rgb(255, 255, 255);
+}
 }

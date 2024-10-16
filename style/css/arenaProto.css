@@ -1,5 +1,7 @@
 body{
     background-color: black !important;
+    color: white;
+
 }
 
 .container-game{
@@ -8,6 +10,7 @@ body{
     border: 1px solid red;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    
 }
 
 .container-ennemi{
@@ -21,9 +24,10 @@ body{
     grid-template-columns: 1fr 5fr 1fr;
 }
 
-.container-joueur .container-ennemi, div{
+.container-joueur div, .container-ennemi div{
 
     border: 1px solid red;
+    
 
 }
 
@@ -54,30 +58,7 @@ body{
     margin: 5px;
 }
 
-.deck-container .card:nth-child(1) {
-    transform: rotate(-30deg) translateY(85px) translateX(30px);
-    z-index: 1;
-}
 
-.deck-container .card:nth-child(2) {
-    transform: rotate(-15deg)  translateY(20px) translateX(30px);
-    z-index: 2;
-}
-
-.deck-container .card:nth-child(3) {
-    transform: rotate(0deg);
-    z-index: 3;
-}
-
-.deck-container .card:nth-child(4) {
-    transform: rotate(15deg) translateY(20px) translateX(-30px);
-    z-index: 2;
-}
-
-.deck-container .card:nth-child(5) {
-    transform: rotate(30deg)  translateY(85px) translateX(-30px);
-    z-index: 1;
-}
 
 
 .waiting{
@@ -90,4 +71,25 @@ body{
     display: none;
     place-items: center;
     font-size: 6em;
+}
+
+.information-game{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+.versus{
+    background-color: red;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+}
+
+.joueur{
+    background-color: blue;
+}
+.image-versus{
+    background-color: white;
+}
+
+.ennemi{
+    background-color: blue;
 }

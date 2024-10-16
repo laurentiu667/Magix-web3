@@ -36,32 +36,22 @@
             <div class="form-container">
                 
                 
-                <div class="user-pass-container uspc-1">
-                        <p>Username</p>
+                <div class="connection">
+
+                    <div class="username-container">
+                        <p>USERNAME</p>
                         <input type="text" name="username" id="username">
                     </div>
-                    <div class="user-pass-container uspc-2">
-                        <p>Password</p>
+
+                    <div class="password-container">
+                        <p>PASSWORD</p>
                         <input type="password" name="password" id="password">
                     </div>
-                    <div class="forgot-and-logged">
-                        <div class="checkbox">
-                            <input type="checkbox" name="" id="">
-                            <p>Keep me logged in</p>
-                        </div>
-                        <div class="forgot-password">Forgot password ?</div>
-                    </div>
+
                     <button type="submit" id="submit" class="submit-button">LOGIN</button>
-                <div class="create-new-account">Create new Account</div>
-                
-                <div class="show-card">
-                    <div>
-                        <img class="img1" src="/Images/Cartes/malenia.png" alt="">
-                        <img class="img2" src="/Images/Cartes/ranni.png" alt="">
-                        <img class="img3" src="/Images/Cartes/maliketh.png" alt="">
-                        <img class="img4" src="/Images/Cartes/mohg.png" alt="">
-                    </div>
+
                 </div>
+                
             </div>
             
          

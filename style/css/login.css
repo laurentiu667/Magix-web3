@@ -1,5 +1,3 @@
-
-
 *{
     margin: 0;
     padding: 0;
@@ -9,10 +7,7 @@
     overflow: none;
     outline: none;
 }
-input{
-    font-size: 1.5em;
-    padding: 1em;
-}
+
 
 body{
     min-width: 500px;
@@ -84,121 +79,34 @@ body{
 }
 .form-container{
     height: 70%;
-    display: flex;
-    align-items: center;
-    
-    
-    flex-direction: column;
-    /* background-color: blue; */
-    
-}
-.show-card{
-    height: 100%;
     width: 100%;
- 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: yellow; */
+
+    display: grid;
+    place-items: center;
 }
-.show-card div{
+.connection{
    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.show-card img{
-    width: fit-content;
-    height: 160px;
-    transition: transform 0.3s ease;
-}
-.img1 {
-    transform: rotate(-30deg) translateY(-10px);
-}
-
-.img2 {
-    transform: rotate(-10deg) translateY(-5px);
-}
-
-.img3 {
-    transform: rotate(10deg) translateY(-5px);
-}
-
-.img4 {
-    transform: rotate(30deg) translateY(-10px);
-}
-.show-card img:hover {
-    transform: translateY(-50px) !important;
-}
-.form-container{
+    height: 100%;
     width: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    
-    /* background-color: red; */
- 
+    gap: 1em;
 }
-.div-social{
- 
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.div-social ul{
-    display: flex;
-    gap: 20px;
-}
-.user-pass-container{
+.username-container, .password-container{
+    height: 150px;
     width: 100%;
-    height: 50px;
-    
- 
 }
-.user-pass-container p{
-    margin-bottom: 0.25em;
-}
-.uspc-1{
-    margin-bottom: 3em;
-}
-.uspc-2{
-    margin-bottom: 1.75em;
-}
-.user-pass-container input{
-    height: 100%;
+.username-container input, .password-container input{
+    height: 60px;
     width: 100%;
-    background-color: var(--white);
-    color: var(--black);
     border: 1px solid black;
 }
-.forgot-and-logged{
-    width: 100%;
-   
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2em;
-}
-.checkbox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
- 
-}
-.checkbox  input{
-    background-color: white;
-    border: 1px solid black;
-}
-.forgot-and-logged input{
-    width: 20px;
-    height: 20px;
 
-}
+
+
+
 .submit-button{
     width: 100%;
     height: 100px;
@@ -209,10 +117,6 @@ body{
     margin-bottom: 0.25em;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(1,.54,.5,.51);
-}
-.create-new-account{
-    width: fit-content;
-    border-bottom: 1px solid black;
 }
 
 
