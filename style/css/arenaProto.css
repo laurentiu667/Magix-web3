@@ -1,6 +1,8 @@
 body{
-    background-color: black !important;
+    background-image: url(/Images/backgroundmenu.jpg);
+    background-repeat: repeat;
     color: white;
+
 
 }
 
@@ -10,13 +12,20 @@ body{
     border: 1px solid red;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    
+  
+    background-image: url(/Images/Noise.png);
 }
 
 .container-ennemi{
    
 }
 
+.wrapper-menu{
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(50px);
+  
+}
 
 .container-joueur, .container-ennemi{
 
@@ -47,15 +56,12 @@ body{
     align-items: center;
     justify-content: center;
     height: 80%;
+   
+    
 }
 
 .deck-container .card {
-    transform-origin: bottom center; /* Set the origin for the rotation */
-
-    color: black;
-    padding: 10px;
-
-    margin: 5px;
+    
 }
 
 
@@ -92,4 +98,27 @@ body{
 
 .ennemi{
     background-color: blue;
+}
+
+.info-card-hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    display: none;
+    grid-template-rows: 1fr 5fr;
+    z-index: 2000;
+}
+.titleInfo {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.information_generale_carte{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
 }

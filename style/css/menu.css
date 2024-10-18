@@ -48,21 +48,34 @@ body{
     font-size: 4em;
     position: absolute;
     margin-top: -30px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     margin-left: 90px;
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.7),
+        4px 4px 0 rgba(0, 0, 0, 0.5), 
+        6px 6px 0 rgba(255, 255, 255, 0.7);
 }
 .EldenRing{
     font-size: 10em;
     position: absolute;
     margin-top: 140px;
-    color: rgb(175, 118, 11);
+    color: rgb(0, 0, 0);
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.7),
+        4px 4px 0 rgba(0, 0, 0, 0.5), 
+        6px 6px 0 rgba(255, 255, 255, 0.7);
+     
 }
 .X{
     font-size: 4em;
     margin-top: 205px;
     position: absolute;
     margin-left: 100px;
-    color: rgb(175, 118, 11);
+    color: rgb(0, 0, 0);
+    text-shadow: 
+        2px 2px 0 rgba(0, 0, 0, 0.7),
+        4px 4px 0 rgba(0, 0, 0, 0.5), 
+        6px 6px 0 rgba(255, 255, 255, 0.7);
 }
 .Magix{
     font-size: 6em;
@@ -70,6 +83,10 @@ body{
     margin-top: 250px;
     margin-left: -350px;
     color: rgb(255, 255, 255);
+    text-shadow: 
+    2px 2px 0 rgba(255, 255, 255, 0.7),
+    4px 4px 0 rgba(0, 0, 0, 0.5), 
+    6px 6px 0 rgba(255, 255, 255, 0.7);
 }
 .Game{
     font-size: 6em;
@@ -77,12 +94,17 @@ body{
     margin-top: 250px;
     margin-left: 670px;
     color: rgb(255, 255, 255);
+    text-shadow: 
+    2px 2px 0 rgba(255, 255, 255, 0.7),
+    4px 4px 0 rgba(0, 0, 0, 0.5), 
+    6px 6px 0 rgba(255, 255, 255, 0.7);
 }
 
 .version{
     display: grid;
     place-items: center;
     text-align: center;
+    color: rgb(160, 160, 160);
 }
 
 .list-menu{
@@ -100,17 +122,17 @@ body{
     justify-content: center;
     flex-direction: column;
     gap: 1em;
-    font-size: 1.25em;
+    font-size: 1em;
 
 }
 .list-menu ul li {
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: 0.3s ease;
+    transition: all 0.1s ease-out;
     color: white;
 }
 .list-menu ul li:hover{
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 
 
@@ -171,7 +193,48 @@ body{
     
 }
 
+.audio-off-on{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 70px;
+    height: 70px;
+}
+.audio-off-on:hover{
+    cursor: pointer;
+}
 
+.audio-off-on::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 70px; 
+    height: 5px;
+    background-color: white;
+    transform: rotate(45deg) translateY(-50%);
+    transition: width 1s ease; 
+}
+
+.audio-off-on.active::after {
+    width: 0px;
+}
+
+.rideau{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 100;
+    transition: all 1s ease-in-out;
+}
+
+.rideau.active{
+    width: 100%;
+    height: 0px;
+}
 
 @media only screen and (max-width: 930px){
     
@@ -179,21 +242,21 @@ body{
     font-size: 2.3em;
     position: absolute;
     margin-top: 30px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     margin-left: 90px;
 }
 .EldenRing{
     font-size: 5em;
     position: absolute;
     margin-top: 140px;
-    color: rgb(175, 118, 11);
+    color: rgb(0, 0, 0);
 }
 .X{
     font-size: 2em;
     margin-top: 140px;
     position: absolute;
     margin-left: 50px;
-    color: rgb(175, 118, 11);
+    color: rgb(0, 0, 0);
 }
 .Magix{
     font-size: 3em;

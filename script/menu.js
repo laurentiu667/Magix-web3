@@ -1,59 +1,104 @@
-const iframe = document.querySelector("#iframe");
-const sound = new Audio('Audio/hover-effect.mp3'); // Replace with your actual MP3 path
-const listItems = document.querySelectorAll('.list-menu ul li');
-
-const commencer_partie = document.querySelector("#partie_lancer");
-const openchat = document.querySelector("#openchat");
-
 window.addEventListener("load", () => {
+    const iframe = document.querySelector("#iframe");
+
+    const rideau = document.querySelector(".rideau");
+
+    rideau.classList.toggle('active');
+    
+    commencerAudioMenu();
     
     if (iframe) {
         applyStyles(iframe);
     }
 
-    if (commencer_partie) {
-        commencer_partie.addEventListener("click", () => {
-        
-            window.location.href = "game.php";
-        });
-    }
+    commencerUnePartie();
+   
+    hoverMenuList();
 
- 
+    openTheChat();
+});
+
+const commencerUnePartie = () => {
+    const commencer_partie = document.querySelector("#partie_lancer");
+    commencer_partie.addEventListener("click", () => {
+        window.location.href = "game.php";
+    });
+};
+
+const hoverMenuList = () => {
+    const listItems = document.querySelectorAll('.list-menu ul li');
+    const soundhover = new Audio('/Audio/hover-effect.mp3'); 
 
     listItems.forEach(item => {
         item.addEventListener('mouseover', () => {
-            sound.currentTime = 0; // Rewind to start
-            sound.play(); // Play the sound
-            console.log(4342);
+            soundhover.currentTime = 0;
+            soundhover.volume = 0.5;
+            soundhover.play().catch(error => {
+                console.error("Erreur lors de la lecture de l'audio :", error);
+            });
         });
     });
+};
 
-    openchat.addEventListener("click", () =>{
-        const iframecontainer = document.querySelector(".iframe-container");
-        iframecontainer.style.display = "block";
-   
-        
-    })
-});
+const openTheChat = () => {
+    let openedchat = false;
+    const openchat = document.querySelector("#open-chat");
+    const iframecontainer = document.querySelector(".iframe-container");
+      
+    openchat.addEventListener("click", () => {
+     
+        if (!openedchat) {
+            iframecontainer.style.display = "block";
+            console.log(3432423);
+            
+            openedchat = true;
+        } else {
+            iframecontainer.style.display = "none";
+            openedchat = false;
+        }
+    });
+};
+
+const commencerAudioMenu = () => {
+    const audio = document.querySelector(".audio-off-on");
+    const menuaudio = new Audio('/Audio/audio_menu.mp3');
+
+    let audio_on_off = false;
+    
+    audio.addEventListener("click", () => {
+        if (!audio_on_off) {
+            menuaudio.currentTime = 0; 
+            menuaudio.volume = 0.3;   
+            menuaudio.play();
+            audio.classList.toggle('active');
+            audio_on_off = true; 
+        } else {
+            audio.classList.toggle('active');
+            menuaudio.pause(); 
+            audio_on_off = false; 
+        }
+    });
+};
 
 const applyStyles = iframe => {
     let styles = {
-        fontColor: "white",
-        backgroundColor: "transparent",
-        fontGoogleName: "Poppins",
-        fontSize: "20px",
-        hideIcons: true,
-        inputBackgroundColor: "transparent",
-        inputFontColor: "black",
-        height: "100%",
-        padding: "0px",
-        memberListFontColor: "white",
-        borderColor: "black",
-        memberListBackgroundColor: "black",
-        hideScrollBar: true, // pour cacher le scroll bar
-    };
-
-    setTimeout(() => {
-        iframe.contentWindow.postMessage(JSON.stringify(styles), "*");
+            fontColor : "#333",
+            backgroundColor : "rgba(87, 41, 5, 0.2)",
+            fontGoogleName : "Sofia",
+            fontSize : "20px",
+            hideIcons : false,
+            inputBackgroundColor : "red",
+            inputFontColor : "blue",
+            height : "700px",
+            padding: "5px",
+            memberListFontColor : "#ff00dd",
+            borderColor : "blue",
+            memberListBackgroundColor : "white",
+            hideScrollBar: true, // pour cacher le scroll bar
+        }
+        
+        setTimeout(() => {
+            iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
     }, 100);
+
 };

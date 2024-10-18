@@ -7,13 +7,13 @@
   font-style: normal;
 }
 body{
-  cursor: url('/curseur/cursor.png'), auto;
+
   min-width: 500px;
   
 }
   
 button:hover, input:hover, .button-menu {
-    cursor: url('/curseur/pointer.png'), pointer;
+    cursor: pointer;
   }
 /* Application du style global pour chaque page */
 * {
