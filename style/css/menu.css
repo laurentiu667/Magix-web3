@@ -175,22 +175,21 @@ body{
 }
 
 
-
-
-
 .iframe-container{
     display: none;
    
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 400px;
+    width: 500px;
     height: 100%;
+    overflow: none;
+    padding: 2em;
 
 }
 #iframe{
     border: none;
-    
+    overflow: none;
 }
 
 .audio-off-on{

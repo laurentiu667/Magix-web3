@@ -9,7 +9,7 @@ body{
 .container-game{
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+
     display: grid;
     grid-template-rows: 1fr 1fr;
   
@@ -35,7 +35,7 @@ body{
 
 .container-joueur div, .container-ennemi div{
 
-    border: 1px solid red;
+
     
 
 }
@@ -45,25 +45,19 @@ body{
     flex-direction: column;
 }
 
-.card-container {
-    background-color: green;
-    height: 20%;
-}
 
 .deck-container {
-    background-color: yellow;
+
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    height: 80%;
+    height: 100%;
+    width: 100%;
+    gap: 1em;
+    overflow-x: hidden;
    
     
 }
-
-.deck-container .card {
-    
-}
-
 
 
 
@@ -100,25 +94,3 @@ body{
     background-color: blue;
 }
 
-.info-card-hover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: green;
-    display: none;
-    grid-template-rows: 1fr 5fr;
-    z-index: 2000;
-}
-.titleInfo {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-.information_generale_carte{
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    color: white;
-}

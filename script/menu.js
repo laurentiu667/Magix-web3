@@ -42,7 +42,7 @@ const hoverMenuList = () => {
 
 const openTheChat = () => {
     let openedchat = false;
-    const openchat = document.querySelector("#open-chat");
+    const openchat = document.querySelector("#openchat");
     const iframecontainer = document.querySelector(".iframe-container");
       
     openchat.addEventListener("click", () => {
@@ -83,16 +83,16 @@ const commencerAudioMenu = () => {
 const applyStyles = iframe => {
     let styles = {
             fontColor : "#333",
-            backgroundColor : "rgba(87, 41, 5, 0.2)",
+            backgroundColor : "transparent",
             fontGoogleName : "Sofia",
             fontSize : "20px",
             hideIcons : false,
-            inputBackgroundColor : "red",
-            inputFontColor : "blue",
-            height : "700px",
+            inputBackgroundColor : "transparent",
+            inputFontColor : "black",
+            height : "600px",
             padding: "5px",
             memberListFontColor : "#ff00dd",
-            borderColor : "blue",
+            borderColor : "black",
             memberListBackgroundColor : "white",
             hideScrollBar: true, // pour cacher le scroll bar
         }

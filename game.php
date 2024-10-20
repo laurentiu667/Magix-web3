@@ -29,9 +29,9 @@ require_once("partial/layout/header.php");
         <div>3</div>
     </div>
     <div class="container-joueur">
-        <div>Temps restants : <span class="temps">2</span></div>
+        <div>Temps restants : <span class="temps"></span></div>
         <div class="container-joueur-cards">
-            <div class="card-container"></div>
+            
             <div class="deck-container">
 
           
