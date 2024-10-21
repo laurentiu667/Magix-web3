@@ -29,26 +29,54 @@ require_once("partial/layout/header.php");
                             ?>
                         </div>
                     </div>
+
                     <div class="vie_mana">
+
                         <div class="vie">
-                            <div class="image-vie">1</div>
+                            <div class="image-vie image-bar-global"></div>
                             <div class="vie-bar">2</div>
                         </div>
+
                         <div class="mana">
-                            <div class="image-mana">3</div>
-                            <div class="mana-bar">4</div>
+                            <div class="image-mana image-bar-global"></div>
+                            <div class="mana-bar">2</div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="temps-div">
+                    <div class="temps"></div>
+                </div>
+                <div class="ennemi">
+                    <div class="image_nom">
+                        <div class="image-game"></div>
+                        <div class="nom">
+                            
                         </div>
                     </div>
+
+                    <div class="vie_mana">
+
+                        <div class="vie">
+                            <div class="image-vie image-bar-global"></div>
+                            <div class="vie-bar">2</div>
+                        </div>
+
+                        <div class="mana">
+                            <div class="image-mana image-bar-global"></div>
+                            <div class="mana-bar">2</div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="image-versus"></div>
-                <div class="ennemi"></div>
             </div>
             <div class="deck-container-ennemi"></div>
         </div>
         <div>3</div>
     </div>
     <div class="container-joueur">
-        <div>Temps restants : <span class="temps"></span></div>
+        <div></div>
         <div class="container-joueur-cards">
             
             <div class="deck-container">
