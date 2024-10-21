@@ -45,20 +45,18 @@ const state = () => {
      
         
         waiting.style.display = "grid";
+        waiting.innerText = "En attente d'un adversaire";
 
 
     } else {
-        let arrayWithCardID = [];
+        
      
-    
         waiting.style.display = "none";
         temps.innerText = data.gamestate.remainingTurnTime;
     
-        // Sélectionner le conteneur des cartes
-        let deck_container = document.querySelector(".deck-container");
+
         console.log(data.gamestate.hand);
         
-      
         data.gamestate.hand.forEach(element => {
             // si le uid de la carte est la ne pas ajouter
             initializationCard(element);
@@ -67,6 +65,7 @@ const state = () => {
  
         // mettre le nom du joueur et de l ennemi
 
+        
         enneminom.innerText = data.gamestate.opponent.username;
 
     }
@@ -105,7 +104,7 @@ const initializationCard = (element) => {
         const divInfoShowCreate = document.createElement('div');
         divInfoShowCreate.className = 'info-card-hover';
      
-        divInfoShowCreate.style.display = "none"; // Masquer par défaut
+        divInfoShowCreate.style.display = "none"; 
         newCardDiv.appendChild(divInfoShowCreate);
 
         // Création des sous-div pour afficher proprement
@@ -178,7 +177,7 @@ const initializationCard = (element) => {
             bioDivforAll.appendChild(bioTitle);
             bioDivforAll.appendChild(bioNumber);
 
-            // Append the new bioDivforAll to bioMechanicDiv
+            
             bioMechanicDiv.appendChild(bioDivforAll);
         }
        
@@ -216,11 +215,11 @@ const initializationCard = (element) => {
 // Fonction pour afficher les infos de la carte
 const hoverCardInfo = (cardUID) => {
     let divHovered = document.querySelector(`.carduid-${cardUID}`);
-    let divInfoShow = divHovered.querySelector('.info-card-hover'); // Sélectionne l'info-card-hover DANS cette carte
+    let divInfoShow = divHovered.querySelector('.info-card-hover'); 
     
     if (divInfoShow) {
         
-        divInfoShow.style.display = "grid"; // Afficher la carte ou ses détails
+        divInfoShow.style.display = "grid"; 
 
     }
 };
@@ -228,10 +227,10 @@ const hoverCardInfo = (cardUID) => {
 // Fonction pour masquer les infos de la carte
 const hideCardInfo = (cardUID) => {
     let divHovered = document.querySelector(`.carduid-${cardUID}`);
-    let divInfoShow = divHovered.querySelector('.info-card-hover'); // Sélectionne l'info-card-hover DANS cette carte
+    let divInfoShow = divHovered.querySelector('.info-card-hover'); 
 
     if (divInfoShow) {
-        divInfoShow.style.display = "none"; // Masquer la carte ou ses détails
+        divInfoShow.style.display = "none"; 
     }
 };
 

@@ -35,6 +35,12 @@ abstract class CommonAction {
 			$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
 		}
 
+		if (empty($_SESSION["username"])) {
+			$_SESSION["username"] = "bug alors";
+		} else {
+			$_SESSION["username"] = $_SESSION["username"];
+		}
+
         // si la page demande une plus grande visibilite que l utilisateur a alors rediriger vers index.php
         if ($this->pageVisibility > $_SESSION["visibility"]) {
             header("location:index.php");

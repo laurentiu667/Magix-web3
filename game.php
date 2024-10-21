@@ -12,7 +12,7 @@ require_once("partial/layout/header.php");
 <script defer src="script/typeGame.js"></script>
 <link rel="stylesheet" href="style/css/arenaProto.css">
 
-<div class="waiting">WAITING FOR PLAYER</div>
+<div class="waiting"></div>
 
 <div class="wrapper-menu">
 <div class="container-game">
@@ -20,7 +20,26 @@ require_once("partial/layout/header.php");
         <div>1</div>
         <div class="information-game">
             <div class="versus">
-                <div class="joueur"></div>
+                <div class="joueur">
+                    <div class="image_nom">
+                        <div class="image-game"></div>
+                        <div class="nom">
+                            <?php
+                                echo $_SESSION["username"];
+                            ?>
+                        </div>
+                    </div>
+                    <div class="vie_mana">
+                        <div class="vie">
+                            <div class="image-vie">1</div>
+                            <div class="vie-bar">2</div>
+                        </div>
+                        <div class="mana">
+                            <div class="image-mana">3</div>
+                            <div class="mana-bar">4</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="image-versus"></div>
                 <div class="ennemi"></div>
             </div>

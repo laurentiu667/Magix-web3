@@ -27,6 +27,7 @@ class AjaxLoginAction extends CommonAction {
         else {
          
             $_SESSION["key"] = $result->key; 
+            $_SESSION["username"] = $_POST["username"];
             $_SESSION["logout"] = false;
             return ["result" => $result];
         }
