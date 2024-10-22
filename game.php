@@ -8,16 +8,16 @@ require_once("partial/layout/header.php");
 ?>
 
 <link rel="stylesheet" href="style/css/card.css">
-<script defer src="script/Game.js"></script>
-<script defer src="script/typeGame.js"></script>
+<script type="module" defer src="script/Game.js"></script>
+<script type="module" defer src="script/typeGame.js"></script>
 <link rel="stylesheet" href="style/css/arenaProto.css">
 
-<div class="waiting"></div>
+
 
 <div class="wrapper-menu">
 <div class="container-game">
     <div class="container-ennemi">
-        <div>1</div>
+       
         <div class="information-game">
             <div class="versus">
                 <div class="joueur">
@@ -51,12 +51,12 @@ require_once("partial/layout/header.php");
                 <div class="ennemi">
                     <div class="image_nom">
                         <div class="image-game"></div>
-                        <div class="nom">
+                        <div class="nom nom-ennemi">
                             
                         </div>
                     </div>
 
-                    <div class="vie_mana">
+                    <div class="vie_mana vie_mana_ennemi">
 
                         <div class="vie">
                             <div class="image-vie image-bar-global"></div>
@@ -71,12 +71,20 @@ require_once("partial/layout/header.php");
                     </div>
                 </div>
             </div>
-            <div class="deck-container-ennemi"></div>
+          
         </div>
-        <div>3</div>
+   
+    </div>
+    <div class="board">
+       
+        <div class="container-board">
+            <div class="waiting"></div>
+
+            <div class="wrapper-menu"></div>
+        </div>
     </div>
     <div class="container-joueur">
-        <div></div>
+      
         <div class="container-joueur-cards">
             
             <div class="deck-container">
@@ -86,7 +94,7 @@ require_once("partial/layout/header.php");
            
             </div>
         </div>
-        <div></div>
+        
     </div>
 </div>
 </div>
