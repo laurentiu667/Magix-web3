@@ -1,5 +1,8 @@
 let deck_container = document.querySelector(".deck-container");
 let cardIDsInHand = new Set();
+let cardIDsIsInBoardEnnemi = new Set();
+
+let endTurnDiv = document.querySelector(".end-turn");
 
 let imagescartes = [
     "Images/cartes/image-1.svg",
@@ -31,7 +34,10 @@ let imagescartes = [
 ];
 
 //create all card 
-export const initializationCard = (element) => {
+export const initializationCard = (element, gamestate) => {
+
+
+    
     if (!cardIDsInHand.has(element.uid)) {
         cardIDsInHand.add(element.uid);
 
@@ -42,7 +48,7 @@ export const initializationCard = (element) => {
         newCardDiv.className = `card card-${element.id} carduid-${element.uid}`; // Ajoute plusieurs classes
       
         // attribuer une image aléatoire
-        let randomImage = Math.floor(Math.random() * 26) + 1;
+        let randomImage = Math.floor(Math.random() * 25) + 1;
 
 
         newCardDiv.style.backgroundImage = `url(${imagescartes[randomImage]})`;
@@ -140,7 +146,7 @@ export const initializationCard = (element) => {
         //****************************************************************************//
         // Ajouter la carte au conteneur
         deck_container.appendChild(newCardDiv);
-        console.log("Nouvelle carte ajoutée avec uid:", element.uid);
+        
         //****************************************************************************//
 
         //****************************************************************************//
@@ -155,12 +161,84 @@ export const initializationCard = (element) => {
      
         });
         //****************************************************************************//
+
+        buttonAddCardDiv.onclick = () => {
+           
+            jouerUneCarte(element.uid, element.cost);
+            
+        }
+       
+
+        endTurnDiv.addEventListener("click", () => {
+            EndTurn();
+        });
+
+
     } else {
-        console.log("Pas de nouvelle carte, déjà présente avec uid:", element.uid);
+      
     }
 
     
 }
+
+export const initializationBoardCard = (element, divboard) => {
+
+    if (!cardIDsIsInBoardEnnemi.has(element.uid)) {
+        
+        cardIDsIsInBoardEnnemi.add(element.uid);
+
+        
+
+        //attribuer une image aléatoire
+        let randomImage = Math.floor(Math.random() * 25) + 1;
+
+        //****************************************************************************//
+        //Créer les cartes du board
+        const newCardDiv = document.createElement('div');
+        // id card-board card-board-uid
+        newCardDiv.className = ` card-board card-board-${element.id} carduid-${element.uid}`; 
+
+        // divImageCardBoard
+        const divImageCardBoard = document.createElement('div');
+        divImageCardBoard.className = 'image-board-card';
+
+        divImageCardBoard.style.backgroundImage = `url(${imagescartes[randomImage]})`;
+
+        // information sur la carte
+        const divInfoShowCreate = document.createElement('div');
+        divInfoShowCreate.className = 'info-board-card';
+
+        // Création des sous-div pour afficher proprement
+        const attackDiv = document.createElement('div');
+        const hpDiv = document.createElement('div');
+        const costDiv = document.createElement('div');
+
+        attackDiv.className = 'attack-board';
+        hpDiv.className = 'hp-board';
+        costDiv.className = 'cost-board';
+
+        attackDiv.innerText = element.atk;
+        hpDiv.innerText = element.hp;
+        costDiv.innerText = element.cost;
+
+
+
+        // append
+        newCardDiv.appendChild(divImageCardBoard);
+        newCardDiv.appendChild(divInfoShowCreate);
+
+        divInfoShowCreate.appendChild(attackDiv);
+        divInfoShowCreate.appendChild(hpDiv);
+        divInfoShowCreate.appendChild(costDiv);
+
+        divboard.appendChild(newCardDiv);
+
+    }
+}
+
+
+
+
 // Fonction pour afficher les infos de la carte
 const hoverCardInfo = (cardUID) => {
     let divHovered = document.querySelector(`.carduid-${cardUID}`);
@@ -185,7 +263,7 @@ const hideCardInfo = (cardUID) => {
 
 
 
-const jouerUneCarte = (cardUID) => {
+export const jouerUneCarte = (cardUID, manacarteClicked) => {
 
     fetch("AjaxJouerCarte.php", {
         method: "POST",
@@ -200,12 +278,40 @@ const jouerUneCarte = (cardUID) => {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            console.log("Carte jouée avec succès", data);
+        // si joueur click jouer la carte sur le button 
+        
+       console.log(data);
+       
+        
+        
             
+        if(data.result != "NOT_ENOUGH_ENERGY"){
+            let cardretirer = document.querySelector(`.carduid-${cardUID}`);
+            cardretirer.remove();
+        }
+    
+    
+        
+    });
+
+}
+
+export const EndTurn = () => {
+    fetch("AjaxEndTurn.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+            type: "END_TURN"
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.result.success) {
+            console.log("Fin du tour", data);
         } else {
             console.log("Erreur lors de l'action", data.error);
         }
     });
-
 }

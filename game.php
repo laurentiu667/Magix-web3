@@ -34,12 +34,12 @@ require_once("partial/layout/header.php");
 
                         <div class="vie">
                             <div class="image-vie image-bar-global"></div>
-                            <div class="vie-bar">2</div>
+                            <div class="vie-bar" id="joueur-vie">2</div>
                         </div>
 
                         <div class="mana">
                             <div class="image-mana image-bar-global"></div>
-                            <div class="mana-bar">2</div>
+                            <div class="mana-bar" id="joueur-mana">2</div>
                         </div>
 
                     </div>
@@ -60,12 +60,12 @@ require_once("partial/layout/header.php");
 
                         <div class="vie">
                             <div class="image-vie image-bar-global"></div>
-                            <div class="vie-bar">2</div>
+                            <div class="vie-bar" id="ennemi-vie"></div>
                         </div>
 
                         <div class="mana">
                             <div class="image-mana image-bar-global"></div>
-                            <div class="mana-bar">2</div>
+                            <div class="mana-bar" id="ennemi-mana">2</div>
                         </div>
 
                     </div>
@@ -79,8 +79,14 @@ require_once("partial/layout/header.php");
        
         <div class="container-board">
             <div class="waiting"></div>
+            
 
-            <div class="wrapper-menu"></div>
+            <div class=" wrapper-board wrapper-menu">
+                
+                <div class="board_ennemi"></div>
+                <div class="board_joueur"></div>
+            </div>
+            
         </div>
     </div>
     <div class="container-joueur">
@@ -96,6 +102,7 @@ require_once("partial/layout/header.php");
         </div>
         
     </div>
+    <div class="end-turn">end turn</div>
 </div>
 </div>
 

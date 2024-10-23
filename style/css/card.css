@@ -115,3 +115,52 @@
     height: 40px;
     border: none;
 }
+
+
+/* card board */
+
+.card-board{
+    min-width: 200px;
+    height: 280px;
+    transition: all 0.3s cubic-bezier(1,1,0,1);
+    
+    
+    font-size: 1.25em;
+    z-index: 1; 
+    border-radius: .25em;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.image-board-card{
+    height: 80%;
+ 
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.info-board-card{
+    height: 20%;
+ 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+.info-board-card > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+.attack-baord{
+    
+}
+.hp-board{
+    
+}
+.cost-board{
+    
+}
