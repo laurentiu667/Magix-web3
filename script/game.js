@@ -1,11 +1,12 @@
 import {initializationCard} from "./cards.js";
-import {initializationBoardCard} from "./cards.js";
-import {jouerUneCarte} from "./cards.js";
+import {initializationBoardCardEnnemi} from "./cards.js";
+
+
 let waiting = document.querySelector(".waiting");
 let temps = document.querySelector(".temps");
 let deck_container = document.querySelector(".deck-container");
-let board_ennemi = document.querySelector(".board_ennemi");
-let board_joueur = document.querySelector(".board_joueur");
+
+
 
 let joueurnom = document.querySelector(".joueur");
 let enneminom = document.querySelector(".nom-ennemi");
@@ -30,10 +31,6 @@ const state = () => {
  
     
     if (data.gamestate == "WAITING"){
-                
-        console.log(data);
-     
-        
         waiting.style.display = "grid";
         waiting.innerText = "En attente d'un adversaire";
 
@@ -44,30 +41,17 @@ const state = () => {
         waiting.style.display = "none";
         temps.innerText = data.gamestate.remainingTurnTime;
     
-
-        console.log(data);
-        
-        // hand initialisation card
-
         data.gamestate.hand.forEach(element => {
             
-            initializationCard(element, data.gamestate);
+            initializationCard(element);
         });
 
-        // board initialisation card player
-        data.gamestate.board.forEach(element => {
-            initializationBoardCard(element, board_joueur);
-        });
-
-        // board initialisation card oppenent
+        
         data.gamestate.opponent.board.forEach(element => {
-            initializationBoardCard(element, board_ennemi);
+            initializationBoardCardEnnemi(element);
         });
 
  
-        // mettre le nom du joueur et de l ennemi
-
-        
 
         
         enneminom.innerText = data.gamestate.opponent.username;

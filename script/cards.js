@@ -1,9 +1,11 @@
 let deck_container = document.querySelector(".deck-container");
 let cardIDsInHand = new Set();
+let cardIDsIsInBoardJoueur = new Set();
 let cardIDsIsInBoardEnnemi = new Set();
 
 let endTurnDiv = document.querySelector(".end-turn");
-
+let board_joueur = document.querySelector(".board_joueur");
+let board_ennemi = document.querySelector(".board_ennemi");
 let imagescartes = [
     "Images/cartes/image-1.svg",
     "Images/cartes/image-2.svg",
@@ -34,7 +36,7 @@ let imagescartes = [
 ];
 
 //create all card 
-export const initializationCard = (element, gamestate) => {
+export const initializationCard = (element) => {
 
 
     
@@ -164,47 +166,44 @@ export const initializationCard = (element, gamestate) => {
 
         buttonAddCardDiv.onclick = () => {
            
-            jouerUneCarte(element.uid, element.cost);
-            
-        }
-       
+            jouerUneCarte(element.uid); 
+           
+        };
 
         endTurnDiv.addEventListener("click", () => {
             EndTurn();
         });
 
 
-    } else {
-      
-    }
+        } else {
+          
+        }
+    };
 
     
-}
 
-export const initializationBoardCard = (element, divboard) => {
 
-    if (!cardIDsIsInBoardEnnemi.has(element.uid)) {
+const initializationBoardCard = (element, divboard, backgroundCard) => {
+   
+   
+    
+    if (!cardIDsIsInBoardJoueur.has(element.uid)) {
+        cardIDsIsInBoardJoueur.add(element.uid);
         
-        cardIDsIsInBoardEnnemi.add(element.uid);
-
-        
-
-        //attribuer une image aléatoire
-        let randomImage = Math.floor(Math.random() * 25) + 1;
-
-        //****************************************************************************//
-        //Créer les cartes du board
+        // Créer les cartes du board
         const newCardDiv = document.createElement('div');
-        // id card-board card-board-uid
-        newCardDiv.className = ` card-board card-board-${element.id} carduid-${element.uid}`; 
+        newCardDiv.className = `card-board card-board-${element.id} carduid-${element.uid}`; 
 
         // divImageCardBoard
         const divImageCardBoard = document.createElement('div');
         divImageCardBoard.className = 'image-board-card';
 
-        divImageCardBoard.style.backgroundImage = `url(${imagescartes[randomImage]})`;
+        // Mettre backgroundCard
+        divImageCardBoard.style.backgroundImage = backgroundCard;
 
-        // information sur la carte
+        
+
+        // Information sur la carte
         const divInfoShowCreate = document.createElement('div');
         divInfoShowCreate.className = 'info-board-card';
 
@@ -221,9 +220,7 @@ export const initializationBoardCard = (element, divboard) => {
         hpDiv.innerText = element.hp;
         costDiv.innerText = element.cost;
 
-
-
-        // append
+        // Append
         newCardDiv.appendChild(divImageCardBoard);
         newCardDiv.appendChild(divInfoShowCreate);
 
@@ -232,11 +229,61 @@ export const initializationBoardCard = (element, divboard) => {
         divInfoShowCreate.appendChild(costDiv);
 
         divboard.appendChild(newCardDiv);
-
     }
-}
+};
 
+export const initializationBoardCardEnnemi = (element) => {
+   
+   
+    
+    if (!cardIDsIsInBoardEnnemi.has(element.uid)) {
+        cardIDsIsInBoardEnnemi.add(element.uid);
 
+       
+        
+        // Créer les cartes du board
+        const newCardDiv = document.createElement('div');
+        newCardDiv.className = `card-board card-board-${element.id} carduid-${element.uid}`; 
+
+        // divImageCardBoard
+        const divImageCardBoard = document.createElement('div');
+        divImageCardBoard.className = 'image-board-card';
+
+        // Mettre backgroundCard
+        // generer de 1 a 26
+        let randomImage = Math.floor(Math.random() * 25) + 1;
+        divImageCardBoard.style.backgroundImage = `url(${imagescartes[randomImage]})`;
+
+        
+
+        // Information sur la carte
+        const divInfoShowCreate = document.createElement('div');
+        divInfoShowCreate.className = 'info-board-card';
+
+        // Création des sous-div pour afficher proprement
+        const attackDiv = document.createElement('div');
+        const hpDiv = document.createElement('div');
+        const costDiv = document.createElement('div');
+
+        attackDiv.className = 'attack-board';
+        hpDiv.className = 'hp-board';
+        costDiv.className = 'cost-board';
+
+        attackDiv.innerText = element.atk;
+        hpDiv.innerText = element.hp;
+        costDiv.innerText = element.cost;
+
+        // Append
+        newCardDiv.appendChild(divImageCardBoard);
+        newCardDiv.appendChild(divInfoShowCreate);
+
+        divInfoShowCreate.appendChild(attackDiv);
+        divInfoShowCreate.appendChild(hpDiv);
+        divInfoShowCreate.appendChild(costDiv);
+
+        board_ennemi.appendChild(newCardDiv);
+    }
+};
 
 
 // Fonction pour afficher les infos de la carte
@@ -263,7 +310,8 @@ const hideCardInfo = (cardUID) => {
 
 
 
-export const jouerUneCarte = (cardUID, manacarteClicked) => {
+
+const jouerUneCarte = (cardUID) => {
 
     fetch("AjaxJouerCarte.php", {
         method: "POST",
@@ -280,23 +328,41 @@ export const jouerUneCarte = (cardUID, manacarteClicked) => {
     .then(data => {
         // si joueur click jouer la carte sur le button 
         
-       console.log(data);
+       console.log(cardUID);
        
         
         
             
         if(data.result != "NOT_ENOUGH_ENERGY"){
-            let cardretirer = document.querySelector(`.carduid-${cardUID}`);
+        
+            
+         
+           
+            let cardretirer = document.querySelector(`.deck-container .carduid-${cardUID}`);
+            console.log(cardretirer);
+            
+            
+
+            let getImage = cardretirer.style.backgroundImage;
+            console.log(getImage);
+            
+            data.result.board.forEach(element => {
+                initializationBoardCard(element, board_joueur, getImage);
+                
+            });
+
             cardretirer.remove();
+        } else {
+            console.log(data.result);
         }
     
     
         
     });
 
-}
+};
 
-export const EndTurn = () => {
+const EndTurn = () => {
     fetch("AjaxEndTurn.php", {
         method: "POST",
         headers: {
@@ -308,10 +374,10 @@ export const EndTurn = () => {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.result.success) {
-            console.log("Fin du tour", data);
-        } else {
-            console.log("Erreur lors de l'action", data.error);
-        }
-    });
-}
+
+        
+        
+       
+    })
+  
+};

@@ -23,7 +23,7 @@
     z-index: 2; 
     display: grid !important;
     width: 250px;
-    height: 150px; 
+    height: 0px; 
     background-color: #E3E3E3;
     grid-template-rows: 5fr 6fr;
     border-radius: 4px;
