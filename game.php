@@ -93,17 +93,29 @@ require_once("partial/layout/header.php");
     <div class="container-joueur">
       
         <div class="container-joueur-cards">
-            
-            <div class="deck-container">
 
-          
-        
-           
+            <div class="button-game">
+                <div class="button-game-left">
+                    <div class="button-game-left-div border-button-game end-turn "></div>
+                </div>
+                <div class="button-game-center">
+                    <div class="button-game-center-top border-button-game hero-button"></div>
+                    <div class="button-game-center-bottom border-button-game chat-button"></div>
+                </div>
+                <div class="button-game-right">
+                    <div class="button-game-left-div border-button-game card-number"></div>
+                </div>
+            </div>
+            
+            <div class="deck-container"></div>
+
+            <div class="information-game-joueur">
+               
             </div>
         </div>
         
     </div>
-    <div class="end-turn">end turn</div>
+    
 </div>
 </div>
 

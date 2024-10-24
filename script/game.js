@@ -70,11 +70,11 @@ const myTurn = (data) => {
     const barStats = document.querySelector(".joueur");
     const barStatsOpponent = document.querySelector(".ennemi");
     if (data.gamestate.yourTurn){
-        barStats.style.backgroundColor = "green";
+        barStats.style.backgroundColor = "rgba(255, 0, 0, 0.247)";
         barStatsOpponent.style.backgroundColor = "transparent";
     } else {
         barStats.style.backgroundColor = "transparent";
-        barStatsOpponent.style.backgroundColor = "green";
+        barStatsOpponent.style.backgroundColor = "rgba(255, 0, 0, 0.247)";
     }
 }
 

@@ -17,7 +17,7 @@ body{
     position: relative; /* Add this line */
     height: 100%;
     width: 100%;
-    background-image: url("/Images/backgroundmenu.jpg");
+    background-image: url("/Images/backgroundgame.png");
     background-size: cover;
     background-repeat: no-repeat;
    

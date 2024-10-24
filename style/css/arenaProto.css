@@ -1,50 +1,59 @@
 body{
     
-    background-color: rgb(0, 0, 0);
+    background-image: url('/Images/backgroundgame.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
     color: white;
 
 
 }
-
+*,
+*::after,
+*::before{
+   
+}
 .container-game{
     width: 100%;
     height: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 7fr 2fr;
+    grid-template-rows: 1fr 10fr 4fr;
   
     
 }
 
 .container-ennemi{
+    
 
 }
 .container-joueur{
-  
  
+  
+    
 }
 .board {
     
+    
     display: grid;
     place-items: center;
-    padding: 1em 0 1em 0 ;
+    
     
 }
 .container-board{
-    width: 80%;
+    width: 100%;
     height: 100%;
-    border: 3px solid rgb(255, 255, 255);
+    box-shadow: inset 0px 0px 100px rgba(255, 255, 255, 0.192);
+    border: 1px solid rgba(255, 255, 255, 0.192);
     border-radius: 2px;
     position: relative;
-    background-image: url(/Images/backgroundmenu.jpg);
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(0, 0, 0, 0.863);
 }
 
 .wrapper-menu{
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(10px);
     overflow: hidden;
    
   
@@ -54,40 +63,46 @@ body{
     display: grid;
     grid-template-rows: 1fr 1fr;
     place-items: center;
+   
 }
 .board_ennemi, .board_joueur{
     display: flex;
     align-items: flex-end;
     justify-content: center;
     height: 100%;
-    width: 80%;
+    width: 100%;
     gap: 1em;
 }
 
 
 .container-joueur-cards{
    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    place-items: center;
 }
 
 
 .deck-container {
 
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     height: 100%;
-    width: 80%;
+    width: 100%;
     gap: 1em;
-    background-color: rgb(139, 139, 139);
-    
+   
    
     
+}
+.button-game{
+  
+}
+.information-game-joueur{
+  
 }
 
 
@@ -96,23 +111,15 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 0, 0, 0.247);
-    color: black;
+  
+    color: rgba(255, 0, 0, 0.247);
     text-align: center;
     display: none;
     place-items: center;
     z-index: 4000;
     font-size: 6em;
 }
-.end-turn{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100px;
-    height: 50px;
-    background-color: red;
-    
-}
+
 
 .information-game{
    
@@ -224,7 +231,7 @@ body{
 }
 .nom{
    
-   font-size: 3em;
+   font-size: 2.5em;
    text-transform: uppercase;
 }
 
@@ -237,4 +244,83 @@ body{
     justify-content: flex-end;
     align-items: flex-end;  
    
+}
+
+/* button-game */
+.button-game{
+ 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 80%;
+    width: 80%;
+    gap: 0.25em;
+}
+.button-game-left{
+  
+    display: grid;
+    place-items: center;
+}
+
+
+.button-game-center{
+
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.25em;
+}
+.button-game-center-top{
+    background-color: black;
+}
+.button-game-center-bottom{
+    background-color: black;
+    
+}
+
+
+.button-game-right{
+
+    display: grid;
+    place-items: center;
+}
+
+.button-game-left-div, .button-game-left-div{
+  
+    width: 100%;
+    height: 50%;
+    background-color: black;
+}
+.border-button-game{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
+}
+.hero-button{
+    background-image: url("/Images/hero.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.chat-button{
+    background-image: url("/Images/chat.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.end-turn{
+    background-image: url("/Images/endturn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.card-number{
+    background-image: url("/Images/cardnumber.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.button-game > div {
+    cursor: pointer;
+}
+.button-game > div > div:hover{
+    background-size: 110%;
 }
