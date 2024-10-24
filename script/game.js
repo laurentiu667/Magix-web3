@@ -1,6 +1,7 @@
 import {initializationCard} from "./cards.js";
 import {initializationBoardCardEnnemi} from "./cards.js";
 import {forEachButtonClick} from "./cards.js";
+import {forEachButtonClickAttack} from "./cards.js";
 
 
 let waiting = document.querySelector(".waiting");
@@ -65,6 +66,8 @@ const state = () => {
 
         // play cart
         forEachButtonClick()
+
+        forEachButtonClickAttack()
 
     }
     

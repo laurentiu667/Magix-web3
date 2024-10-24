@@ -9,8 +9,8 @@ let board_joueur = document.querySelector(".board_joueur");
 let board_ennemi = document.querySelector(".board_ennemi");
 
 
-let board_joueurDiv = document.querySelectorAll(".board_joueur");
-let board_ennemiDiv = document.querySelectorAll(".board_ennemi");
+let board_joueurDiv = document.querySelector(".board_joueur");
+let board_ennemiDiv = document.querySelector(".board_ennemi");
 
 let idCarteChoisi;
 let idCarteChoisiEnnemi;
@@ -371,15 +371,15 @@ const jouerUneCarte = (cardUID) => {
 
 };
 
-const forEachButtonClickAttack = () => {
-    board_joueurDiv.forEach(child => {
+export const forEachButtonClickAttack = () => {
+    board_joueurDiv.childNodes.forEach(child => {
         child.onclick = () => {
             idCarteChoisi = child.id;
             console.log(child.id);
         }
     });
 
-    board_ennemiDiv.forEach(child => {
+    board_ennemiDiv.childNodes.forEach(child => {
         child.onclick = () => {
             idCarteChoisiEnnemi = child.id;
             AttackUneCarte(idCarteChoisi, idCarteChoisiEnnemi);
