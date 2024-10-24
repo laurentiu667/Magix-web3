@@ -1,5 +1,6 @@
 import {initializationCard} from "./cards.js";
 import {initializationBoardCardEnnemi} from "./cards.js";
+import {forEachButtonClick} from "./cards.js";
 
 
 let waiting = document.querySelector(".waiting");
@@ -28,6 +29,7 @@ const state = () => {
 .then(response => response.json())
 .then(data => {
     
+    console.log(data);
  
     
     if (data.gamestate == "WAITING"){
@@ -60,6 +62,9 @@ const state = () => {
         ennemi_vie.innerText = data.gamestate.opponent.hp;
         ennemi_mana.innerText = data.gamestate.opponent.mp;
         myTurn(data);
+
+        // play cart
+        forEachButtonClick()
 
     }
     

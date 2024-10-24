@@ -1,4 +1,5 @@
 let deck_container = document.querySelector(".deck-container");
+let deck_containerDiv = document.querySelector(".deck-container");
 let cardIDsInHand = new Set();
 let cardIDsIsInBoardJoueur = new Set();
 let cardIDsIsInBoardEnnemi = new Set();
@@ -6,6 +7,14 @@ let cardIDsIsInBoardEnnemi = new Set();
 let endTurnDiv = document.querySelector(".end-turn");
 let board_joueur = document.querySelector(".board_joueur");
 let board_ennemi = document.querySelector(".board_ennemi");
+
+
+let board_joueurDiv = document.querySelectorAll(".board_joueur");
+let board_ennemiDiv = document.querySelectorAll(".board_ennemi");
+
+let idCarteChoisi;
+let idCarteChoisiEnnemi;
+
 let imagescartes = [
     "Images/cartes/image-1.svg",
     "Images/cartes/image-2.svg",
@@ -46,7 +55,7 @@ export const initializationCard = (element) => {
         //****************************************************************************//
         // Créer la div de la carte jouable
         const newCardDiv = document.createElement('div');
-        newCardDiv.id = `card-${element.id}`; 
+        newCardDiv.id = element.uid; 
         newCardDiv.className = `card card-${element.id} carduid-${element.uid}`; // Ajoute plusieurs classes
       
         // attribuer une image aléatoire
@@ -159,11 +168,7 @@ export const initializationCard = (element) => {
         });
 
         //****************************************************************************//
-        buttonAddCardDiv.onclick = () => {
-           
-            jouerUneCarte(element.uid); 
-           
-        };
+        
 
         endTurnDiv.addEventListener("click", () => {
             EndTurn();
@@ -186,7 +191,7 @@ const initializationBoardCard = (element, divboard, backgroundCard) => {
         
         // Créer les cartes du board
         const newCardDiv = document.createElement('div');
-        newCardDiv.id = element.id;
+        newCardDiv.id = element.uid;
         newCardDiv.className = `card-board card-board-${element.id} carduid-${element.uid}`; 
 
         // divImageCardBoard
@@ -239,7 +244,7 @@ export const initializationBoardCardEnnemi = (element) => {
         
         // Créer les cartes du board
         const newCardDiv = document.createElement('div');
-        newCardDiv.id = element.id;
+        newCardDiv.id = element.uid;
         newCardDiv.className = `card-board card-board-${element.id} carduid-${element.uid}`; 
 
         // divImageCardBoard
@@ -305,6 +310,19 @@ const hideCardInfo = (cardUID) => {
     }
 };
 
+export const forEachButtonClick = () => {
+   
+
+    deck_containerDiv.childNodes.forEach(child => {
+       
+        child.onclick = () => {
+            jouerUneCarte(child.id);
+            console.log("carte jouer sur table : " + child.id);
+        }
+    });
+ 
+}
+
 
 
 
@@ -336,7 +354,7 @@ const jouerUneCarte = (cardUID) => {
             
             let getImage = cardretirer.style.backgroundImage;
             console.log(getImage);
-            
+             
             data.result.board.forEach(element => {
                 initializationBoardCard(element, board_joueur, getImage);
                 
@@ -353,7 +371,22 @@ const jouerUneCarte = (cardUID) => {
 
 };
 
+const forEachButtonClickAttack = () => {
+    board_joueurDiv.forEach(child => {
+        child.onclick = () => {
+            idCarteChoisi = child.id;
+            console.log(child.id);
+        }
+    });
 
+    board_ennemiDiv.forEach(child => {
+        child.onclick = () => {
+            idCarteChoisiEnnemi = child.id;
+            AttackUneCarte(idCarteChoisi, idCarteChoisiEnnemi);
+            console.log(child.id);
+        }
+    })
+}
 
 const AttackUneCarte = (cardUID, targetUID) => {
     let form = new FormData();
@@ -371,10 +404,15 @@ const AttackUneCarte = (cardUID, targetUID) => {
     .then(data => {
     
         
-       if (data.result == "MUST_ATTACK_TAUNT_FIRST"){
-            console.log("tu dois attaquer les cartes taunt en premier");
-            console.log(data);
+       if (data.result != "MUST_ATTACK_TAUNT_FIRST"){
+            let cardretirer = document.querySelector(`.board-joueur .carduid-${cardUID}`);
+            cardretirer.remove();
+            let cardretirerEnnemi = document.querySelector(`.board-ennemi .carduid-${cardUID}`);
+            cardretirerEnnemi.remove();
+            
         } else {
+            idCarteChoisi = null;
+            idCarteChoisiEnnemi = null;
             console.log(data);
        }
        
@@ -405,3 +443,5 @@ const EndTurn = () => {
     })
   
 };
+
+
