@@ -141,16 +141,11 @@ export const initializationCard = (element) => {
        
        
 
-
-        //****************************************************************************//
-
-
         //****************************************************************************//
         // Ajouter la carte au conteneur
         deck_container.appendChild(newCardDiv);
         
-        //****************************************************************************//
-
+       
         //****************************************************************************//
         // Ajoute les événements de hover pour chaque carte
         newCardDiv.addEventListener("mouseover", () => {
@@ -162,8 +157,8 @@ export const initializationCard = (element) => {
             hideCardInfo(element.uid);
      
         });
-        //****************************************************************************//
 
+        //****************************************************************************//
         buttonAddCardDiv.onclick = () => {
            
             jouerUneCarte(element.uid); 
@@ -182,7 +177,6 @@ export const initializationCard = (element) => {
 
     
 
-
 const initializationBoardCard = (element, divboard, backgroundCard) => {
    
    
@@ -192,6 +186,7 @@ const initializationBoardCard = (element, divboard, backgroundCard) => {
         
         // Créer les cartes du board
         const newCardDiv = document.createElement('div');
+        newCardDiv.id = element.id;
         newCardDiv.className = `card-board card-board-${element.id} carduid-${element.uid}`; 
 
         // divImageCardBoard
@@ -232,6 +227,7 @@ const initializationBoardCard = (element, divboard, backgroundCard) => {
     }
 };
 
+
 export const initializationBoardCardEnnemi = (element) => {
    
    
@@ -243,6 +239,7 @@ export const initializationBoardCardEnnemi = (element) => {
         
         // Créer les cartes du board
         const newCardDiv = document.createElement('div');
+        newCardDiv.id = element.id;
         newCardDiv.className = `card-board card-board-${element.id} carduid-${element.uid}`; 
 
         // divImageCardBoard
@@ -312,17 +309,15 @@ const hideCardInfo = (cardUID) => {
 
 
 const jouerUneCarte = (cardUID) => {
+    let form = new FormData();
+
+    form.append("cardUID", cardUID);
+    form.append("type", "PLAY");
 
     fetch("AjaxJouerCarte.php", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: new URLSearchParams({
+        body: form
 
-            type: "PLAY",
-            uid: cardUID         
-        })
     })
     .then(response => response.json())
     .then(data => {
@@ -335,14 +330,10 @@ const jouerUneCarte = (cardUID) => {
             
         if(data.result != "NOT_ENOUGH_ENERGY"){
         
-            
-         
            
             let cardretirer = document.querySelector(`.deck-container .carduid-${cardUID}`);
             console.log(cardretirer);
             
-            
-
             let getImage = cardretirer.style.backgroundImage;
             console.log(getImage);
             
@@ -356,6 +347,39 @@ const jouerUneCarte = (cardUID) => {
             console.log(data.result);
         }
     
+    
+        
+    });
+
+};
+
+
+
+const AttackUneCarte = (cardUID, targetUID) => {
+    let form = new FormData();
+
+    form.append("cardUID", cardUID);
+    form.append("targetUID", targetUID);
+    form.append("type", "ATTACK");
+
+    fetch("AjaxJouerCarte.php", {
+        method: "POST",
+        body: form
+
+    })
+    .then(response => response.json())
+    .then(data => {
+    
+        
+       if (data.result == "MUST_ATTACK_TAUNT_FIRST"){
+            console.log("tu dois attaquer les cartes taunt en premier");
+            console.log(data);
+        } else {
+            console.log(data);
+       }
+       
+        
+
     
         
     });
