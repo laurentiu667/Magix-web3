@@ -188,6 +188,7 @@ const initializationBoardCard = (element, divboard, backgroundCard) => {
     
     if (!cardIDsIsInBoardJoueur.has(element.uid)) {
         cardIDsIsInBoardJoueur.add(element.uid);
+     
         
         // Créer les cartes du board
         const newCardDiv = document.createElement('div');
@@ -234,12 +235,14 @@ const initializationBoardCard = (element, divboard, backgroundCard) => {
 
 
 export const initializationBoardCardEnnemi = (element) => {
-   
+  
    
     
     if (!cardIDsIsInBoardEnnemi.has(element.uid)) {
         cardIDsIsInBoardEnnemi.add(element.uid);
 
+       
+   
        
         
         // Créer les cartes du board
@@ -335,41 +338,39 @@ const jouerUneCarte = (cardUID) => {
     fetch("AjaxJouerCarte.php", {
         method: "POST",
         body: form
-
     })
     .then(response => response.json())
     .then(data => {
-        // si joueur click jouer la carte sur le button 
-        
-       console.log(cardUID);
-       
-        
-        
-            
-        if(data.result != "NOT_ENOUGH_ENERGY"){
-        
+        // Gérer les différentes erreurs
+        if (data.result === "NOT_ENOUGH_ENERGY") {
+            console.log("La carte coûte trop cher à jouer.");
+        } else if (data.result === "BOARD_IS_FULL") {
+            console.log("Pas assez de place pour la carte.");
+        } else if (data.result === "CARD_NOT_IN_HAND") {
+            console.log("La carte n’est pas dans votre main.");
+        } else if (data.result === "CARD_NOT_FOUND") {
+            console.log("La carte cherchée (UID) n’est pas présente.");
+        } else if (data.result === "ERROR_PROCESSING_ACTION" || data.result === "INTERNAL_ACTION_ERROR") {
+            console.log("Erreur interne lors du traitement de l'action.");
+        } else {
            
+
             let cardretirer = document.querySelector(`.deck-container .carduid-${cardUID}`);
-            console.log(cardretirer);
             
             let getImage = cardretirer.style.backgroundImage;
-            console.log(getImage);
-             
+          
+          
             data.result.board.forEach(element => {
-                initializationBoardCard(element, board_joueur, getImage);
                 
+                
+                initializationBoardCard(element, board_joueur, getImage);
             });
 
             cardretirer.remove();
-        } else {
-            console.log(data.result);
         }
-    
-    
-        
     });
-
 };
+
 
 export const forEachButtonClickAttack = () => {
     board_joueurDiv.childNodes.forEach(child => {
@@ -398,31 +399,56 @@ const AttackUneCarte = (cardUID, targetUID) => {
     fetch("AjaxJouerCarte.php", {
         method: "POST",
         body: form
-
     })
     .then(response => response.json())
     .then(data => {
-    
-        
-       if (data.result != "MUST_ATTACK_TAUNT_FIRST"){
-            let cardretirer = document.querySelector(`.board-joueur .carduid-${cardUID}`);
-            cardretirer.remove();
-            let cardretirerEnnemi = document.querySelector(`.board-ennemi .carduid-${cardUID}`);
-            cardretirerEnnemi.remove();
-            
+        // Gérer les différentes erreurs
+        if (data.result === "MUST_ATTACK_TAUNT_FIRST") {
+            console.log("Une carte taunt empêche cette attaque.");
+        } else if (data.result === "OPPONENT_CARD_NOT_FOUND") {
+            console.log("La carte attaquée n’est pas présente.");
+        } else if (data.result === "OPPONENT_CARD_HAS_STEALTH") {
+            console.log("La carte ne peut être attaquée tant qu’elle possède 'stealth'.");
+        } else if (data.result === "CARD_NOT_FOUND") {
+            console.log("La carte attaquante n’a pas été trouvée.");
+        } else if (data.result === "ERROR_PROCESSING_ACTION" || data.result === "INTERNAL_ACTION_ERROR") {
+            console.log("Erreur interne lors du traitement de l'action.");
+        } 
+        else if (data.result === "CARD_IS_SLEEPING") {
+            console.log("Cette carte ne peut pas être jouée ce tour-ci.");
         } else {
-            idCarteChoisi = null;
-            idCarteChoisiEnnemi = null;
-            console.log(data);
-       }
-       
         
+            data.result.opponent.board.forEach(element => {
+                initializationBoardCardEnnemi(element);
+            });
+            // let index = null;
+            // data.result.opponent.board.forEach(element => {
+            //     // Trouver l'index de la carte adverse sur le plateau avec son uid
+            //     index = data.result.opponent.board.findIndex(x => x.uid === targetUID);
+            //     console.log("hp carte attaquer : " + data.result.opponent.board[index].hp);
+            // });
 
-    
+            // if (data.result.opponent.board[index].hp === 0){
+            //     let cardretirerEnnemi = document.querySelector(".board-ennemi");
+            //     let cardretirerEnnemiDiv = cardretirerEnnemi.querySelector(`.carduid-${targetUID}`);
+            //     console.log(cardretirerEnnemiDiv);
+            // }
+            
+
+            // // Attaque réussie, traiter le résultat
+            // let cardretirer = document.querySelector(".board-joueur");
+            // let cardretirerdiv = cardretirer.querySelector(`.carduid-${cardUID}`);
+            // console.log(cardretirerdiv);
+            
+            // // cardretirerdiv.remove();
+
         
+            
+            // // cardretirerEnnemiDiv.remove();
+        }
     });
-
 };
+
 
 const EndTurn = () => {
     fetch("AjaxEndTurn.php", {
