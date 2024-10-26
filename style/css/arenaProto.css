@@ -11,14 +11,14 @@ body{
 *,
 *::after,
 *::before{
-   
+   /* outline: 1px solid lime; */
 }
 .container-game{
     width: 100%;
     height: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 10fr 4fr;
+    grid-template-rows: 1fr 6fr 4fr;
   
     
 }
@@ -28,7 +28,12 @@ body{
 
 }
 .container-joueur{
- 
+    width: 100%;
+    height: 100%;
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
   
     
 }
@@ -60,6 +65,7 @@ body{
 }
 
 .wrapper-board{
+    position: relative;
     display: grid;
     grid-template-rows: 1fr 1fr;
     place-items: center;
@@ -78,11 +84,7 @@ body{
 .container-joueur-cards{
    
     
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
-    place-items: center;
+    
 }
 
 
@@ -92,15 +94,14 @@ body{
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: 85%;
     gap: 1em;
+  
    
    
     
 }
-.button-game{
-  
-}
+
 .information-game-joueur{
   
 }
@@ -248,13 +249,35 @@ body{
 }
 
 /* button-game */
+.game-button-container{
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    gap: 0.25em;
+    height: 100%;
+    width: 15%;
+}
 .button-game{
  
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     gap: 0.25em;
+   
+}
+.attack_hero{
+    background-color: black;
+    display: grid;
+    place-items: center;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.attack_hero:hover{
+    background-color: rgba(0, 0, 0, 0.76);
+}
+.attack_hero:active{
+    background-color: rgba(0, 0, 0, 0.877);
 }
 .button-game-left{
   
@@ -324,4 +347,39 @@ body{
 }
 .button-game > div > div:hover{
     background-size: 110%;
+}
+
+
+.messageErreur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: rgba(255, 0, 0, 0.247);
+ 
+    opacity: 0;
+    display: grid;
+    place-items: center;
+    font-size: 6em;
+}
+
+.carte.taunt{
+    animation: shake 1000ms ease-in-out;
+}
+
+
+@keyframes shake{
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.1;
+    }
+    100%{
+        scale: 1;
+    }
+
+
 }
