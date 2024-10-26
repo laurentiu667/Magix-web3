@@ -14,8 +14,8 @@
             ];
          
             
-            $gamestate = CommonAction::callAPI("games/state", $data);
-            return ["gamestate" => $gamestate];
+            $result = parent::callAPI("games/state", $data);
+            return compact("result");
             
         }
     }

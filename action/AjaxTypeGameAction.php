@@ -13,9 +13,9 @@ class AjaxTypeGameAction extends CommonAction {
             "type" => "TRAINING"
         ];
 
-        $typegame = CommonAction::callAPI("games/auto-match", $data);
-
-        return ["typegame" => $typegame];
+        $result = parent::callAPI("games/auto-match", $data);
+       
+        return compact("result");
         
     
     }

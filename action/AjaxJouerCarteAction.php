@@ -29,10 +29,8 @@
                     $data["targetuid"] = $targetUid;
                 }
             
-                $result = CommonAction::callAPI("games/action", $data);
-                return [
-                    "result" => $result
-                ];
+                $result = parent::callAPI("games/action", $data);
+                return compact("result");
            
         }
     }

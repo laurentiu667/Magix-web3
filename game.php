@@ -35,12 +35,12 @@ require_once("partial/layout/header.php");
 
                         <div class="vie">
                             <div class="image-vie image-bar-global"></div>
-                            <div class="vie-bar" id="joueur-vie">2</div>
+                            <div class="vie-bar" id="joueur-vie"></div>
                         </div>
 
                         <div class="mana">
                             <div class="image-mana image-bar-global"></div>
-                            <div class="mana-bar" id="joueur-mana">2</div>
+                            <div class="mana-bar" id="joueur-mana"></div>
                         </div>
 
                     </div>
@@ -66,7 +66,7 @@ require_once("partial/layout/header.php");
 
                         <div class="mana">
                             <div class="image-mana image-bar-global"></div>
-                            <div class="mana-bar" id="ennemi-mana">2</div>
+                            <div class="mana-bar" id="ennemi-mana"></div>
                         </div>
 
                     </div>

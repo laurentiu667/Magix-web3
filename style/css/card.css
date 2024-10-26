@@ -1,167 +1,17 @@
-
-.card {
-    min-width: 150px;
+.carte{
+    width: 130px;
     height: 200px;
-    transition: all 0.3s cubic-bezier(1,1,0,1);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    position: relative;
-    font-size: 1.25em;
-    z-index: 1; 
-    border-radius: .25em;
-   
-}
-.card:hover{
-    border-top: 1px solid white;
-}
-
-.info-card-hover {
-    position: absolute;
-    top: 0;
-    left: 50%; 
-    z-index: 2; 
-    display: grid !important;
-    width: 250px;
-    height: 0px; 
-    background-color: #E3E3E3;
-    grid-template-rows: 5fr 6fr;
-    border-radius: 4px;
-    overflow: visible; 
-    opacity: 0;
-    transition: all 0.3s ease;
-    transform: translateX(-50%); 
-}
-
-.info-card-hover.active-hover {
-    opacity: 1;
-    top: -380px;
-    left: 50%; 
-    height: 350px;
-    transform: translateX(-50%); 
-}
-
-
-
-
-.info-image-card-hover{
-    width: 100%;
-    height: 100%;
-    padding: 1em;
-  
-    border-radius: 4px;
-}
-.image-under-card{
-  
-
-    width: 100%;
-    height: 100%;
-    background-size:  contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 4px;
-}
-
-
-.information-generale-carte{
-    width: 100%;
-    height: 100%;
-    
-    display: grid;
-    padding: 0 1em 1em 1em;
-    grid-template-rows: repeat(1fr 1fr 1fr 1fr);
-}
-
-.mechanic{
-    color: black;
-}
-.mechanic-desc{
-    font-size: .75em;
-    color: black;
-    text-transform: lowercase;
-}
-.bio-mechanic{
- 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    place-items: center;
-    
-}
-.bio-div-for-all{
-    
-    width: 70px;
-    height: 50px;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    place-items: center;
-    color: black;
-}
-.bio-title{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.bio-number{
     background-color: white;
-    width: 100%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.button-play{
-    background-color: black;
-    color: white;
-    height: 40px;
-    border: none;
-}
-
-
-/* card board */
-
-.card-board{
-    min-width: 200px;
-    height: 280px;
-    transition: all 0.3s cubic-bezier(1,1,0,1);
-    
-    
-    font-size: 1.25em;
-    z-index: 1; 
-    border-radius: .25em;
-    display: flex;
-    flex-direction: column;
-  
-}
-.image-board-card{
-    height: 80%;
- 
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.info-board-card{
-    height: 20%;
- 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    
-}
-.info-board-card > div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-    color: white;
-}
+    grid-template-rows: 1fr 3fr;
 
-.attack-baord{
+    font-size: 0.75em;
     
 }
-.hp-board{
-    
+.carteImg{
+    background-color: red;
 }
-.cost-board{
-    
+.carteInformation{
+    background-color: green;
+    color: black;
 }

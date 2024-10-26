@@ -21,7 +21,7 @@ class AjaxLoginAction extends CommonAction {
    
         if ($result == "INVALID_USERNAME_PASSWORD") {
             
-            return ["error" => "INVALID_USERNAME_PASSWORD"];
+            return compact("result");
             
         }
         else {
@@ -29,7 +29,7 @@ class AjaxLoginAction extends CommonAction {
             $_SESSION["key"] = $result->key; 
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["logout"] = false;
-            return ["result" => $result];
+            return compact("result");
         }
         
     }

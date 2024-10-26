@@ -4,4 +4,4 @@
     $action = new AjaxJouerCarteAction();
     $data = $action->execute();
 
-    echo json_encode($data);
+    echo json_encode($data["result"]);
