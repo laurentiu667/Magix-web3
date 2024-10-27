@@ -11,19 +11,14 @@ window.addEventListener("load", () => {
         applyStyles(iframe);
     }
 
-    commencerUnePartie();
+  
    
     hoverMenuList();
 
     openTheChat();
 });
 
-const commencerUnePartie = () => {
-    const commencer_partie = document.querySelector("#partie_lancer");
-    commencer_partie.addEventListener("click", () => {
-        window.location.href = "game.php";
-    });
-};
+
 
 const hoverMenuList = () => {
     const listItems = document.querySelectorAll('.list-menu ul li');

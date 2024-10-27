@@ -8,9 +8,14 @@ class AjaxTypeGameAction extends CommonAction {
     }
 
     protected function executeAction() {
+
+       
+        $typegame = $_POST["typegame"];
+        
+
         $data = [
             "key" => $_SESSION["key"],
-            "type" => "TRAINING"
+            "type" => $typegame
         ];
 
         $result = parent::callAPI("games/auto-match", $data);

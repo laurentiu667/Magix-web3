@@ -77,19 +77,12 @@ require_once("partial/layout/header.php");
    
     </div>
     <div class="board">
-       
-        <div class="container-board">
-            <div class="waiting"></div>
-            
-
-            
-
-            <div class=" wrapper-board wrapper-menu">
-                <div class="messageErreur"></div>
-                <div class="board_ennemi"></div>
-                <div class="board_joueur"></div>
-                
-            </div>
+        <div class="waiting"></div>
+    
+        <div class=" wrapper-board wrapper-menu">
+            <div class="messageErreur"></div>
+            <div class="board_ennemi"></div>
+            <div class="board_joueur"></div>
             
         </div>
     </div>
@@ -110,7 +103,10 @@ require_once("partial/layout/header.php");
                     <div class="button-game-left-div border-button-game card-number"></div>
                 </div>
             </div>
-            <div class="attack_hero">attaquer hero </div>
+            <div class="extra-button">
+                <div class="attack_hero">attaquer hero </div>
+                <div class="surrender">abandonner</div>
+            </div>
         </div>
         
         <div class="deck-container"></div>

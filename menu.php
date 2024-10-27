@@ -8,9 +8,16 @@
     require_once("partial/layout/header.php");
 ?>  
     <script defer src="script/menu.js"></script>
+    <script type="module" defer src="script/typeGame.js"></script>
+    <script type="module" defer src="script/gameObserve.js"></script>
     <link rel="stylesheet" href="style/css/menu.css">
     <audio id="menuaudio" autoplay src="Audio/hover-effect.mp3"></audio>
 
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="Video\menu_video.mp4" type="video/mp4">
+        </video>
+    </div>
     <div class="rideau"></div>
    <div class="container-menu">
        <div class="wrapper-menu">
@@ -24,10 +31,14 @@
             </div>
             <div class="list-menu">
                 <ul>
-                    <li id="partie_lancer">commencer une partie</li>
-                    <li>entrainement</li>
+                    <li id="partie_lancer_pvp">commencer une partie</li>
+                    <li id="entrainement">entrainement</li>
                     <li>commencer une grande partie</li>
                     <li id="openchat">chat en ligne</li>
+                    <li id="observer">
+                        <input type="text" name="userobserve" id="userobserve">
+                        <button id="button-observe">observe</button>
+                    </li>
                     <li id="deconnexion">quitter</li>
                 </ul>
             </div>

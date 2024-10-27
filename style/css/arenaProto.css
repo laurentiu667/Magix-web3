@@ -8,17 +8,13 @@ body{
 
 
 }
-*,
-*::after,
-*::before{
-   /* outline: 1px solid lime; */
-}
+
 .container-game{
     width: 100%;
     height: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 6fr 4fr;
+    grid-template-rows: 1fr 7fr 4fr;
   
     
 }
@@ -38,14 +34,8 @@ body{
     
 }
 .board {
-    
-    
     display: grid;
     place-items: center;
-    
-    
-}
-.container-board{
     width: 100%;
     height: 100%;
     box-shadow: inset 0px 0px 100px rgba(255, 255, 255, 0.192);
@@ -55,11 +45,12 @@ body{
     background-color: rgba(0, 0, 0, 0.863);
 }
 
+
 .wrapper-menu{
     height: 100%;
     width: 100%;
     backdrop-filter: blur(10px);
-    overflow: hidden;
+   
    
   
 }
@@ -73,7 +64,7 @@ body{
 }
 .board_ennemi, .board_joueur{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
@@ -89,19 +80,15 @@ body{
 
 
 .deck-container {
-
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Alignement au début pour le défilement */
     height: 100%;
-    width: 85%;
+    width: 90%;
     gap: 1em;
-  
    
-   
-    
+    padding: 1em; /* Pour laisser un peu d’espace autour des cartes */
 }
-
 .information-game-joueur{
   
 }
@@ -254,7 +241,7 @@ body{
     grid-template-rows: 5fr 1fr;
     gap: 0.25em;
     height: 100%;
-    width: 15%;
+    width: 10%;
 }
 .button-game{
  
@@ -265,11 +252,11 @@ body{
     gap: 0.25em;
    
 }
-.attack_hero{
+.attack_hero, .surrender{
     background-color: black;
     display: grid;
     place-items: center;
-    font-size: 1em;
+    font-size: 0.5em;
     text-transform: uppercase;
     cursor: pointer;
 }
@@ -383,3 +370,11 @@ body{
 
 
 }
+
+
+.extra-button{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+

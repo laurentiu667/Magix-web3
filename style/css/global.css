@@ -6,6 +6,11 @@
   font-weight:lighter;
   font-style: normal;
 }
+*,
+*::after,
+*::before{
+   /* outline: 1px solid lime; */
+}
 body{
 
   min-width: 500px;

@@ -47,7 +47,7 @@ export const gameUpdate = (data) => {
             if (!imagesMap[carte.uid]) {
 
                 // comme si je faisais { uid: 1, randomIMG: 1 }
-                imagesMap[carte.uid] = Math.floor(Math.random() * 19) + 1;
+                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
             }
             let randomIMG = imagesMap[carte.uid];
             let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG);
@@ -65,7 +65,7 @@ export const gameUpdate = (data) => {
         board_ennemi.innerHTML = '';
         data.opponent.board.forEach(carte => {
             if (!imagesMap[carte.uid]) {
-                imagesMap[carte.uid] = Math.floor(Math.random() * 19) + 1;
+                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
             }
             let randomIMG = imagesMap[carte.uid];
             let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG);

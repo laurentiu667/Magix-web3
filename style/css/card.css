@@ -1,57 +1,59 @@
 .carte{
-    width: 250px;
-    height: 300px;
+    width: 200px;
+    height: 280px;
     position: relative;
     font-size: 0.75em;
-    background-image: url("/Images/cartes/Group\ 13.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: Courier, monospace !important;
+    
     z-index: 2999;
     cursor: pointer;
-}
-.carteinfoGeneral{
-    position: absolute;
-  
-    width: 20px;
-    height: 20px;
-    font-size: 1em;
-    text-transform: uppercase;
-    text-align: center;
     display: grid;
-    place-items: center;
-}
-.carteAttaque{
-   
-    bottom: 8%;
-    right: 15%;
+    grid-template-rows: 2fr 1fr;
+    transition: all 0.3s ease;
+    
 
 }
-.carteVie{
+.carte:hover{
+    scale: 1.1;
+}
 
-    bottom: 0;
-    left: 0;
+.carte-image{
+ 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-.carteCout{
-  
-    top: 0;
-    left: 0;
-}
-.carteUid{
-   
-    top: 0;
-    right: 0;
+.carte-mechanic{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    place-items: center start;
 }
 .mechanic{
-    position: absolute;
-
-    width: 90px;
-    height: 50px;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -0%);
+    background-color: white;
     font-size: 1em;
-    text-transform: lowercase;
-    text-align: center;
+    color: black;
+}
+
+.global-carte-info{
+    position: absolute;
+    width: fit-content;
+    height: 20px;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    place-items: center;
+    color: white;
+}
+.carte-attaque{
+    top: 0;
+    left: 0;
+}
+.carte-vie{
+    top: 30px;
+    left: 0;
+}
+.carte-cout{
+    top: 60px;
+    left: 0;
+
 }

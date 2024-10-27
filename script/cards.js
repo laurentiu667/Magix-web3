@@ -28,39 +28,41 @@ export class Cards {
     creationCarteDiv() {
         let carteDiv = document.createElement("div");
 
-        carteDiv.style.backgroundImage = `url(Images/cartes/image-${this.cardIMG}.svg)`;
+        // carteDiv.style.backgroundImage = `url(Images/cartes/image-${this.cardIMG}.svg)`;
         carteDiv.classList.add("carte");
 
-        let carteImgDiv = document.createElement("div");
-        let carteInformationDiv = document.createElement("div");
-        carteImgDiv.className = "carteImg";
-        carteInformationDiv.className = "carteInformation";
-
-        carteDiv.appendChild(carteImgDiv);
-        carteDiv.appendChild(carteInformationDiv);
+        let carteImageDiv = document.createElement("div");
+        carteImageDiv.className = "carte-image";
+        carteImageDiv.style.backgroundImage = `url(Images/cartes/image-${this.cardIMG}.jpg)`;
+        let carteMechanicDiv = document.createElement("div");
+        carteMechanicDiv.className = "carte-mechanic";
+        let pMechanic = document.createElement("p");
+        pMechanic.className = "mechanic";
+        pMechanic.innerText= this.cardMECHANICS;
+        carteMechanicDiv.appendChild(pMechanic);
 
         let carteAttaqueDiv = document.createElement("div");
+        carteAttaqueDiv.className = "global-carte-info carte-attaque";
         let carteVieDiv = document.createElement("div");
+        carteVieDiv.className = "global-carte-info carte-vie";
         let carteCoutDiv = document.createElement("div");
-        let carteUidDiv = document.createElement("div");
-        let mechanicDiv = document.createElement("div");
-        carteAttaqueDiv.className = "carteAttaque carteinfoGeneral";
-        carteVieDiv.className = "carteVie carteinfoGeneral";
-        carteCoutDiv.className = "carteCout carteinfoGeneral";
-        carteUidDiv.className = "carteUid carteinfoGeneral";
-        mechanicDiv.className = "mechanic";
+        carteCoutDiv.className = "global-carte-info carte-cout";
 
-        carteInformationDiv.appendChild(carteAttaqueDiv);
-        carteInformationDiv.appendChild(carteVieDiv);
-        carteInformationDiv.appendChild(carteCoutDiv);
-        carteInformationDiv.appendChild(carteUidDiv);
-        carteInformationDiv.appendChild(mechanicDiv);
 
-        carteAttaqueDiv.innerText = this.cardATK;
-        carteVieDiv.innerText = this.cardHP;
-        carteCoutDiv.innerText = this.cardCOST;
-        carteUidDiv.innerText = this.cardUID;
-        mechanicDiv.innerText = this.cardMECHANICS;
+        carteAttaqueDiv.innerText = "attaque " + this.cardATK;
+        carteVieDiv.innerText = "vie " + this.cardHP;
+        carteCoutDiv.innerText = "cout " + this.cardCOST;
+
+        carteDiv.appendChild(carteAttaqueDiv);
+        carteDiv.appendChild(carteVieDiv);
+        carteDiv.appendChild(carteCoutDiv);
+
+        carteDiv.appendChild(carteImageDiv);
+        carteDiv.appendChild(carteMechanicDiv);
+
+
+        
+
 
 
         // Ajout des divs dans le board
@@ -160,7 +162,7 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
         } else if (data == "OPPONENT_CARD_HAS_STEALTH"){
             animationMessageErreur("Carte de l'adversaire a Stealth");
         } else if (data == "CARD_IS_SLEEPING"){
-            animationMessageErreur("Carte inactive");
+            animationMessageErreur("Carte sleeping");
         }
         else{
             // reini les cartes sélectionnées
@@ -175,7 +177,7 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
 };
 
 
-const animationMessageErreur = (message) => {
+export const animationMessageErreur = (message) => {
     let count = 0;
     count++;
     console.log(count);
