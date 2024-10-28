@@ -32,6 +32,7 @@ export const gameUpdate = (data) => {
     } else {
         waiting.style.display = "none";
         
+        console.log(data);
         
 
         // METTRE A JOUR LES INFOS DU JOUEUR

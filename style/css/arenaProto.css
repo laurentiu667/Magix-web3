@@ -352,24 +352,6 @@ body{
     font-size: 6em;
 }
 
-.carte.taunt{
-    animation: shake 1000ms ease-in-out;
-}
-
-
-@keyframes shake{
-    0%{
-        scale: 1;
-    }
-    50%{
-        scale: 1.1;
-    }
-    100%{
-        scale: 1;
-    }
-
-
-}
 
 
 .extra-button{

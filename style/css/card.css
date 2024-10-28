@@ -1,6 +1,6 @@
 .carte{
-    width: 200px;
-    height: 280px;
+    width: 170px;
+    height: 210px;
     position: relative;
     font-size: 0.75em;
     
@@ -11,10 +11,6 @@
     transition: all 0.3s ease;
     border-radius: 8px;
 
-}
-
-.carte:hover{
-    scale: 1.1;
 }
 
 .carte-image{
