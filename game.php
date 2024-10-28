@@ -8,7 +8,8 @@ require_once("partial/layout/header.php");
 ?>
 
 <link rel="stylesheet" href="style/css/card.css">
-<script type="module" defer src="script/Game.js"></script>
+<script type="module" defer src="script/game.js"></script>
+
 <script type="module" defer src="script/typeGame.js"></script>
 <script type="module" defer src="script/cards.js"></script>
 <link rel="stylesheet" href="style/css/arenaProto.css">

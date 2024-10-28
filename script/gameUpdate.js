@@ -13,12 +13,12 @@ let deck_container = document.querySelector(".deck-container");
 
 let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
-// random de 1 a 19
+
 
 let imagesMap = {}; // hashmap => uid => randomIMG
 
 export const gameUpdate = (data) => {
-    console.log(data);
+
 
     if (data === "WAITING") {
         waiting.style.display = "grid";
@@ -31,6 +31,8 @@ export const gameUpdate = (data) => {
         waiting.innerHTML = "t trop nul";
     } else {
         waiting.style.display = "none";
+        
+        
 
         // METTRE A JOUR LES INFOS DU JOUEUR
         joueur_vie.innerHTML = data.hp;

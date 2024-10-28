@@ -18,15 +18,9 @@
 }
 
 .container-menu {
-    position: relative; /* Add this line */
+   
     height: 100%;
     width: 100%;
-    
-    background-size: cover;
-    background-repeat: no-repeat;
-   
-  
- 
 
 }
 .title-menu{
@@ -109,10 +103,11 @@
     place-items: center;
     text-align: center;
     color: rgb(160, 160, 160);
+   
 }
 
+
 .list-menu{
-    height: 100%;
     display: grid;
     place-items: center;
     align-items: start;
@@ -186,15 +181,19 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 500px;
-    height: 100%;
-    overflow: none;
-    padding: 2em;
+    width: 800px;
+    height: fit-content;
+    overflow: hidden;
+  
 
+    z-index: 4;
 }
+
 #iframe{
     border: none;
     overflow: none;
+    
+    overflow: hidden;
 }
 
 .audio-off-on{
@@ -233,6 +232,7 @@
     background-color: rgb(255, 255, 255);
     z-index: 100;
     transition: all 1s ease-in-out;
+   
 }
 
 .rideau.active{

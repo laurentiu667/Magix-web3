@@ -77,16 +77,16 @@ const commencerAudioMenu = () => {
 
 const applyStyles = iframe => {
     let styles = {
-            fontColor : "#333",
+            fontColor : "white",
             backgroundColor : "transparent",
-            fontGoogleName : "Sofia",
+            fontGoogleName : "Poppins",
             fontSize : "20px",
             hideIcons : false,
             inputBackgroundColor : "transparent",
             inputFontColor : "black",
-            height : "600px",
+            height : "700px",
             padding: "5px",
-            memberListFontColor : "#ff00dd",
+            memberListFontColor : "black",
             borderColor : "black",
             memberListBackgroundColor : "white",
             hideScrollBar: true, // pour cacher le scroll bar

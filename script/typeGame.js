@@ -1,9 +1,8 @@
-import { gameUpdate } from "./gameUpdate.js";
+
 window.addEventListener("load", () => {
     const entrainement = document.querySelector("#entrainement");
     const partie_pvp = document.querySelector("#partie_lancer_pvp");
-    console.log("test");
-    
+   
     if (entrainement) {
         entrainement.addEventListener("click", () => { // Remplacement de "onclick" par "click"
           
@@ -26,6 +25,8 @@ window.addEventListener("load", () => {
             }, 500);
         });
     }
+    
+    
 });
 
 const typeGame = (namegame) => {
