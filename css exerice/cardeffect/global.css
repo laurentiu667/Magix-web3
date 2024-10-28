@@ -18,6 +18,9 @@ body{
   
     border-radius: 8px;
 }
+
+/* mon explication : on ajoute un regle de propriete pour la variable --angle qui prends en charge un angle ( syntax ) donc a chaque fois que le 
+keyframe vas changer l angle de 0 a 360 la propriete vas changer de valeur ce qui vas changer l angle automatique dans le conic gradient */
 @property --angle {
     syntax: '<angle>';
     initial-value: 0deg;
@@ -31,7 +34,9 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: repeating-conic-gradient(from var(--angle), red 0%, red 5%, transparent 5%, transparent 40%, red 50%);
+    /* from c est, commence a quelle angle*/
+    /* background: repeating-conic-gradient(from var(--angle), red 0%, red 5%, transparent 5%, transparent 40%, red 50%); */
+    background-image: conic-gradient(from var(--angle), red 0deg, red 90deg, transparent 90deg, transparent 180deg, red 180deg, red 270deg, transparent 270deg, transparent 360deg);
     padding: 0.25em;
     z-index: -4;
     animation: spin 3s linear infinite;

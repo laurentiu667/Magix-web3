@@ -9,9 +9,10 @@
     display: grid;
     grid-template-rows: 2fr 1fr;
     transition: all 0.3s ease;
-    
+    border-radius: 8px;
 
 }
+
 .carte:hover{
     scale: 1.1;
 }
