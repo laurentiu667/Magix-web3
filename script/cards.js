@@ -11,7 +11,7 @@ let messageErreur = document.querySelector(".messageErreur");
 import { gameUpdate } from "./gameUpdate.js";
 
 export class Cards {
-    constructor(cardATK, cardBASEHP, cardCOST, cardHP, cardID, cardMECHANICS, cardUID, divAppend, cardIMG) {
+    constructor(cardATK, cardBASEHP, cardCOST, cardHP, cardID, cardMECHANICS, cardUID, divAppend, cardIMG, cardSTATE) {
         this.cardATK = cardATK;
         this.cardBASEHP = cardBASEHP;
         this.cardCOST = cardCOST;
@@ -21,6 +21,7 @@ export class Cards {
         this.cardUID = cardUID;
         this.divAppend = divAppend;
         this.cardIMG = cardIMG;
+        this.cardSTATE = cardSTATE;
         this.creationCarteDiv();
     }
 
@@ -61,10 +62,6 @@ export class Cards {
         carteDiv.appendChild(carteMechanicDiv);
 
 
-        
-
-
-
         // Ajout des divs dans le board
         if (this.divAppend === "board_joueur") {
             board_joueur.appendChild(carteDiv);
@@ -73,6 +70,10 @@ export class Cards {
             carteDiv.onclick = () => {
                 mycardUID = this.cardUID; 
                 console.log("Carte du joueur sélectionnée : " + mycardUID);
+            }
+
+            if (this.cardSTATE === "IDLE"){
+                carteDiv.classList.toggle("idle");
             }
 
             attack_hero.onclick = () => {
@@ -106,6 +107,7 @@ export class Cards {
         } 
         else {
             deck_container.appendChild(carteDiv);
+            
             carteDiv.onclick = () => {
                 jouerUneCarte(this.cardUID);
                 console.log("Carte jouée : " + this.cardUID);
@@ -133,6 +135,8 @@ const jouerUneCarte = (cardUID) => {
         } else if (data == "BOARD_IS_FULL"){
             animationMessageErreur("Le board est plein");
         } else {
+
+           
             gameUpdate(data);
             // ici je dois update le game mais ca bug et ca me ban si je le met ici 
             console.log("voici le data apres avoir play une carte " + data);

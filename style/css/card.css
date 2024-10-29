@@ -27,6 +27,8 @@
     place-items: center start;
 }
 .mechanic{
+    height: 100%;
+    width: 100%;
     background-color: white;
     font-size: 1em;
     color: black;

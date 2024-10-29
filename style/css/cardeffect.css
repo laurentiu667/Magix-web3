@@ -4,7 +4,7 @@
     inherits: false;
 }
 
-.carte.taunt::before, .carte.taunt::after{
+.carte.taunt::before, .carte.taunt::after, .carte.idle::before, .carte.idle::after{
     content: '';
     position: absolute;
     top: 50%;
@@ -13,15 +13,24 @@
     height: 100%;
     transform: translate(-50%, -50%);
     z-index: -4;
-    background-image: conic-gradient(from var(--angleRotation), red 0deg, red 90deg, transparent 90deg, transparent 180deg, red 180deg, red 270deg, transparent 270deg, transparent 360deg);
+    
     padding: 0.25em;
     border-radius: 8px;
     animation: spinDiv 1s linear infinite;
 }
+.carte.idle::before, .carte.idle::after{
+    background-image: conic-gradient(from var(--angleRotation), green 0deg, green 90deg, transparent 90deg, transparent 180deg, green 180deg, green 270deg, transparent 270deg, transparent 360deg);
+    
+}
 
-.carte.taunt::before{
+.carte.taunt::before, .carte.taunt::after{
+    background-image: conic-gradient(from var(--angleRotation), red 0deg, red 90deg, transparent 90deg, transparent 180deg, red 180deg, red 270deg, transparent 270deg, transparent 360deg);
+    
+}
+
+.carte.taunt::before, .carte.idle::before{
     filter: blur(2rem);
-    opacity: 1;
+    opacity: 0.7;
 }
 
 @keyframes spinDiv {
@@ -34,3 +43,4 @@
     }
     
 }
+
