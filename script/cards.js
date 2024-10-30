@@ -29,7 +29,6 @@ export class Cards {
     creationCarteDiv() {
         let carteDiv = document.createElement("div");
 
-        // carteDiv.style.backgroundImage = `url(Images/cartes/image-${this.cardIMG}.svg)`;
         carteDiv.classList.add("carte");
 
         let carteImageDiv = document.createElement("div");
@@ -65,7 +64,6 @@ export class Cards {
         // Ajout des divs dans le board
         if (this.divAppend === "board_joueur") {
             board_joueur.appendChild(carteDiv);
-
         
             carteDiv.onclick = () => {
                 mycardUID = this.cardUID; 
@@ -101,6 +99,8 @@ export class Cards {
                 if (element === "Taunt"){
                    
                     carteDiv.classList.toggle("taunt");
+                } else if(element === "Stealth"){
+                    carteDiv.classList.toggle("stealth");
                 }
             });
             
@@ -135,8 +135,6 @@ const jouerUneCarte = (cardUID) => {
         } else if (data == "BOARD_IS_FULL"){
             animationMessageErreur("Le board est plein");
         } else {
-
-           
             gameUpdate(data);
             // ici je dois update le game mais ca bug et ca me ban si je le met ici 
             console.log("voici le data apres avoir play une carte " + data);

@@ -22,12 +22,15 @@ export const gameUpdate = (data) => {
 
     if (data === "WAITING") {
         waiting.style.display = "grid";
+        waiting.style.backgroundColor = "black";
         waiting.innerHTML = "en attente";
     } else if (data === "LAST_GAME_WON") {
         waiting.style.display = "grid";
+        waiting.style.backgroundColor = "black";
         waiting.innerHTML = "gagner mgl";
     } else if (data === "LAST_GAME_LOST") {
         waiting.style.display = "grid";
+        waiting.style.backgroundColor = "black";
         waiting.innerHTML = "t trop nul";
     } else {
         waiting.style.display = "none";
