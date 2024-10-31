@@ -3,8 +3,6 @@ let endturn = document.querySelector(".end-turn");
 let hero = document.querySelector(".hero-button");
 let surrender = document.querySelector(".surrender");
 
-
-
 import { gameUpdate } from "./gameUpdate.js";
 
 import { animationMessageErreur } from "./cards.js";
