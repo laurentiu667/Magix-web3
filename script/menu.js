@@ -1,8 +1,9 @@
+const iframe = document.querySelector("#iframe");
+
+const rideau = document.querySelector(".rideau");
+
 window.addEventListener("load", () => {
-    const iframe = document.querySelector("#iframe");
-
-    const rideau = document.querySelector(".rideau");
-
+  
     rideau.classList.toggle('active');
     
     commencerAudioMenu();

@@ -1,7 +1,8 @@
+let buttonSubmit = document.querySelector("#submit");
 window.addEventListener("load", () => {
 
 
-    let buttonSubmit = document.querySelector("#submit");
+
 
     buttonSubmit.addEventListener("click", () => {
         createConnectionForm();

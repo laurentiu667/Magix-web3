@@ -1,6 +1,6 @@
-let deck_container = document.querySelector(".deck-container");
-let board_joueur = document.querySelector(".board_joueur");
-let board_ennemi = document.querySelector(".board_ennemi");
+let deck_container = document.querySelector(".hand-bottom-game");
+let board_joueur = document.querySelector(".board-joueur");
+let board_ennemi = document.querySelector(".board-ennemi");
 let attack_hero = document.querySelector(".attack_hero");
 
 let targetUID = null;
@@ -30,35 +30,32 @@ export class Cards {
         let carteDiv = document.createElement("div");
 
         carteDiv.classList.add("carte");
+        let cardeWrapper = document.createElement("div");
+        cardeWrapper.classList.add("carteWrapper");
+        cardeWrapper.style.backgroundImage = `url(Images/cartes-images/1.svg`;
+        carteDiv.appendChild(cardeWrapper);
 
-        let carteImageDiv = document.createElement("div");
-        carteImageDiv.className = "carte-image";
-        carteImageDiv.style.backgroundImage = `url(Images/cartes/image-${this.cardIMG}.jpg)`;
-        let carteMechanicDiv = document.createElement("div");
-        carteMechanicDiv.className = "carte-mechanic";
-        let pMechanic = document.createElement("p");
-        pMechanic.className = "mechanic";
-        pMechanic.innerText= this.cardMECHANICS;
-        carteMechanicDiv.appendChild(pMechanic);
+        let atk = document.createElement("div");
+        atk.classList.add("atk");
+        atk.innerHTML = this.cardATK;
+        cardeWrapper.appendChild(atk);
 
-        let carteAttaqueDiv = document.createElement("div");
-        carteAttaqueDiv.className = "global-carte-info carte-attaque";
-        let carteVieDiv = document.createElement("div");
-        carteVieDiv.className = "global-carte-info carte-vie";
-        let carteCoutDiv = document.createElement("div");
-        carteCoutDiv.className = "global-carte-info carte-cout";
+        let hp = document.createElement("div");
+        hp.classList.add("hp");
+        hp.innerHTML = this.cardHP;
+        cardeWrapper.appendChild(hp);
 
+        let cost = document.createElement("div");
+        cost.classList.add("cost");
+        cost.innerHTML = this.cardCOST;
+        cardeWrapper.appendChild(cost);
 
-        carteAttaqueDiv.innerText = "attaque " + this.cardATK;
-        carteVieDiv.innerText = "vie " + this.cardHP;
-        carteCoutDiv.innerText = "cout " + this.cardCOST;
+        let mechanics = document.createElement("div");
+        mechanics.classList.add("mechanics");
+        mechanics.innerHTML = this.cardMECHANICS;
+        cardeWrapper.appendChild(mechanics);
 
-        carteDiv.appendChild(carteAttaqueDiv);
-        carteDiv.appendChild(carteVieDiv);
-        carteDiv.appendChild(carteCoutDiv);
-
-        carteDiv.appendChild(carteImageDiv);
-        carteDiv.appendChild(carteMechanicDiv);
+        
 
 
         // Ajout des divs dans le board
@@ -80,7 +77,7 @@ export class Cards {
                     AttaquerUneCarte(mycardUID, 0);
                     console.log("hero attaquer");
                 } else {
-                    animationMessageErreur("Veuillez sélectionner une carte");
+                    // animationMessageErreur("Veuillez sélectionner une carte");
                 }
             }
         } 
@@ -129,11 +126,11 @@ const jouerUneCarte = (cardUID) => {
     .then(response => response.json())
     .then(data => {
         if (data == "NOT_ENOUGH_ENERGY"){
-            animationMessageErreur("Pas assez d'énergie");
+            // animationMessageErreur("Pas assez d'énergie");
         } else if (data == "NOT_YOUR_TURN"){
-            animationMessageErreur("Ce n'est pas votre tour");
+            // animationMessageErreur("Ce n'est pas votre tour");
         } else if (data == "BOARD_IS_FULL"){
-            animationMessageErreur("Le board est plein");
+            // animationMessageErreur("Le board est plein");
         } else {
             gameUpdate(data);
             // ici je dois update le game mais ca bug et ca me ban si je le met ici 
@@ -158,13 +155,13 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
     .then(response => response.json())
     .then(data => {
         if (data == "MUST_ATTACK_TAUNT_FIRST"){
-            animationMessageErreur("Vous devez attaquer la carte avec Taunt en premier");
+            // animationMessageErreur("Vous devez attaquer la carte avec Taunt en premier");
         } else if (data == "OPPONENT_CARD_NOT_FOUND"){
-            animationMessageErreur("Carte de l'adversaire non trouvée");
+            // animationMessageErreur("Carte de l'adversaire non trouvée");
         } else if (data == "OPPONENT_CARD_HAS_STEALTH"){
-            animationMessageErreur("Carte de l'adversaire a Stealth");
+            // animationMessageErreur("Carte de l'adversaire a Stealth");
         } else if (data == "CARD_IS_SLEEPING"){
-            animationMessageErreur("Carte sleeping");
+            // animationMessageErreur("Carte sleeping");
         }
         else{
             // reini les cartes sélectionnées
