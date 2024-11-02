@@ -32,7 +32,8 @@ export class Cards {
         carteDiv.classList.add("carte");
         let cardeWrapper = document.createElement("div");
         cardeWrapper.classList.add("carteWrapper");
-        cardeWrapper.style.backgroundImage = `url(Images/cartes-images/${this.cardIMG}.svg)`;
+        cardeWrapper.style.backgroundImage = `url(Images/cartes-images/${this.cardIMG}.png)`;
+      
         carteDiv.appendChild(cardeWrapper);
 
         let atk = document.createElement("div");

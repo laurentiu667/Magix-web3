@@ -24,9 +24,8 @@ require_once("partial/layout/header.php");
 
         <div class="container-top-game">
             <div class="side-game left-game">
-                <div class=" global-cp container-player">
-                    1
-                </div>
+                <div class="container-side">1</div>
+                
             </div>
             <div class="middle-game">
                 <div class="ennemi-card-board-count"></div>
@@ -39,9 +38,7 @@ require_once("partial/layout/header.php");
                 </div>
             </div>
             <div class="side-game right-game">
-                <div class=" global-cp container-ennemi">
-                    2
-                </div>
+                <div class="container-side">1</div>
             </div>
         </div>
 
