@@ -1,10 +1,13 @@
 
-let endturn = document.querySelector(".end-turn");
-let hero = document.querySelector(".hero-button");
-let surrender = document.querySelector(".surrender");
+let endturn = document.querySelector(".img-div-button-game-endturn");
+let hero = document.querySelector(".img-div-button-game-hero");
+let surrender = document.querySelector(".img-div-button-game-forfeit");
 let deck_container = document.querySelector(".hand-bottom-game"); 
 let board_joueur = document.querySelector(".board-joueur");
 let board_ennemi = document.querySelector(".board-ennemi");
+let left_game = document.querySelector(".left-game");
+let right_game = document.querySelector(".right-game");
+
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
 import { gameUpdate } from "./gameUpdate.js";
 
@@ -43,9 +46,21 @@ const state = () => {
                 setTimeout(() => {
                     deck_container.classList.toggle("animation");
                     ennemi_card_board_count.classList.toggle("animation");
+                   
+                    
+
+                }, 100);
+
+                setTimeout(() => {
+                    left_game.classList.toggle("animation");
+                    right_game.classList.toggle("animation");
+
+                }, 300);
+                setTimeout(() => {
                     board_ennemi.classList.toggle("animation");
                     board_joueur.classList.toggle("animation");
-                }, 100);
+
+                }, 800);
                 animationUnefois = true;
             }
         }

@@ -14,7 +14,7 @@ body {
     width: 100%;
    
    
-    background-image: url(/Images/bg5.gif);
+    background-image: url(/Images/bg3.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,11 +30,10 @@ body {
 .container-top-game, .container-bottom-game {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
+   
 }
 
-.left-game {
 
-}
 
 .middle-game {
 
@@ -61,13 +60,20 @@ body {
     /* backdrop-filter: blur(4px); */
 }
 .board-game{
-
-}
-
-.right-game {
   
 }
 
+.right-game {
+    transform: translateX(105%);
+}
+.left-game {
+    transform: translateX(-105%);
+
+}
+.left-game.animation, .right-game.animation{
+    transform: translateX(0);
+    transition: all 1s ease;
+}
 .container-bottom-game {
     
 }
@@ -77,31 +83,198 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding: 1em;
+    padding: .5em;
+
     position: relative;
-  
-    
+}
+.wrapper-game-side{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
 }
 .container-side{
-    width: 100%;
+    width: 90%;
     height: 100%;
     background-color: #F8EDE3;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    text-transform: uppercase;
+}
+.wrapper-game-side{
+   
+    width: 100%;
+    height: 100%;
+}
+.top-side{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+
+
+}
+.bottom-side{
+   
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}
+.image-side-game{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mana-health-side-game{
+    
+
+}
+.image-subject{
+    width: 100%;
+    height: 100%;
+    background-image: url(/Images/playericone.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-bottom: 1px solid black;
+}
+.image-subject-ennemi{
+    width: 100%;
+    height: 100%;
+    background-image: url(/Images/ennemiicone.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-bottom: 1px solid black;
+}
+.mana-health-side-game{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    margin-top: 1em;
+
+}
+.health{
+    width: 100%;
+    height: 15px;
+    background-color: #FF5656;
+    border-radius: 20px;
     border: 1px solid black;
     
+
 }
-.container-side::before{
-    content: '';
-    position: absolute;
+.mana{
+    width: 70%;
+    height: 15px;
+    background-color: #5678FF;
+    border-radius: 20px;
+    border: 1px solid black;
+
+}
+.number-health{
+
+}
+.number-mana{
+
+}
+.cercle-health{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FF5656;
+    border: 1px solid black;
+}
+.cercle-mana{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #5678FF;
+    border: 1px solid black;
+}
+.number-cercle-health{
+
+}
+.number-cercle-mana{
+    
+}
+.container-info-user-game-side{
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+   
+}
+.container-button-game-side-game{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+   
+
+}
+.container-button-game-side-game > div {
+    height: 60px;
+    width: 60px;
+    background-color: #D9D9D9;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25em;
+}
+.container-button-game-side-game > div > div{
     width: 100%;
     height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #636160;
-    padding: 0.25em;
-    z-index: -2;
+    
+ 
+}
+.img-div-button-game-hero{
+
+    background-image: url(/Images/heropower.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img-div-button-game-forfeit{
+
+    background-image: url(/Images/forfeit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img-div-button-game-endturn{
+
+    background-image: url(/Images/endturn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img-div-button-game-attackhero{
+
+    background-image: url(/Images/attaquerhero.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.card-remaining, .message-game-side{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.name-player{
+  
+    justify-self: center;
+    align-self: center;
+    font-size: 2em;
+
+}
+.container-message-card{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+
+}
+.message-div, .number-card{
+    font-size: 0.5em;
+}
 .container-side::before{
     content: '';
     position: absolute;
@@ -110,8 +283,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #F8EDE3;
-    padding: 0.25em;
+    background-color:  #F8EDE3;
+    
     z-index: -4;
 }
 
@@ -145,8 +318,8 @@ body {
     border: none;
     height: 25%;
     width: min(400px, 90% - 4rem);
-    background-color: black;
-    color: white;
+    background-color: transparent;
+    color: transparent;
 }
 .left-button-bottom-game{
 

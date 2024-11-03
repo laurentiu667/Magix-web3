@@ -1,7 +1,7 @@
 let deck_container = document.querySelector(".hand-bottom-game");
 let board_joueur = document.querySelector(".board-joueur");
 let board_ennemi = document.querySelector(".board-ennemi");
-let attack_hero = document.querySelector(".attack_hero");
+let attack_hero = document.querySelector(".img-div-button-game-attackhero");
 
 let targetUID = null;
 let mycardUID = null;
@@ -90,7 +90,6 @@ export class Cards {
                 console.log("Carte de l'ennemi ciblée : " + targetUID);
                 if (mycardUID && targetUID) {
                     AttaquerUneCarte(mycardUID, targetUID);
-            
                 }
             }
             mechanique.forEach(element => {
