@@ -12,17 +12,14 @@
     <link  rel="stylesheet" href="style/css/menu.css">
     <audio id="menuaudio" autoplay src="Audio/hover-effect.mp3"></audio>
 
-    <div class="video-background">
-        <video autoplay muted loop>
-            <source src="Video\menu_video.mp4" type="video/mp4">
-        </video>
-    </div>
+  
     <div class="rideau"></div>
     <div class="container-theme">
         <div class="theme1" id="bg3"></div>
         <div class="theme2" id="bg4"></div>
         <div class="theme3" id="bg5"></div>
         <div class="theme4" id="bg6"></div>
+        <div class="theme6" id="bg8"></div>
     </div>
    <div class="container-menu">
        <div class="wrapper-menu">

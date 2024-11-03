@@ -8,6 +8,10 @@ let board_ennemi = document.querySelector(".board-ennemi");
 let left_game = document.querySelector(".left-game");
 let right_game = document.querySelector(".right-game");
 
+let animation_rideau = document.querySelector(".animation-rideau");
+let animationError = document.querySelector(".animationError");
+let container_game = document.querySelector(".container-game");
+
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
 import { gameUpdate } from "./gameUpdate.js";
 
@@ -39,7 +43,18 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
-        if(data != "WAITING"){
+        if(data === "WAITING"){
+            animation_rideau.innerHTML = "En attente d'un adversaire";
+            animationError.classList.toggle("active");
+          
+      
+        } else {
+
+            animation_rideau.classList.add("animation");
+            animation_rideau.innerHTML = "";
+            let background = localStorage.getItem("theme");
+            container_game.style.backgroundImage = `url(Images/${background}.gif)`;
+    
            
             if(animationUnefois == false){
                 //settimeout pour laisser le temps à la carte de se jouer
@@ -49,23 +64,21 @@ const state = () => {
                    
                     
 
-                }, 100);
+                }, 300);
 
                 setTimeout(() => {
                     left_game.classList.toggle("animation");
                     right_game.classList.toggle("animation");
 
-                }, 300);
+                }, 800);
                 setTimeout(() => {
                     board_ennemi.classList.toggle("animation");
                     board_joueur.classList.toggle("animation");
 
-                }, 800);
+                }, 1200);
                 animationUnefois = true;
             }
-        } else {
-
-        }
+        } 
         gameUpdate(data);
         setTimeout(state, 1000);
     })
@@ -108,6 +121,8 @@ const surrenderGame = () => {
     .then(response => response.json())
     .then(data => {
         gameUpdate(data);
+        // renvoie à la page menu
+        window.location.href = "menu.php";
     
     });
 }

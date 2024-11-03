@@ -30,15 +30,18 @@ const createConnectionForm = () => {
     .then(response => response.json())
     .then(data => {
         
+        console.log(data);
         
         
-        if (data.error) {
+        if (data === "INVALID_USERNAME_PASSWORD") {
+            console.log("dsds");
+            
             let userdivnotexist = document.querySelector(".user-not-exist");
             userdivnotexist.style.display = "grid";
             animateLock(userdivnotexist);
         } else {
             window.location.href = "menu.php";
-            console.log(data.result.key);   
+            console.log(data.key);   
         }
     });
 }

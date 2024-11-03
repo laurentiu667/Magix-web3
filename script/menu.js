@@ -20,18 +20,21 @@ window.addEventListener("load", () => {
 
     openTheChat();
     theme();
+    choisirTheme();
 
 });
 
-// const choisirTheme = () => {    
+const choisirTheme = () => {    
 
-//     Array.from(themecontainer.children).forEach(element => { // Utilise `children` pour n'obtenir que les éléments enfants
-//         element.addEventListener("click", () => {
-//             console.log(element.id);
-//             container_game.style.backgroundImage = 'url("/Images/' + element.id + '.gif")';
-//         });
-//     });
-// }
+    Array.from(themecontainer.children).forEach(element => { // Utilise `children` pour n'obtenir que les éléments enfants
+        element.addEventListener("click", () => {
+            // conserver dans localstorage
+            localStorage.setItem("theme", element.id);
+            themecontainer.style.display = "none";
+
+        });
+    });
+}
 
 const theme = () => {
     let clicked = false;
