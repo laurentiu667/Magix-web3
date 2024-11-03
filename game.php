@@ -35,9 +35,13 @@ require_once("partial/layout/header.php");
                             </div>
                             <div class="mana-health-side-game">
 
-                                <div class="health"></div>
+                                <div class="health">
+                                    <div class="health-progress"></div>
+                                </div>
 
-                                <div class="mana"></div>
+                                <div class="mana">
+                                    <div class="mana-progress"></div>
+                                </div>
 
                                 <div class="number-health">
                                     <div class="cercle-health"></div>
@@ -106,9 +110,13 @@ require_once("partial/layout/header.php");
                             </div>
                             <div class="mana-health-side-game">
 
-                                <div class="health"></div>
+                                <div class="health health-ennemi">
+                                    <div class="health-progress health-progress-ennemi"></div>
+                                </div>
 
-                                <div class="mana"></div>
+                                <div class="mana mana-ennemi">
+                                    <div class="mana-progress mana-progress-ennemi"></div>
+                                </div>
 
                                 <div class="number-health">
                                     <div class="cercle-health"></div>

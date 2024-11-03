@@ -9,7 +9,7 @@
 ?>  
     <script defer src="script/menu.js"></script>
     <script type="module" defer src="script/typeGame.js"></script>
-    <link rel="stylesheet" href="style/css/menu.css">
+    <link  rel="stylesheet" href="style/css/menu.css">
     <audio id="menuaudio" autoplay src="Audio/hover-effect.mp3"></audio>
 
     <div class="video-background">
@@ -18,6 +18,12 @@
         </video>
     </div>
     <div class="rideau"></div>
+    <div class="container-theme">
+        <div class="theme1" id="bg3"></div>
+        <div class="theme2" id="bg4"></div>
+        <div class="theme3" id="bg5"></div>
+        <div class="theme4" id="bg6"></div>
+    </div>
    <div class="container-menu">
        <div class="wrapper-menu">
             <div class="title-menu">
@@ -34,6 +40,7 @@
                     <li id="entrainement">entrainement</li>
                     <li>commencer une grande partie</li>
                     <li id="openchat">chat en ligne</li>
+                    <li id="theme">theme</li>
                     <li id="deconnexion">quitter</li>
                 </ul>
             </div>

@@ -15,6 +15,12 @@ let ennemi_card_number = document.querySelector(".number-card-ennemi")
 let joueur_card_number = document.querySelector(".number-card")
 
 
+let healthbarjoueur = document.querySelector(".health-progress")
+let manabarjoueur = document.querySelector(".mana-progress")
+
+let healthbarennemi = document.querySelector(".health-progress-ennemi")
+let manabarennemi = document.querySelector(".mana-progress-ennemi")
+
 
 // let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
@@ -50,6 +56,7 @@ export const gameUpdate = (data) => {
         joueur_card_number.innerHTML = data.remainingCardsCount
         ennemi_card_number.innerHTML = data.opponent.remainingCardsCount
         // temps.innerHTML = data.remainingTurnTime;
+        mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
     
         console.log(data);
         
@@ -92,3 +99,20 @@ export const gameUpdate = (data) => {
     }
 };
 
+const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manaennemi, maxhealth, maxmana) => {
+
+    // max health est à 100%
+    // max mana est à 70%
+
+    let valeurDivProgressHealthJoueur = (healthjoueur / maxhealth) * 100; 
+    let valeurDivProgressManaJoueur = (manajoueur / maxmana) * 100;
+    
+    let valeurDivProgressHealthEnnemi = (healthennemi / maxhealth) * 100; 
+    let valeurDivProgressManaEnnemi = (manaennemi / maxmana) * 100;
+
+    healthbarjoueur.style.width = valeurDivProgressHealthJoueur + "%";
+    manabarjoueur.style.width = valeurDivProgressManaJoueur + "%";
+
+    healthbarennemi.style.width = valeurDivProgressHealthEnnemi + "%";
+    manabarennemi.style.width = valeurDivProgressManaEnnemi + "%";
+}

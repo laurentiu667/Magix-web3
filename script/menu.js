@@ -1,6 +1,8 @@
 const iframe = document.querySelector("#iframe");
 
 const rideau = document.querySelector(".rideau");
+let themebutton = document.querySelector("#theme");
+let themecontainer = document.querySelector(".container-theme");
 
 window.addEventListener("load", () => {
   
@@ -17,9 +19,32 @@ window.addEventListener("load", () => {
     hoverMenuList();
 
     openTheChat();
+    theme();
+
 });
 
+// const choisirTheme = () => {    
 
+//     Array.from(themecontainer.children).forEach(element => { // Utilise `children` pour n'obtenir que les éléments enfants
+//         element.addEventListener("click", () => {
+//             console.log(element.id);
+//             container_game.style.backgroundImage = 'url("/Images/' + element.id + '.gif")';
+//         });
+//     });
+// }
+
+const theme = () => {
+    let clicked = false;
+    themebutton.addEventListener("click", () => {
+        if (!clicked) {
+            themecontainer.style.display = "grid";
+            clicked = true;
+        } else {    
+            themecontainer.style.display = "none";
+            clicked = false;
+        }
+    });
+}
 
 const hoverMenuList = () => {
     const listItems = document.querySelectorAll('.list-menu ul li');

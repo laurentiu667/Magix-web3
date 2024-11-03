@@ -63,6 +63,8 @@ const state = () => {
                 }, 800);
                 animationUnefois = true;
             }
+        } else {
+
         }
         gameUpdate(data);
         setTimeout(state, 1000);

@@ -14,7 +14,7 @@ body {
     width: 100%;
    
    
-    background-image: url(/Images/bg3.gif);
+    background-image: url(/Images/bg6.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -156,19 +156,31 @@ body {
 .health{
     width: 100%;
     height: 15px;
-    background-color: #FF5656;
-    border-radius: 20px;
+  
+   
     border: 1px solid black;
-    
+    background-color: white;
+    border-radius: 20px;
+}
+.health-progress{
 
+    height: 100%;
+    border-radius: 20px;
+    background-color: #FF5656;
+}
+.mana-progress{
+   
+    height: 100%;
+    border-radius: 20px;
+    background-color: #5678FF;
 }
 .mana{
+  
     width: 70%;
     height: 15px;
-    background-color: #5678FF;
     border-radius: 20px;
     border: 1px solid black;
-
+    background-color: white;
 }
 .number-health{
 

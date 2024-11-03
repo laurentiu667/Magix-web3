@@ -18,7 +18,8 @@
 }
 
 .container-menu {
-   
+    opacity: 1;
+    background-color: transparent;
     height: 100%;
     width: 100%;
 
@@ -276,4 +277,69 @@
     margin-right: 320px;
     color: rgb(255, 255, 255);
 }
+}
+
+.rideau.opacityaninmation{
+    width: 100%;
+    height: 100%;
+    animation: opacitygame 0.3s linear;
+    background-color: black;
+    opacity: 1;
+    z-index: 10;
+}
+
+.container-theme{
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 1000px;
+
+    background-color: rgb(53, 53, 53);
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4000;
+    gap: 1em;
+    padding: 1em;
+}
+.container-theme > div{
+    height: 200px;
+    background-color: blue;
+}
+.theme1{
+    background-image: url(/Images/bg3.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.theme2{
+    background-image: url(/Images/bg4.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.theme3{
+    background-image: url(/Images/bg5.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.theme4{
+    background-image: url(/Images/bg6.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container-theme > div:hover{
+    border: 1px solid black;
+}
+@keyframes opacitygame{
+    0%{
+        opacity: 0;
+        background-color: transparent;
+    }
+    100%{
+        opacity: 1;
+        background-color: black;
+    }
 }

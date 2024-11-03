@@ -1,3 +1,4 @@
+let rideau = document.querySelector(".rideau");
 
 window.addEventListener("load", () => {
     const entrainement = document.querySelector("#entrainement");
@@ -9,10 +10,12 @@ window.addEventListener("load", () => {
             // ajouter audio
             let audio = new Audio('Audio/gamestart.mp3');
             audio.play();
+          
+            rideau.classList.toggle("opacityaninmation");
             // delay de 1 seconde l appel de la fonction
             setTimeout(() => {
                 typeGame("TRAINING");
-            }, 500);
+            }, 300);
         });
     }
 
