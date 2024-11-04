@@ -28,6 +28,8 @@ import { Cards } from "./cards.js";
 
 let imagesMap = {}; // hashmap => uid => randomIMG
 
+
+
 export const gameUpdate = (data) => {
   
     
@@ -39,11 +41,6 @@ export const gameUpdate = (data) => {
     } else if (data === "LAST_GAME_LOST") {
         console.log(data);
     } else {
-
-        
-       
-  
-        
 
         // METTRE A JOUR LES INFOS DU JOUEUR
         joueur_vie.innerHTML = data.hp;
@@ -109,6 +106,12 @@ const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manae
     
     let valeurDivProgressHealthEnnemi = (healthennemi / maxhealth) * 100; 
     let valeurDivProgressManaEnnemi = (manaennemi / maxmana) * 100;
+
+    if (manajoueur >= maxmana){
+        valeurDivProgressManaJoueur = 100;
+    } else if (manaennemi >= maxmana){
+        valeurDivProgressManaEnnemi = 100;
+    }
 
     healthbarjoueur.style.width = valeurDivProgressHealthJoueur + "%";
     manabarjoueur.style.width = valeurDivProgressManaJoueur + "%";

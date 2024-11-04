@@ -113,7 +113,7 @@ const applyStyles = iframe => {
             hideIcons : false,
             inputBackgroundColor : "transparent",
             inputFontColor : "black",
-            height : "700px",
+            height : "100%",
             padding: "5px",
             memberListFontColor : "black",
             borderColor : "black",

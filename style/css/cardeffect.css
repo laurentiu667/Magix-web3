@@ -19,16 +19,16 @@
     animation: spinDiv 1s linear infinite;
 }
 .carte.idle::before, .carte.idle::after{
-    background-image: conic-gradient(from var(--angleRotation), rgb(29, 88, 252) 0deg, rgb(29, 88, 252) 90deg, transparent 90deg, transparent 180deg, rgb(29, 88, 252) 180deg, rgb(29, 88, 252) 270deg, transparent 270deg, transparent 360deg);
+    background-image: conic-gradient(from var(--angleRotation), rgb(71, 255, 148) 0deg, rgb(71, 255, 148) 90deg, transparent 90deg, transparent 180deg, rgb(71, 255, 148) 180deg, rgb(71, 255, 148) 270deg, transparent 270deg, transparent 360deg);
     
 }
 
 .carte.taunt::before, .carte.taunt::after{
-    background-image: conic-gradient(from var(--angleRotation), grey 0deg, grey 90deg, transparent 90deg, transparent 180deg, grey 180deg, grey 270deg, transparent 270deg, transparent 360deg);
+    background-image: conic-gradient(from var(--angleRotation), red 0deg, red 90deg, transparent 90deg, transparent 180deg, red 180deg, red 270deg, transparent 270deg, transparent 360deg);
     
 }
 .carte.stealth::before, .carte.stealth::after{
-    background-image: conic-gradient(from var(--angleRotation), red 0deg, red 90deg, transparent 90deg, transparent 180deg, red 180deg, red 270deg, transparent 270deg, transparent 360deg);
+    background-image: conic-gradient(from var(--angleRotation), rgb(227, 255, 100) 0deg, rgb(227, 255, 100) 90deg, transparent 90deg, transparent 180deg, rgb(227, 255, 100) 180deg, rgb(227, 255, 100) 270deg, transparent 270deg, transparent 360deg);
     
 }
 .carte.taunt::before, .carte.idle::before, .carte.stealth::before{
