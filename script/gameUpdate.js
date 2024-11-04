@@ -72,6 +72,7 @@ export const gameUpdate = (data) => {
         board_joueur.innerHTML = '';
         data.board.forEach(carte => {
          
+            
             let randomIMG = imagesMap[carte.uid];
             let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state);
         });
