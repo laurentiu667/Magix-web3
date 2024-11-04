@@ -12,7 +12,13 @@ let animation_rideau = document.querySelector(".animation-rideau");
 let animationError = document.querySelector(".animationError");
 let container_game = document.querySelector(".container-game");
 
+let nom_joueur_animation = document.querySelector(".animation-joueur");
+let nom_ennemi_animation = document.querySelector(".animation-ennemi");
+let animation_versus_text = document.querySelector(".animation-versus-text");
+let animation_versus_div = document.querySelector(".animation-versus");
+
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
+let username_player = document.querySelector(".name-player"); 
 import { gameUpdate } from "./gameUpdate.js";
 
 import { animationMessageErreur } from "./cards.js";
@@ -45,37 +51,48 @@ const state = () => {
     .then(data => {
         if(data === "WAITING"){
             animation_rideau.innerHTML = "En attente d'un adversaire";
-            animationError.classList.toggle("active");
+         
           
       
         } else {
 
             animation_rideau.classList.add("animation");
             animation_rideau.innerHTML = "";
+          
             let background = localStorage.getItem("theme");
             container_game.style.backgroundImage = `url(Images/${background}.gif)`;
-    
+           
            
             if(animationUnefois == false){
                 //settimeout pour laisser le temps à la carte de se jouer
+                nom_joueur_animation.classList.toggle("animation");
+                nom_ennemi_animation.classList.toggle("animation");
+
+                animation_versus_text.classList.toggle("animation");
+
+                nom_ennemi_animation.innerHTML = data.opponent.username;
+                animation_versus_text.innerHTML = "VS";
+                nom_joueur_animation.innerHTML = username_player.innerHTML;
                 setTimeout(() => {
+                    animation_versus_div.style.display = "none";
                     deck_container.classList.toggle("animation");
                     ennemi_card_board_count.classList.toggle("animation");
                    
                     
 
-                }, 300);
+                }, 2300);
 
                 setTimeout(() => {
                     left_game.classList.toggle("animation");
                     right_game.classList.toggle("animation");
 
-                }, 800);
+                }, 2800);
                 setTimeout(() => {
                     board_ennemi.classList.toggle("animation");
                     board_joueur.classList.toggle("animation");
 
-                }, 1200);
+                }, 2200);
+                
                 animationUnefois = true;
             }
         } 

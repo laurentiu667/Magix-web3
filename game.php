@@ -3,6 +3,7 @@ require_once("action/AjaxGameAction.php");
 
 $action = new AjaxGameAction();
 $data = $action->execute();
+$username = $_SESSION["username"];
 
 require_once("partial/layout/header.php");
 ?>
@@ -17,8 +18,16 @@ require_once("partial/layout/header.php");
 <script type="module" defer src="script/cards.js"></script>
 
 
-    <div class="animation-rideau"></div>
-    <div class="animationError"></div>
+    <div class="animation-rideau">
+       
+    </div>
+    <div class="animation-versus">
+        <div class="animation-joueur"></div>
+        <div class="animation-versus-text"></div>
+        <div class="animation-ennemi"></div>
+
+    </div>
+
     <div class="container-game">
 
         <div class="blur-wrapper">
@@ -60,7 +69,11 @@ require_once("partial/layout/header.php");
 
                                 <div class="container-info-user-game-side">
 
-                                    <div class="name-player">Horloge</div>
+                                    <div class="name-player">
+                                        <?php
+                                            echo $username;
+                                        ?>
+                                    </div>
 
                                     <div class="container-message-card">
 
