@@ -37,9 +37,9 @@ export const gameUpdate = (data) => {
     if (data === "WAITING") {
         console.log(data);
     } else if (data === "LAST_GAME_WON") {
-        console.log(data);
+        console.log("gagné");
     } else if (data === "LAST_GAME_LOST") {
-        console.log(data);
+        console.log("perdu");
     } else {
 
         // METTRE A JOUR LES INFOS DU JOUEUR

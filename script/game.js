@@ -43,7 +43,6 @@ window.addEventListener("load", () => {
 });
 
 const state = () => {
-    console.log("Appel de la fonction state");
     fetch("AjaxGame.php", {   
         method: "POST"    
     })
@@ -54,10 +53,55 @@ const state = () => {
          
           
       
-        } else {
+        } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
+            setTimeout(() => {
+        
+                deck_container.classList.remove("animation");
+                ennemi_card_board_count.classList.remove("animation");
+               
+                
+
+            }, 500);
+
+            setTimeout(() => {
+                left_game.classList.remove("animation");
+                right_game.classList.remove("animation");
+
+            }, 800);
+            setTimeout(() => {
+                board_ennemi.classList.remove("animation");
+                board_joueur.classList.remove("animation");
+
+            }, 1200);
+            setTimeout(() => {
+                animation_versus_div.style.display = "flex";
+                nom_joueur_animation.classList.remove("animation");
+                nom_ennemi_animation.classList.remove("animation");
+                animation_versus_text.classList.remove("animation");
+
+                
+                nom_joueur_animation.classList.add("animation_engame");
+                nom_ennemi_animation.classList.add("animation_engame");
+
+                animation_versus_text.classList.add("animation_engame");
+
+              
+                if(data === "LAST_GAME_WON"){
+                    animation_versus_text.innerHTML = "gagné contre";
+                } else {
+                    animation_versus_text.innerHTML = "perdu contre";
+                }
+              
+            }, 1500);
+            setTimeout(() => {
+                window.location.href = "menu.php";
+            }, 3500);
+        }
+        else {
 
             animation_rideau.classList.add("animation");
-            animation_rideau.innerHTML = "";
+    
+            animation_rideau.style.display = "none";
           
             let background = localStorage.getItem("theme");
             container_game.style.backgroundImage = `url(Images/${background}.gif)`;
@@ -65,38 +109,39 @@ const state = () => {
            
             if(animationUnefois == false){
                 //settimeout pour laisser le temps à la carte de se jouer
-                nom_joueur_animation.classList.toggle("animation");
-                nom_ennemi_animation.classList.toggle("animation");
+                nom_joueur_animation.classList.add("animation");
+                nom_ennemi_animation.classList.add("animation");
 
-                animation_versus_text.classList.toggle("animation");
+                animation_versus_text.classList.add("animation");
 
                 nom_ennemi_animation.innerHTML = data.opponent.username;
                 animation_versus_text.innerHTML = "VS";
                 nom_joueur_animation.innerHTML = username_player.innerHTML;
                 setTimeout(() => {
                     animation_versus_div.style.display = "none";
-                    deck_container.classList.toggle("animation");
-                    ennemi_card_board_count.classList.toggle("animation");
+                    deck_container.classList.add("animation");
+                    ennemi_card_board_count.classList.add("animation");
                    
                     
 
                 }, 2300);
 
                 setTimeout(() => {
-                    left_game.classList.toggle("animation");
-                    right_game.classList.toggle("animation");
+                    left_game.classList.add("animation");
+                    right_game.classList.add("animation");
 
                 }, 2800);
                 setTimeout(() => {
-                    board_ennemi.classList.toggle("animation");
-                    board_joueur.classList.toggle("animation");
+                    board_ennemi.classList.add("animation");
+                    board_joueur.classList.add("animation");
 
                 }, 2200);
                 
                 animationUnefois = true;
             }
+            gameUpdate(data);
         } 
-        gameUpdate(data);
+       
         setTimeout(state, 1000);
     })
     .catch(error => {
@@ -138,8 +183,6 @@ const surrenderGame = () => {
     .then(response => response.json())
     .then(data => {
         gameUpdate(data);
-        // renvoie à la page menu
-        window.location.href = "menu.php";
     
     });
 }

@@ -177,15 +177,11 @@ require_once("partial/layout/header.php");
 
             <div class="container-bottom-game">
 
-                <div class="bottom-bouttom-gn left-button-bottom-game">
-                    
-                </div>
+              
                 
                 <div class="hand-bottom-game"></div>
                     
-                <div class="right-button-bottom-game right-button-bottom-game">
-                    
-                </div>
+               
             </div>
 
         </div>
