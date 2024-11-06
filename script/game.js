@@ -59,8 +59,6 @@ const state = () => {
                 deck_container.classList.remove("animation");
                 ennemi_card_board_count.classList.remove("animation");
                
-                
-
             }, 500);
 
             setTimeout(() => {

@@ -11,7 +11,7 @@ class AjaxTypeGameAction extends CommonAction {
 
        
         $typegame = $_POST["typegame"];
-        
+    
 
         $data = [
             "key" => $_SESSION["key"],

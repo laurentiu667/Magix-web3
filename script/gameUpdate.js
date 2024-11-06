@@ -20,7 +20,10 @@ let manabarjoueur = document.querySelector(".mana-progress")
 
 let healthbarennemi = document.querySelector(".health-progress-ennemi")
 let manabarennemi = document.querySelector(".mana-progress-ennemi")
+let temps_restant = document.querySelector(".temps-restant")
+let temps_restant_ennemi = document.querySelector(".temps-restant-ennemi")
 
+let danger_alert = document.querySelector(".danger-alert");
 
 // let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
@@ -52,6 +55,20 @@ export const gameUpdate = (data) => {
         ennemi_message.innerHTML = data.opponent.welcomeText
         joueur_card_number.innerHTML = data.remainingCardsCount
         ennemi_card_number.innerHTML = data.opponent.remainingCardsCount
+
+        
+        if (data.yourTurn){
+            avertirjoueurdangerTemps(data.remainingTurnTime);
+            temps_restant_ennemi.innerHTML = "wait for your turn";
+            temps_restant.innerHTML = data.remainingTurnTime;
+        } else {
+            danger_alert.classList.remove("animation");
+            danger_alert.classList.remove("animation-extra-danger");
+            danger_alert.style.opacity = 0;
+            temps_restant_ennemi.innerHTML = data.remainingTurnTime;
+            temps_restant.innerHTML = "wait for your turn";
+        }
+
         // temps.innerHTML = data.remainingTurnTime;
         mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
     
@@ -120,3 +137,39 @@ const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manae
     healthbarennemi.style.width = valeurDivProgressHealthEnnemi + "%";
     manabarennemi.style.width = valeurDivProgressManaEnnemi + "%";
 }
+const avertirjoueurdangerTemps = (temps) => {
+    danger_alert.style.zIndex = 0;
+    danger_alert.classList.add("animation");
+
+    switch (temps) {
+        case 10:
+            danger_alert.style.opacity = 0.3;
+            break;
+        case 9:
+            danger_alert.style.opacity = 0.4;
+            break;
+        case 8:
+            danger_alert.style.opacity = 0.5;
+            break;
+        case 7:
+            danger_alert.style.opacity = 0.6;
+            break;
+        case 6:
+            danger_alert.style.opacity = 0.7;
+            break;
+        case 5:
+            danger_alert.style.opacity = 0.8;
+            break;
+        case 4:
+            danger_alert.style.opacity = 0.9;
+            break;
+        case 3:
+            danger_alert.style.opacity = 1;
+            danger_alert.classList.remove("animation");
+            danger_alert.classList.add("animation-extra-danger");
+            break;
+        default:
+            danger_alert.style.opacity = 0;
+            break;
+    }
+};

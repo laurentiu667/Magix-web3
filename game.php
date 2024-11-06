@@ -27,6 +27,7 @@ require_once("partial/layout/header.php");
         <div class="animation-ennemi"></div>
 
     </div>
+    <div class="danger-alert"></div>
 
     <div class="container-game">
 
@@ -86,6 +87,7 @@ require_once("partial/layout/header.php");
                                             <div class="message">Message</div>
                                             <div class="message-div"></div>
                                         </div>
+                                        <div class="temps-restant"></div>
                                     </div>
 
                                 </div>
@@ -161,6 +163,7 @@ require_once("partial/layout/header.php");
                                             <div class="message">Message</div>
                                             <div class="message-div message-div-ennemi"></div>
                                         </div>
+                                        <div class="temps-restant temps-restant-ennemi"></div>
                                     </div>
 
                                 </div>

@@ -175,7 +175,6 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
     });
 };
 
-
 export const animationMessageErreur = (message) => {
     let count = 0;
     count++;
