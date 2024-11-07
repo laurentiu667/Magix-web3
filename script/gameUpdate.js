@@ -169,6 +169,7 @@ const avertirjoueurdangerTemps = (temps) => {
             danger_alert.classList.add("animation-extra-danger");
             break;
         default:
+            
             danger_alert.style.opacity = 0;
             break;
     }
