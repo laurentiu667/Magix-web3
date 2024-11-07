@@ -62,7 +62,7 @@ export const gameUpdate = (data) => {
             temps_restant_ennemi.innerHTML = "wait for your turn";
             temps_restant.innerHTML = data.remainingTurnTime;
         } else {
-            danger_alert.classList.remove("animation");
+   
             danger_alert.classList.remove("animation-extra-danger");
             danger_alert.style.opacity = 0;
             temps_restant_ennemi.innerHTML = data.remainingTurnTime;
@@ -139,11 +139,11 @@ const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manae
 }
 const avertirjoueurdangerTemps = (temps) => {
     danger_alert.style.zIndex = 0;
-    danger_alert.classList.add("animation");
+
 
     switch (temps) {
         case 10:
-            danger_alert.style.opacity = 0.3;
+            danger_alert.classList.add("animation");
             break;
         case 9:
             danger_alert.style.opacity = 0.4;

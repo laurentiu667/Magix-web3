@@ -1,0 +1,75 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-color: black;
+}
+
+header {
+	display:flex;
+	padding:10px;
+	width: 780px;
+	margin:50px auto;
+	justify-content:center;
+}
+
+.title {
+	padding-top:20px;
+	position: relative;
+	font-style: italic;
+	color:white;
+}
+
+.logo {
+	background-image: url('../images/logo.png');
+	background-size: 150px 107px;
+	background-repeat:no-repeat;
+	width: 150px;
+	height: 107px;
+}
+
+.container {
+	width: 780px;
+	margin:50px auto;
+	border:2px solid #888;
+	background-color: white;
+}
+
+#match-picture {
+	width: 256px;
+	height: 256px;
+	margin: 20px auto;
+	border:2px solid #888;
+	background-size:contain;
+	background-position:center;
+}
+
+#match-name {
+	font-size: 30px;
+	color: blue;
+	text-align: center;
+	padding: 10px;
+	width:235px;
+	border:2px solid #888;
+	margin: 20px auto;
+}
+
+.field-section {
+	border-top: 2px solid #888;
+	margin:30px 10px;
+	padding:10px;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.field-section div {
+	margin:10px;
+}
+
+.field-section input {
+	font-size: 1.2em;
+}
