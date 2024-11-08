@@ -10,7 +10,7 @@ let right_game = document.querySelector(".right-game");
 
 let animation_rideau = document.querySelector(".animation-rideau");
 let animationError = document.querySelector(".animationError");
-let container_game = document.querySelector(".container-game");
+
 
 let nom_joueur_animation = document.querySelector(".animation-joueur");
 let nom_ennemi_animation = document.querySelector(".animation-ennemi");
@@ -19,11 +19,14 @@ let animation_versus_div = document.querySelector(".animation-versus");
 
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
 let username_player = document.querySelector(".name-player"); 
+let container_game = document.querySelector(".container-game");
 import { gameUpdate } from "./gameUpdate.js";
 
 import { animationMessageErreur } from "./cards.js";
 let animationUnefois = false;
 window.addEventListener("load", () => {
+    let background = localStorage.getItem("theme");
+    container_game.style.backgroundImage = `url(Images/${background}.gif)`;
     endturn.addEventListener("click", () => {
         console.log("endturn");
         
@@ -48,9 +51,10 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
+      
         if(data === "WAITING"){
             animation_rideau.innerHTML = "En attente d'un adversaire";
-         
+            animation_rideau.classList.add("animation");
           
       
         } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
@@ -97,12 +101,12 @@ const state = () => {
         }
         else {
 
-            animation_rideau.classList.add("animation");
+         
     
             animation_rideau.style.display = "none";
           
-            let background = localStorage.getItem("theme");
-            container_game.style.backgroundImage = `url(Images/${background}.gif)`;
+          
+         
            
            
             if(animationUnefois == false){
