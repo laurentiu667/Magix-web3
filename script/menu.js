@@ -14,11 +14,7 @@ window.addEventListener("load", () => {
     if (iframe) {
         applyStyles(iframe);
     }
-
-  
    
-    hoverMenuList();
-
     openTheChat();
     theme();
     choisirTheme();
@@ -54,20 +50,6 @@ const theme = () => {
     });
 }
 
-const hoverMenuList = () => {
-    const listItems = document.querySelectorAll('.list-menu ul li');
-    const soundhover = new Audio('/Audio/hover-effect.mp3'); 
-
-    listItems.forEach(item => {
-        item.addEventListener('mouseover', () => {
-            soundhover.currentTime = 0;
-            soundhover.volume = 0.5;
-            soundhover.play().catch(error => {
-                console.error("Erreur lors de la lecture de l'audio :", error);
-            });
-        });
-    });
-};
 
 const openTheChat = () => {
     let openedchat = false;

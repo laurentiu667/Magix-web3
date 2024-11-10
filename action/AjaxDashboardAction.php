@@ -13,13 +13,11 @@
       
 
 
-
-
-
-
-            $result = UserDataBase::getParties();
-
-
+            $result = [
+                'parties' => UserDataBase::getParties(),
+                'ennemis' => UserDataBase::getNomDesUsagers(),
+                'username' => UserDataBase::getPartiesUsagerSpecifique("horloge")
+            ];
             
             return compact("result");
         }

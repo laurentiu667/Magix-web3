@@ -46,6 +46,47 @@
                 echo "Erreur: " . $e->getMessage();
             }
         }
+
+        public static function getNomDesUsagers(){
+            try{
+                // connection a la base de donnee
+                $connection = Connection::getConnection();
+                // preparation de la requete
+                $sql = "SELECT DISTINCT ennemi__nom FROM parties_magix";
+                // preparation de la requete
+                $statement = $connection->prepare($sql);
+                // execution de la requete
+                $statement->execute();
+                // recuperation des resultats
+                $result = $statement->fetchAll();
+                return $result;
+
+            } catch (PDOException $e) {
+                echo "Erreur: " . $e->getMessage();
+            }
+        }
+
+        public static function getPartiesUsagerSpecifique($joueur__nom){
+            try{
+                // connection a la base de donnee
+                $connection = Connection::getConnection();
+                // preparation de la requete
+                $sql = "SELECT * FROM parties_magix WHERE joueur__nom = :joueur_nom";
+                // preparation de la requete
+                $statement = $connection->prepare($sql);
+
+                $statement->bindParam(':joueur_nom', $joueur__nom);
+                // execution de la requete
+                $statement->execute();
+                // recuperation des resultats
+                $result = $statement->fetchAll();
+                return $result;
+
+            } catch (PDOException $e) {
+                echo "Erreur: " . $e->getMessage();
+            }
+        }
+
         
     }
 ?>
