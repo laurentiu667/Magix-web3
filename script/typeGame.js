@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     const partie_pvp = document.querySelector("#partie_lancer_pvp");
    
     if (entrainement) {
-        entrainement.addEventListener("click", () => { // Remplacement de "onclick" par "click"
+        entrainement.addEventListener("click", () => {
           
             // ajouter audio
             let audio = new Audio('Audio/gamestart.mp3');
@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
     }
 
     if (partie_pvp) {
-        partie_pvp.addEventListener("click", () => { // Remplacement de "onclick" par "click"
+        partie_pvp.addEventListener("click", () => {
             let audio = new Audio('Audio/gamestart.mp3');
             audio.play();
             setTimeout(() => {

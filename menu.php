@@ -38,6 +38,7 @@
                     <li>commencer une grande partie</li>
                     <li id="openchat">chat en ligne</li>
                     <li id="theme">theme</li>
+                    <li id="dashboard">dashboard</li>
                     <li id="deconnexion">quitter</li>
                 </ul>
             </div>

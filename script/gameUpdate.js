@@ -40,9 +40,9 @@ export const gameUpdate = (data) => {
     if (data === "WAITING") {
         console.log(data);
     } else if (data === "LAST_GAME_WON") {
-        console.log("gagné");
+       
     } else if (data === "LAST_GAME_LOST") {
-        console.log("perdu");
+        
     } else {
       
         // METTRE A JOUR LES INFOS DU JOUEUR
@@ -146,3 +146,5 @@ const avertirjoueurdangerTemps = (temps) => {
         danger_alert.classList.add("animation-extra-danger");
     } 
 };
+
+

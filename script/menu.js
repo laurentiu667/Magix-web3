@@ -3,6 +3,7 @@ const iframe = document.querySelector("#iframe");
 const rideau = document.querySelector(".rideau");
 let themebutton = document.querySelector("#theme");
 let themecontainer = document.querySelector(".container-theme");
+let dashboard = document.querySelector("#dashboard");
 
 window.addEventListener("load", () => {
   
@@ -21,6 +22,10 @@ window.addEventListener("load", () => {
     openTheChat();
     theme();
     choisirTheme();
+
+    dashboard.addEventListener("click", () => {
+        window.location.href = "dashboard.php";
+    });
 
 });
 

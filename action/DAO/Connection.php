@@ -1,5 +1,5 @@
 <?php
-    require_once("action/constants.php");    
+    require_once("action/database/constants.php");    
     class Connection {
         private static $connection;
 

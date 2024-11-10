@@ -24,9 +24,16 @@ import { gameUpdate } from "./gameUpdate.js";
 
 import { animationMessageErreur } from "./cards.js";
 let animationUnefois = false;
+
+
+
+let jeux_en_cours = true;
+
 window.addEventListener("load", () => {
     let background = localStorage.getItem("theme");
     container_game.style.backgroundImage = `url(Images/${background}.gif)`;
+
+
     endturn.addEventListener("click", () => {
         console.log("endturn");
         
@@ -42,7 +49,10 @@ window.addEventListener("load", () => {
         
         surrenderGame();
     });
-    setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+    if(jeux_en_cours == true){
+        setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+    } 
+
 });
 
 const state = () => {
@@ -51,13 +61,15 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
-      
+
+    
         if(data === "WAITING"){
             animation_rideau.innerHTML = "En attente d'un adversaire";
             animation_rideau.classList.add("animation");
           
       
         } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
+            jeux_en_cours = false;
             setTimeout(() => {
         
                 deck_container.classList.remove("animation");
@@ -93,6 +105,9 @@ const state = () => {
                 } else {
                     animation_versus_text.innerHTML = "perdu contre";
                 }
+
+
+                
               
             }, 1500);
             setTimeout(() => {
@@ -105,9 +120,6 @@ const state = () => {
     
             animation_rideau.style.display = "none";
           
-          
-         
-           
            
             if(animationUnefois == false){
                 //settimeout pour laisser le temps à la carte de se jouer
@@ -141,14 +153,22 @@ const state = () => {
                 
                 animationUnefois = true;
             }
-            gameUpdate(data);
+            if(jeux_en_cours == true){
+                gameUpdate(data);
+            } 
+          
         } 
-       
-        setTimeout(state, 1000);
+        if(jeux_en_cours == true){
+            setTimeout(state, 1000);
+        } 
+      
     })
     .catch(error => {
         console.error("Erreur lors de la récupération de l'état:", error);
-        setTimeout(state, 1000);
+        if(jeux_en_cours == true){
+            setTimeout(state, 1000);
+        } 
+      
     });
 };
 
@@ -158,7 +178,9 @@ const endTurn = () => {
     fetch("AjaxEndTurn.php", {})
     .then(response => response.json())
     .then(data => {
-        gameUpdate(data);
+        if(jeux_en_cours == true){
+            gameUpdate(data);
+        } 
         
     });
 }
@@ -174,7 +196,9 @@ const heroPower = () => {
             // animationMessageErreur("Pas assez de mana");
         }
         else {
-            gameUpdate(data);
+            if(jeux_en_cours == true){
+                gameUpdate(data);
+            } 
         }
         
         
@@ -184,7 +208,9 @@ const surrenderGame = () => {
     fetch("AjaxSurrender.php", {})
     .then(response => response.json())
     .then(data => {
-        gameUpdate(data);
+        if(jeux_en_cours == true){
+            gameUpdate(data);
+        } 
     
     });
 }

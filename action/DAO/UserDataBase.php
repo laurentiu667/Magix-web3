@@ -1,36 +1,40 @@
 <?php
     require_once("action/DAO/Connection.php");
     class UserDataBase {
-        public static function enregistrementPartie($joueur__nom, $ennemi__nom, $date__partie, $gagnant){
-            try{
-                // connection a la base de donnee
+        public static function enregistrementPartie($joueur__nom, $ennemi__nom, $gagnant) {
+            try {
+                // Connexion à la base de données
                 $connection = Connection::getConnection();
-                // preparation de la requete
-                $sql = "INSERT INTO 
-                        partie_magix(joueur__nom, ennemi__nom, date__partie, gagnant) 
-                        VALUES (:joueur__nom, :ennemi__nom, :date__partie, :gagnant)";
-
-                // preparation de la requete
+                
+                // Préparation de la requête sans le champ date_partie
+                $sql = "INSERT INTO parties_magix(joueur__nom, ennemi__nom, gagnant) 
+                        VALUES (:joueur__nom, :ennemi__nom, :gagnant)";
+        
+                // Préparation de la requête
                 $statement = $connection->prepare($sql);
-                // la liaison des parametres
+        
+                // Liaison des paramètres
                 $statement->bindParam(":joueur__nom", $joueur__nom);
                 $statement->bindParam(":ennemi__nom", $ennemi__nom);
-                $statement->bindParam(":date__partie", $date__partie);
                 $statement->bindParam(":gagnant", $gagnant);
-                // execution de la requete
+        
+                // Exécution de la requête
                 $statement->execute();
-                echo "partie enrégistrée";
+            
             } catch (PDOException $e) {
                 echo "Erreur: " . $e->getMessage();
             }
         }
+        
 
         public static function getParties(){
             try{
                 // connection a la base de donnee
                 $connection = Connection::getConnection();
                 // preparation de la requete
-                $sql = "SELECT * FROM partie_magix ORDERED BY date__partie DESC";
+                $sql = "SELECT * FROM parties_magix ORDER BY date_partie DESC";
+
+
                 // preparation de la requete
                 $statement = $connection->prepare($sql);
                 // execution de la requete
