@@ -22,7 +22,6 @@ let username_player = document.querySelector(".name-player");
 let container_game = document.querySelector(".container-game");
 import { gameUpdate } from "./gameUpdate.js";
 
-import { animationMessageErreur } from "./cards.js";
 let animationUnefois = false;
 
 

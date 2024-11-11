@@ -1,13 +1,12 @@
 const iframe = document.querySelector("#iframe");
 
-const rideau = document.querySelector(".rideau");
+
 let themebutton = document.querySelector("#theme");
 let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
 
 window.addEventListener("load", () => {
-  
-    rideau.classList.toggle('active');
+
     
     commencerAudioMenu();
     

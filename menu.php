@@ -13,7 +13,7 @@
     <audio id="menuaudio" autoplay src="Audio/hover-effect.mp3"></audio>
 
   
-    <div class="rideau"></div>
+  
     <div class="container-theme">
         <div class="theme1" id="bg3"></div>
         <div class="theme2" id="bg4"></div>

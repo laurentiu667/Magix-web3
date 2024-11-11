@@ -31,9 +31,6 @@ import { Cards } from "./cards.js";
 
 let imagesMap = {}; // hashmap => uid => randomIMG
 
-  
-
-
 export const gameUpdate = (data) => {
 
 

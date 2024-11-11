@@ -78,7 +78,7 @@ export class Cards {
                     AttaquerUneCarte(mycardUID, 0);
                     console.log("hero attaquer");
                 } else {
-                    // animationMessageErreur("Veuillez sélectionner une carte");
+                    
                 }
             }
         } 
@@ -175,42 +175,3 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
     });
 };
 
-export const animationMessageErreur = (message) => {
-    let count = 0;
-    count++;
-    console.log(count);
-    
-    let opacity = 0;
-    let increment = 0.007; 
-
-    messageErreur.style.opacity = "0"; 
-    messageErreur.style.zIndex = "3000";
-
-    messageErreur.innerHTML = message;
-
-    const tick = () => {
-        
-        opacity += increment;
-
-    
-        messageErreur.style.opacity = opacity;
-
-     
-        if (opacity >= 1) {
-            increment = -increment; 
-        }
-
-        
-        if (opacity <= 0) {
-            messageErreur.style.opacity = 0; 
-            messageErreur.style.zIndex = "0";
-
-            return; 
-        }
-
-
-        window.requestAnimationFrame(tick);
-    }
-
-    tick();
-}

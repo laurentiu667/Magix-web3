@@ -21,12 +21,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 }
 .blob_shadow_blur{
-    width: 700px;
-    height: 700px;
+    width: clamp(200px, 80vw, 800px);
+    height: clamp(200px, 80vw, 800px);
     z-index: -1;
-    background-color: hsla(223, 100%, 50%, 0.568);
+    background-color: hsla(223, 100%, 50%, 0.274);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,18 +35,17 @@ body{
     filter: blur(100px);
 }
 .container-dash{
-    overflow: hidden;
+   
     position: relative;
     
     width: min(1400px, 100% - 2rem);
     height: calc(100vh); /* Ajustement pour éviter le débordement */
 
   
-    display: grid;
-    grid-template-rows: 3fr 5fr;
+    
 }
 .container-dashboard-choice{
-
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr;
 }
@@ -94,7 +94,7 @@ body{
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
     width: 100%;
-    height: 100%;
+    height: 700px;
 
     overflow-y:hidden;
     display: flex;
@@ -111,6 +111,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: auto;
 }
 .header-table{
     width: calc(100% - 2rem);
@@ -147,13 +148,13 @@ body{
     display: flex;
     flex-direction: column;
     gap: 0.25em;
-    overflow-y: auto;
+    
     
 }
 
 .item-stats{
    
-    height: 60px;
+    min-height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -162,10 +163,6 @@ body{
 
 }
 
-
-.item-stats:hover{
-    cursor: pointer;
-}
 .item-stats::before {
     content: '';
     width: 5px;
@@ -200,4 +197,162 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
+
+.return-home{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 460px){
+
+    .choice-container{
+        width: 150px;
+        height: 30px;
+        font-size: 0.75em;
+    }
+    #confirmer-choix-board{
+        width: 160px;
+        height: 25px;
+        font-size: 0.6em;
+    }
+
+    .header-table{
+        display: none;
+        height: 100%;
+        width: 100%;
+    }
+    .main-table{
+        height: 100%;
+        width: calc(100% - 1em);
+        display: flex;
+        flex-direction: row;
+   
+
+        scroll-snap-type: x mandatory;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+    .dash-stats{
+        height: 500px;
+    }
+    .item-stats{
+        scroll-snap-align: center;
+        min-height: 100%;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3em;
+      
+        
+    }
+    .item-stats > div {
+        width: 80%;
+        height: 50px;
+        position: relative;
+    }
+    .item-stats > div > div {
+        width: 100%;
+        height: 100%;
+    }
+    .item-stats::before{
+    
+        display: none;
+    }
+
+    .item-stats > :nth-child(1) > div::before {
+        content: 'VOUS';
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: white;
+        color: black;
+      
+        display: flex;
+        align-items: center;
+     
+        justify-content: center;
+    }
+
+    .item-stats > :nth-child(2) > div::before {
+        content: 'ENNEMI';
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: white;
+        color: black;
+      
+        display: flex;
+        align-items: center;
+     
+        justify-content: center;
+    }
+
+    .item-stats > :nth-child(3) > div::before {
+        content: 'DATE';
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: white;
+        color: black;
+      
+        display: flex;
+        align-items: center;
+     
+        justify-content: center;
+    }
+ 
+
+    .item-stats > :nth-child(4) > div::before {
+        content: 'GAGNANT';
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: white;
+        color: black;
+      
+        display: flex;
+        align-items: center;
+     
+        justify-content: center;
+    }
+    .item-stats > :nth-child(4) > div::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 5px;
+ 
+  
+        display: flex;
+        align-items: center;
+     
+        justify-content: center;
+    }
+ 
+ 
+ 
+
+ 
+
+
+}
+
