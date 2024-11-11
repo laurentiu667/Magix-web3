@@ -75,6 +75,62 @@ body{
     border-radius: 40px;
     display: grid;
     place-items: center;
+    position: relative;
+}
+.container-choice-different-data{
+    gap: 0.5em;
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(55%, -50%);
+    left: 50%;
+    height: fit-content;
+    width: 100%;
+    background-color: var(--container__button);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+.choice-type-container{
+   
+    border-left: 2px solid white;
+    height: fit-content;
+    width: 100%;
+    padding-left: 1em;
+    position: relative;
+}
+.choice-usager-container{
+    padding-left: 1em;
+ 
+    border-left: 2px solid white;
+    height: fit-content;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    position: relative;
+}
+.type-div-name,
+.usager-div-name{
+    font-size: 1.5em;
+    padding-left: 0.25em;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+.choice-usager, .choice-type{
+    margin-top: 2.75em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-left: 2px solid white;
+    
+    padding-left: 0.25em;
+    
 }
 #confirmer-choix-board{
     background-color: var(--container__button);

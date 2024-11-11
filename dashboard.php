@@ -23,7 +23,34 @@
         <div class="container-dashboard-choice">
             <div class="dashboard-name">DASHBOARD</div>
             <div class="container-choice-bottom">
-                <div class="choice-container">Trier par : date</div>
+                <div class="choice-container">
+
+                    <div class="container-choice-different-data">
+
+                        <div class="choice-usager-container">
+
+                            <div class="usager-div-name">Usager</div>
+                            <div class="choice-usager">
+                                <li>Horloge</li>
+                                <li>Mathieu</li>
+                                <li>Vega</li>
+                            </div>
+
+                        </div>
+
+                        <div class="choice-type-container">
+                            <div class="type-div-name">Type</div>
+                            <div class="choice-type">
+                                <li>Date</li>
+                                <li>Gagner</li>
+                                <li>Perdu</li>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    Trier par : date
+                </div>
                 <button id="confirmer-choix-board">Confirmer</button>
             </div>
         </div>
