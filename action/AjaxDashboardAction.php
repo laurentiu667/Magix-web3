@@ -10,13 +10,14 @@
 
         protected function executeAction() {
 
-      
-
+            
+            // $usager_choisi = $_POST["usager"];
+            
 
             $result = [
                 'parties' => UserDataBase::getParties(),
                 'ennemis' => UserDataBase::getNomDesUsagers(),
-                'username' => UserDataBase::getPartiesUsagerSpecifique("horloge")
+                'username' => UserDataBase::getPartiesUsagerSpecifique("Hit-AI")
             ];
             
             return compact("result");

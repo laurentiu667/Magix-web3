@@ -5,20 +5,29 @@ let choice_type = document.querySelector(".choice-type");
 let choice_container = document.querySelector(".click-choice");
 let container_choice_different_data = document.querySelector(".container-choice-different-data");
 
+let confirmer_choix_button = document.querySelector("#confirmer-choix-board");
+
 let ouverture = false;
+
 window.addEventListener("load", () => {
    stateDashboard();
 
 
    return_home.addEventListener("click", retournerMenu);
    choice_container.addEventListener("click", () => choisirType());
+
+   confirmer_choix_button.addEventListener("click", () => stateDashboard);
    
 });
 
-const stateDashboard = () => {
-    
+function stateDashboard() {
+    let form = new FormData();
+    let usager = localStorage.getItem("ennemi__choisi");
+
+    form.append("usager", usager);
     fetch("AjaxDashboard.php", {   
-        method: "POST"    
+        method: "POST",
+        body: form    
     })
     .then(response => response.json())
     .then(data => {
@@ -63,6 +72,8 @@ const afficherLesUsagers = (usagers) => {
             liUsager.appendChild(checkboxUsager);
             container.appendChild(liUsager);
 
+           
+
             liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager));
         });
     };
@@ -73,16 +84,20 @@ const afficherLesUsagers = (usagers) => {
 };
 
 
+
 const clickedUsagerType = (checkboxUsager) => {
     // enleve la classe qui est active des autres 
     document.querySelectorAll(".checkbox-usager").forEach(checkbox => {
         checkbox.classList.remove("active");
+        localStorage.removeItem("ennemi__choisi");
     });
 
     // ajouter active sur l element clicker
     checkboxUsager.classList.add("active");
-}
+    // ajouter une variable en localstorage pour recuperer l usager cliquer
 
+    localStorage.setItem("ennemi__choisi", element.ennemi__nom);
+}
 
 
 

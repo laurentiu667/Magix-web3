@@ -11,9 +11,6 @@ window.addEventListener("load", () => {
 
 })
 
-
-
-
 const createConnectionForm = () => {
     let form = new FormData();
 
