@@ -1,9 +1,18 @@
 let container_dash = document.querySelector(".main-table");
 let return_home = document.querySelector(".return-home");
+let choice_usager = document.querySelector(".choice-usager");
+let choice_type = document.querySelector(".choice-type");
+let choice_container = document.querySelector(".click-choice");
+let container_choice_different_data = document.querySelector(".container-choice-different-data");
+
+let ouverture = false;
 window.addEventListener("load", () => {
    stateDashboard();
 
+
    return_home.addEventListener("click", retournerMenu);
+   choice_container.addEventListener("click", () => choisirType());
+   
 });
 
 const stateDashboard = () => {
@@ -17,8 +26,11 @@ const stateDashboard = () => {
         const parties = data.parties;
         const ennemis_nom = data.ennemis;
         const joueur_nom = data.username;
-        console.log(ennemis_nom);
-        console.log(joueur_nom);
+    
+        
+        // afficher les usagers dans le trier par usager
+        afficherLesUsagers(ennemis_nom);
+    
         
         // si data vide
         if(parties.length == 0){
@@ -37,6 +49,53 @@ const stateDashboard = () => {
     });
 }
 
+const afficherLesUsagers = (usagers) => {
+    let liType = ["Date", "Gagné", "Perdu"];
+
+
+    const ajouterUsagers = (elements, container) => {
+        elements.forEach(element => {
+            let liUsager = document.createElement("li");
+            let checkboxUsager = document.createElement("div");
+            checkboxUsager.className = "checkbox-usager";
+
+            liUsager.innerHTML = element.ennemi__nom || element; // si element.ennemi__nom existe alors met le sinon alors c est un type
+            liUsager.appendChild(checkboxUsager);
+            container.appendChild(liUsager);
+
+            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager));
+        });
+    };
+
+ 
+    ajouterUsagers(liType, choice_type);
+    ajouterUsagers(usagers, choice_usager);
+};
+
+
+const clickedUsagerType = (checkboxUsager) => {
+    // enleve la classe qui est active des autres 
+    document.querySelectorAll(".checkbox-usager").forEach(checkbox => {
+        checkbox.classList.remove("active");
+    });
+
+    // ajouter active sur l element clicker
+    checkboxUsager.classList.add("active");
+}
+
+
+
+
+
+function choisirType() {
+    if (!ouverture) {
+        container_choice_different_data.classList.add("active");
+    } else {
+        container_choice_different_data.classList.remove("active");
+    }
+    // Bascule l'état de "ouverture"
+    ouverture = !ouverture;
+}
 function createDivForDesktop(element){
     let div_stats = document.createElement("div");
     div_stats.className = "item-stats";

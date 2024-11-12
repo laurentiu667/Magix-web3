@@ -39,7 +39,7 @@ body{
     position: relative;
     
     width: min(1400px, 100% - 2rem);
-    height: calc(100vh); /* Ajustement pour éviter le débordement */
+    height: 100dvh; /* Ajustement pour éviter le débordement */
 
   
     
@@ -75,23 +75,34 @@ body{
     border-radius: 40px;
     display: grid;
     place-items: center;
-    position: relative;
+  
+  
 }
-.container-choice-different-data{
+.container-choice-different-data {
     gap: 0.5em;
     color: white;
     position: absolute;
-    top: 50%;
-    transform: translate(55%, -50%);
-    left: 50%;
+    top: 20%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(100vw, -50%); /* Centrage parfait au milieu */
+    z-index: 1;
     height: fit-content;
-    width: 100%;
+    width: 0;
     background-color: var(--container__button);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     padding: 1em;
+    transition: all 0.3s ease;
+    font-size: 0.85em;
 }
+
+.container-choice-different-data.active {
+    transform: translate(-50%, -50%);
+    width: 200px;
+}
+
+
 .choice-type-container{
    
     border-left: 2px solid white;
@@ -127,10 +138,66 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    border-left: 2px solid white;
     
+
     padding-left: 0.25em;
     
+}
+.click-choice{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    border-radius: 40px;
+    display: grid;
+    place-items: center;
+}
+.choice-type{
+    border-left: 2px solid white;
+}
+.choice-usager > li, .choice-type > li{
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.choice-usager > li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -0.75em;
+    transform: translate(-50%, -50%);
+    width: 1em;    
+    height: 2px;
+    background-color: white;
+
+}
+.checkbox-usager{
+    height: 15px;
+    width: 15px;
+    border: 1px solid white;
+    cursor: pointer;
+   
+ 
+}
+.checkbox-usager.active{
+    animation: scale 0.3s ease;
+    background-color: white;
+    border: 2px solid rgb(96, 85, 255);
+}
+@keyframes scale {
+    0%{
+        scale: 1;
+    }    
+    50%{
+        scale: 1.25;
+        background-color: white;
+    }
+    100%{
+        scale: 1;
+
+        
+    }
 }
 #confirmer-choix-board{
     background-color: var(--container__button);
@@ -157,6 +224,7 @@ body{
     
     align-items: center;
     justify-content: center;
+    margin-bottom: 1em;
 }
 .wrapper-stats{
   
@@ -269,6 +337,8 @@ body{
     border-radius: 50%;
 }
 
+
+
 @media screen and (max-width: 460px){
 
     .choice-container{
@@ -300,6 +370,7 @@ body{
     }
     .dash-stats{
         height: 500px;
+        
     }
     .item-stats{
         scroll-snap-align: center;
