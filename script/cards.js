@@ -89,7 +89,7 @@ export class Cards {
                 targetUID = this.cardUID; 
                 console.log("Carte de l'ennemi ciblée : " + targetUID);
                 if (mycardUID && targetUID) {
-                    AttaquerUneCarte(mycardUID, targetUID);
+                    AttaquerUneCarte(mycardUID, targetUID, carteDiv);
                 }
             }
             mechanique.forEach(element => {
@@ -142,7 +142,7 @@ const jouerUneCarte = (cardUID) => {
 };
 
 // Fonction pour attaquer une carte
-const AttaquerUneCarte = (cardUID, targetUID) => {
+const AttaquerUneCarte = (cardUID, targetUID, carteDiv) => {
     let form = new FormData();
     form.append("cardUID", cardUID);
     form.append("targetUID", targetUID);
@@ -154,6 +154,12 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
     })
     .then(response => response.json())
     .then(data => {
+
+        
+        if(data == "MUST_ATTACK_TAUNT_FIRST" || data == "OPPONENT_CARD_HAS_STEALTH"){
+            // cartePeutPasEtreAttaquee(carteDiv)
+        }
+
         if (data == "MUST_ATTACK_TAUNT_FIRST"){
             // animationMessageErreur("Vous devez attaquer la carte avec Taunt en premier");
         } else if (data == "OPPONENT_CARD_NOT_FOUND"){
@@ -175,3 +181,13 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
     });
 };
 
+// si je fais en sorte de afficher que les cartes necessaire au lieu de tout effacer
+// const cartePeutPasEtreAttaquee = (carte) => {
+//     console.log("carte peut pas etre attaquee");
+    
+//     carte.classList.add("attaqued");
+
+//     setTimeout(() => {
+//         carte.classList.remove("attaqued");
+//     }, 700); // Durée de l'animation en millisecondes
+// };
