@@ -66,16 +66,16 @@
             }
         }
 
-        public static function getPartiesUsagerSpecifique($joueur__nom){
+        public static function getPartiesUsagerSpecifique($nom){
             try{
                 // connection a la base de donnee
                 $connection = Connection::getConnection();
                 // preparation de la requete
-                $sql = "SELECT * FROM parties_magix WHERE joueur__nom = :joueur_nom";
+                $sql = "SELECT * FROM parties_magix WHERE ennemi__nom = :nom";
                 // preparation de la requete
                 $statement = $connection->prepare($sql);
 
-                $statement->bindParam(':joueur_nom', $joueur__nom);
+                $statement->bindParam(':nom', $nom);
                 // execution de la requete
                 $statement->execute();
                 // recuperation des resultats

@@ -95,6 +95,7 @@ body{
     padding: 1em;
     transition: all 0.3s ease;
     font-size: 0.85em;
+    box-shadow: inset 5px 5px 20px rgb(0, 0, 0);
 }
 
 .container-choice-different-data.active {
@@ -139,7 +140,7 @@ body{
     flex-direction: column;
     justify-content: flex-end;
     
-
+    border-left: 2px solid white;
     padding-left: 0.25em;
     
 }
@@ -148,11 +149,12 @@ body{
     height: 100%;
     width: 100%;
     border-radius: 40px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .choice-type{
-    border-left: 2px solid white;
+    
 }
 .choice-usager > li, .choice-type > li{
     
@@ -161,7 +163,7 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.choice-usager > li::before {
+/* .choice-usager > li::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -171,7 +173,7 @@ body{
     height: 2px;
     background-color: white;
 
-}
+} */
 .checkbox-usager{
     height: 15px;
     width: 15px;
@@ -286,8 +288,10 @@ body{
     position: relative;
 
 }
-
-.item-stats::before {
+.text-joueur{
+    position: relative;
+}
+.text-joueur::before {
     content: '';
     width: 5px;
     height: 100%;
@@ -297,11 +301,11 @@ body{
     top: 0;
 }
 
-.item-stats.gagnant::before {
+.text-joueur.gagnant::before {
     background-color: rgb(129, 255, 129);
 }
 
-.item-stats.perdant::before {
+.text-joueur.perdant::before {
     background-color: rgb(255, 133, 133);
 }
 

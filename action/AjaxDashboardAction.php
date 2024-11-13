@@ -11,13 +11,12 @@
         protected function executeAction() {
 
             
-            // $usager_choisi = $_POST["usager"];
+            $usager_choisi = $_POST["usager"] ?? null; // Vérifie si l'usager est dans la requête
             
-
             $result = [
                 'parties' => UserDataBase::getParties(),
                 'ennemis' => UserDataBase::getNomDesUsagers(),
-                'username' => UserDataBase::getPartiesUsagerSpecifique("Hit-AI")
+                'username' => UserDataBase::getPartiesUsagerSpecifique($usager_choisi)
             ];
             
             return compact("result");

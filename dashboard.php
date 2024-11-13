@@ -11,25 +11,25 @@
 <script type="module" defer src="script/dashboard.js"></script>
 <link rel="stylesheet" href="style\css\dashboard.css">
 
-<div class="container-choice-different-data">
+    <div class="container-choice-different-data">
 
-<div class="choice-usager-container">
+        <div class="choice-usager-container">
 
-    <div class="usager-div-name">Usager</div>
-    <div class="choice-usager">
-       
+            <div class="usager-div-name">Usager</div>
+            <div class="choice-usager">
+            
+            </div>
+
+        </div>
+
+        <div class="choice-type-container">
+            <div class="type-div-name">Type</div>
+            <div class="choice-type">
+                
+            </div>
+        </div>
+
     </div>
-
-</div>
-
-<div class="choice-type-container">
-    <div class="type-div-name">Type</div>
-    <div class="choice-type">
-        
-    </div>
-</div>
-
-</div>
     <div class="blob_shadow_blur"></div>
     <div class="return-home">
         <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@
 
                    
 
-                    <div class="click-choice">Trier par : date</div>
+                    <div class="click-choice">Trier par : <span class="value-trier"></span></div>
                 </div>
                 <button id="confirmer-choix-board">Confirmer</button>
             </div>
