@@ -35,7 +35,6 @@
                 <ul>
                     <li id="partie_lancer_pvp">commencer une partie</li>
                     <li id="entrainement">entrainement</li>
-                    <li>commencer une grande partie</li>
                     <li id="openchat">chat en ligne</li>
                     <li id="theme">theme</li>
                     <li id="dashboard">dashboard</li>

@@ -12,16 +12,16 @@ let ouverture = false;
 
 
 window.addEventListener("load", () => {
+    value_trier.innerHTML = "Date";
+    stateTrier();
 
-   stateTrier();
+    // reinitialiser le localstorage
+    localStorage.removeItem("ennemi__choisi");
 
-   // reinitialiser le localstorage
-   localStorage.removeItem("ennemi__choisi");
+    return_home.addEventListener("click", retournerMenu);
+    choice_container.addEventListener("click", () => choisirType());
 
-   return_home.addEventListener("click", retournerMenu);
-   choice_container.addEventListener("click", () => choisirType());
-
-   confirmer_choix_button.addEventListener("click", () => stateDashboard());
+    confirmer_choix_button.addEventListener("click", () => stateDashboard());
    
 });
 
@@ -150,7 +150,7 @@ function createDivForDesktop(element){
     container_dash.appendChild(div_stats);
 }
 const afficherLesUsagers = (usagers) => {
-    let liType = ["Date", "Gagné", "Perdu"];
+    let liType = ["Date"];
 
 
     const ajouterUsagers = (elements, container) => {
@@ -165,7 +165,7 @@ const afficherLesUsagers = (usagers) => {
 
            
 
-            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.ennemi__nom));
+            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.ennemi__nom || element));
         });
     };
 
@@ -175,6 +175,8 @@ const afficherLesUsagers = (usagers) => {
 };
 
 const clickedUsagerType = (checkboxUsager, usager_ennemi) => {
+    console.log(usager_ennemi);
+    
     // verifier si l element cliquer a deja la classe active
     const isActive = checkboxUsager.classList.contains("active");
 
@@ -183,14 +185,18 @@ const clickedUsagerType = (checkboxUsager, usager_ennemi) => {
         checkbox.classList.remove("active");
     });
 
+
+
     // si l element cliquer contient active alors on enleve et on retire let localstorage
     if (isActive) {
         
         checkboxUsager.classList.remove("active");
         
         localStorage.removeItem("ennemi__choisi");
-        value_trier.innerHTML = "Date"
-        
+        value_trier.innerHTML = "Date";
+
+        // si aucun active alors on active le dernier qui est la date
+        activerDernierCheckBox();
     } else {
         // sinon alors on peut activer la classe tu connais mgl
         checkboxUsager.classList.add("active");
@@ -201,13 +207,21 @@ const clickedUsagerType = (checkboxUsager, usager_ennemi) => {
 };
 
 function choisirType() {
+    
+    activerDernierCheckBox();
     if (!ouverture) {
         container_choice_different_data.classList.add("active");
+  
     } else {
         container_choice_different_data.classList.remove("active");
     }
     // Bascule l'état de "ouverture"
     ouverture = !ouverture;
+}
+
+function activerDernierCheckBox() {
+    let checkboxes = document.querySelectorAll(".checkbox-usager");
+    checkboxes[checkboxes.length - 1].classList.add("active");
 }
 
 function retournerMenu() {
