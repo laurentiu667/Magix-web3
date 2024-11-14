@@ -12,6 +12,7 @@
 body{
     min-width: 500px;
     
+    
 }
 .container-login{
     width: 100%;
@@ -148,9 +149,14 @@ body{
     letter-spacing: 0.5px;
     display: none;
 }
-
+@media only screen and (max-width: 600px){
+    .right-login{
+        display: none;
+    }
+}
 
 @media only screen and (min-width: 800px){
+
     .texte-container-login h1{
         font-size: 5em;
         margin-bottom: -35px;
@@ -174,7 +180,7 @@ body{
         grid-template-columns: repeat(2, 1fr);
     }
     .right-login{
-        display: block;
+        display: none;
         width: 100%;
         height: 100%;
 
