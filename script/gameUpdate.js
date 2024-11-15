@@ -1,5 +1,5 @@
-let board_joueur = document.querySelector(".board-joueur");
-let board_ennemi = document.querySelector(".board-ennemi");
+let board_joueur = document.querySelector(".container-hand-joueur");
+let board_ennemi = document.querySelector(".container-hand-ennemi");
 let deck_container = document.querySelector(".hand-bottom-game"); 
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
 // let temps = document.querySelector(".temps");
@@ -86,8 +86,12 @@ export const gameUpdate = (data) => {
 
         board_joueur.innerHTML = '';
         data.board.forEach(carte => {
-         
-            
+          
+            if (!imagesMap[carte.uid]) {
+
+                // comme si je faisais { uid: 1, randomIMG: 1 }
+                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
+            }
             let randomIMG = imagesMap[carte.uid];
             let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state);
         });

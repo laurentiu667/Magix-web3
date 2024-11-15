@@ -21,12 +21,10 @@
 
 }
 .title-menu{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    background-image: url(/Images/title.svg);
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: clamp(300px, 70vw, 700px);
   
 }
 .wrapper-menu{
@@ -219,65 +217,6 @@
 .audio-off-on.active::after {
     width: 0px;
 }
-
-@media only screen and (max-width: 600px){
-    .The{
-        display: none;
-    }
-    .EldenRing{
-        display: none;
-    }
-    .X{
-        display: none;
-    }
-    .Magix{
-        display: none;
-    }
-    .Game{
-        display: none;
-    }
-}
-
-
-@media only screen and (max-width: 930px){
-    
-    .The{
-        font-size: 2.3em;
-        position: absolute;
-        margin-top: 30px;
-        color: rgb(0, 0, 0);
-        margin-left: 90px;
-    }
-    .EldenRing{
-        font-size: 5em;
-        position: absolute;
-        margin-top: 140px;
-        color: rgb(0, 0, 0);
-    }
-    .X{
-        font-size: 2em;
-        margin-top: 140px;
-        position: absolute;
-        margin-left: 50px;
-        color: rgb(0, 0, 0);
-    }
-    .Magix{
-        font-size: 3em;
-        position: absolute;
-        margin-top: 200px;
-        margin-left: -160px;
-        color: rgb(255, 255, 255);
-    }
-    .Game{
-        font-size: 3em;
-        position: absolute;
-        margin-top: 200px;
-        margin-right: 320px;
-        color: rgb(255, 255, 255);
-    }
-}
-
-
 
 .container-theme{
     display: none;

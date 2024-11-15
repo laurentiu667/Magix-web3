@@ -10,7 +10,7 @@
 
 
 body{
-    min-width: 500px;
+
     
     
 }
@@ -19,16 +19,14 @@ body{
     height: 100%;
     
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 2fr 1fr;
 }
 .left-login{
     width: 100%;
     height: 100%;
     background-color: var(--body-bg);
-    display: grid;
-    grid-template-rows: repeat(2,1fr);
+    display: flex;
     flex-direction: column;
-    gap: 5rem;
 
 }
 
@@ -40,61 +38,36 @@ body{
 }
 
 .texte-container-login{
-    width: 100%;
-    text-align: center;
-    font-weight: 300;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: column;
-    /* background-color: green; */
-}
-.texte-container-login h1{
-    font-size: 5em;
-    margin-bottom: -35px;
-}
-.texte-container-login h2{
-    margin-bottom: -30px;
-    margin-left: -60px;
-    font-size: 3em;
-}
-.texte-container-login h4 {
-    color: rgb(150, 30, 30);
-    font-size: 2em;
-    position: relative;
-    transition: color 1s ease;
+    height: 50%;
+    background-image: url(/Images/title.svg);
+    background-position:bottom;
+    background-repeat: no-repeat;
+    background-size: clamp(200px, 60vw, 600px);
+
 }
 
-.texte-container-login h4::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 15px; 
-    width: 0;
-    height: 1px;
-    background-color: black;
-    transition: width 1s ease;
-}
 
 .texte-container-login h4:hover::after {
     width: 100%;
 }
 .form-container{
-
+    height: 50%;
     width: 100%;
 
     display: grid;
     place-items: center;
+ 
 }
 .connection{
    
-    height: 100%;
+    height: fit-content;
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     gap: 2rem;
+
     
 }
 .username-container, .password-container{
@@ -134,7 +107,6 @@ body{
 
 }
 
-
 .user-not-exist{
     position: absolute;
     top: 0;
@@ -149,76 +121,41 @@ body{
     letter-spacing: 0.5px;
     display: none;
 }
-@media only screen and (max-width: 600px){
-    .right-login{
-        display: none;
-    }
-}
 
-@media only screen and (min-width: 800px){
+@media only screen and (max-width: 500px){
+    .texte-container-login{
+      margin-bottom: 5em;
+     
 
-    .texte-container-login h1{
-        font-size: 5em;
-        margin-bottom: -35px;
     }
-    .texte-container-login h2{
-        margin-bottom: -30px;
-        margin-left: -60px;
-        font-size: 3em;
-    }
-    .texte-container-login h4{
-        color: rgb(150, 30, 30);
-        font-size: 2em;
-    }
-    
-    
+    .connection{
+       align-self: flex-start;
+      
    
+    }
 }
-@media only screen and (min-width: 1000px){
+@media only screen and (max-width: 1000px){
+    .form-container{
+        align-self: flex-start;
+   
+    }
+    .connection{
+        width: 70%;
+    }
+    .username-container input, .password-container input, .submit-button{
+        height: 45px;
+        
+      
+    }
+}
+@media only screen and (max-width: 1000px){
+    
     .container-login{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
     .right-login{
         display: none;
-        width: 100%;
-        height: 100%;
-
-        background-size: cover;
-        background-repeat: no-repeat;
-        transition: all 0.3s cubic-bezier(1,0.54,.5,.51);
+      
     }
 }
 
-@media only screen and (min-width: 1200px){
-    .texte-container-login h1{
-        font-size: 6em;
-        margin-bottom: -40px;
-    }
-    .texte-container-login h2{
-        margin-bottom: -40px;
-        margin-left: -30px;
-        font-size: 4em;
-    }
-    .texte-container-login h4{
-        color: rgb(150, 30, 30);
-        font-size: 2em;
-    }
-}
-@media only screen and (min-width: 1400px){
-    .texte-container-login h1{
-        font-size: 8em;
-        margin-bottom: -65px;
-    }
-    .texte-container-login h2{
-        margin-bottom: -56px;
-        font-size: 6em;
-    }
-    .texte-container-login h4{
-        color: rgb(150, 30, 30);
-        font-size: 2em;
-    }
-}
-@media only screen and (min-width: 1600px){
-    
-}

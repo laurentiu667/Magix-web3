@@ -104,25 +104,31 @@ require_once("partial/layout/header.php");
                     </div>
                     
                 </div>
+
                 <div class="middle-game">
                     <div class="ennemi-card-board-count"></div>
                     <div class="board-game">
                         <div class="blur-wrapper-board">
 
-                            <div class="board-ennemi"></div>
-                            <div class="board-joueur"></div>
+                            <div class="board-ennemi">
+                                <div class="container-hand-ennemi"></div>
+                            </div>
+                            <div class="board-joueur">
+                                <div class="container-hand-joueur"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="side-game right-game">
-                <div class="wrapper-game-side">
+
+                    <div class="wrapper-game-side">
                         
                     
                         <div class="container-side">
 
                             <div class="top-side">
                                 <div class="image-side-game">
-                                    <div class="image-subject-ennemi"></div>
+                                    <div class="image-subject image-subject-ennemi"></div>
                                 </div>
                                 <div class="mana-health-side-game">
 

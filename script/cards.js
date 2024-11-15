@@ -1,6 +1,6 @@
 let deck_container = document.querySelector(".hand-bottom-game");
-let board_joueur = document.querySelector(".board-joueur");
-let board_ennemi = document.querySelector(".board-ennemi");
+let board_joueur = document.querySelector(".container-hand-joueur");
+let board_ennemi = document.querySelector(".container-hand-ennemi");
 let attack_hero = document.querySelector(".img-div-button-game-attackhero");
 
 let targetUID = null;

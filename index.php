@@ -28,9 +28,8 @@
             
             <div class="texte-container-login">
                 
-                <h1>Elden Ring</h1>
-                <h2>Made by</h2>
-                <h4>laurentiu</h4>
+            
+                
             </div>
 
             <div class="form-container">

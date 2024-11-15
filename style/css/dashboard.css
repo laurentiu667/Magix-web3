@@ -84,7 +84,7 @@ body{
     position: absolute;
     top: 20%; /* Centre verticalement */
     left: 50%; /* Centre horizontalement */
-    transform: translate(100vw, -50%); /* Centrage parfait au milieu */
+    transform: translate(-100vw, -50%); /* Centrage parfait au milieu */
     z-index: 1;
     height: fit-content;
     width: 0;

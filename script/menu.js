@@ -6,9 +6,6 @@ let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
 
 window.addEventListener("load", () => {
-
-    
-    commencerAudioMenu();
     
     if (iframe) {
         applyStyles(iframe);
@@ -65,27 +62,6 @@ const openTheChat = () => {
         } else {
             iframecontainer.style.display = "none";
             openedchat = false;
-        }
-    });
-};
-
-const commencerAudioMenu = () => {
-    const audio = document.querySelector(".audio-off-on");
-    const menuaudio = new Audio('/Audio/audio_menu.mp3');
-
-    let audio_on_off = false;
-    
-    audio.addEventListener("click", () => {
-        if (!audio_on_off) {
-            menuaudio.currentTime = 0; 
-            menuaudio.volume = 0.3;   
-            menuaudio.play();
-            audio.classList.toggle('active');
-            audio_on_off = true; 
-        } else {
-            audio.classList.toggle('active');
-            menuaudio.pause(); 
-            audio_on_off = false; 
         }
     });
 };
