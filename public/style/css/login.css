@@ -11,39 +11,83 @@
 
 body{
 
-    
-    
+    background-color: var(--body-bg);
+    overflow: hidden;
 }
 .container-login{
     width: 100%;
     height: 100%;
     
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+   
 }
 .left-login{
     width: 100%;
     height: 100%;
-    background-color: var(--body-bg);
+  
     display: flex;
     flex-direction: column;
+
 
 }
 
 .right-login{
-    background-image: url(/Images/bg6.gif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+   
+    position: relative;
+
+}
+.login-t1, .login-t2, .login-t3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    width: 80%;
+    place-self: center;
 }
 
+.login-image-right{
+ 
+    background-image: url(/Images/image-intro.svg);
+    background-position: center;
+    
+    background-repeat: no-repeat;
+  
+    background-size: clamp(300px, 60vw, 600px);
+    
+}
+.effet-lum--glob{
+    width: clamp(200px, 80%, 500px);
+    height: clamp(200px, 30%, 300px);
+   
+  
+    position: absolute;
+   
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(100px); 
+    
+}
+.effet-lumiere--1{
+    top: 100%;
+    background-color: hsla(0, 100%, 50%, 0.322);
+}
+.effet-lumiere--2{
+    top: 0%;
+    background-color: hsla(29, 100%, 50%, 0.322);
+}
 .texte-container-login{
     height: 50%;
     background-image: url(/Images/title.svg);
-    background-position:bottom;
+    background-position:center;
     background-repeat: no-repeat;
-    background-size: clamp(200px, 60vw, 600px);
-
+    background-size: clamp(300px, 60vw, 600px);
+   
 }
 
 
@@ -54,8 +98,10 @@ body{
     height: 50%;
     width: 100%;
 
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
  
 }
 .connection{
@@ -124,9 +170,9 @@ body{
 
 @media only screen and (max-width: 500px){
     .texte-container-login{
-      margin-bottom: 5em;
-     
-
+        margin-bottom: 1em;
+        background-position: bottom;
+        background-size: clamp(150px, 100vw, 1000px);
     }
     .connection{
        align-self: flex-start;
@@ -148,7 +194,7 @@ body{
       
     }
 }
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1200px){
     
     .container-login{
         grid-template-columns: 1fr;
