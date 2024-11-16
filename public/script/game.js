@@ -28,6 +28,8 @@ let jeux_en_cours = true;
 
 export let jeux_peut_commencer = false;
 
+import { afficher_tour_joueur_ou_erreur } from "./gameUpdate.js";
+
 window.addEventListener("load", () => {
     let background = localStorage.getItem("theme");
     container_game.style.backgroundImage = `url(Images/${background}.gif)`;
@@ -97,10 +99,10 @@ const heroPower = () => {
     .then(response => response.json())
     .then(data => {
         if(data == "HERO_POWER_ALREADY_USED"){
-            // animationMessageErreur("Pouvoir héroique déjà utilisé");
+            afficher_tour_joueur_ou_erreur("Pouvoir déjà utilisé", "#D43232");
         } 
         else if (data == "NOT_ENOUGH_ENERGY"){
-            // animationMessageErreur("Pas assez de mana");
+            afficher_tour_joueur_ou_erreur("Pas assez d'énergie", "#D43232");
         }
         else {
             if(jeux_en_cours == true){

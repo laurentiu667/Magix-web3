@@ -27,6 +27,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
 
 }
@@ -166,9 +167,9 @@ body{
 
 .user-not-exist{
     position: absolute;
-    top: 0;
-    left: 350px;
-    width: 250px;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 50px;
     background-color: rgb(255, 103, 103);
     border: 1px solid black;
@@ -176,8 +177,15 @@ body{
     display: grid;
     place-items: center;
     letter-spacing: 0.5px;
-    display: none;
+    font-size: clamp(0.7em, 2vw, 20px);
+    text-align: center;
+    transition: all 0.3s ease-in;
 }
+.user-not-exist.active{
+    top: 150px;
+}
+
+
 
 @media only screen and (max-width: 500px){
     .texte-container-login{

@@ -1,12 +1,9 @@
 let buttonSubmit = document.querySelector("#submit");
+
 window.addEventListener("load", () => {
-
-
-
 
     buttonSubmit.addEventListener("click", () => {
         createConnectionForm();
-        
     })
 
 })
@@ -30,8 +27,11 @@ const createConnectionForm = () => {
 
         if (data === "INVALID_USERNAME_PASSWORD") {
             let userdivnotexist = document.querySelector(".user-not-exist");
-            userdivnotexist.style.display = "grid";
-            animateLock(userdivnotexist);
+            userdivnotexist.classList.add("active");
+            setTimeout(() => {
+                userdivnotexist.classList.remove("active");
+            }, 2000);
+       
         } else {
             window.location.href = "menu.php";
             console.log(data.key);   
@@ -39,19 +39,3 @@ const createConnectionForm = () => {
     });
 }
 
-const animateLock = (userdivnotexist) => {
-    let y = 0;
-    let opacity = 1;
-
-    const tick = () => {
-        if (y < 250) {
-            y += 1;
-            opacity -= 0.004;  
-            userdivnotexist.style.transform = "translateY(" + y + "px)";
-            userdivnotexist.style.opacity = opacity;
-            window.requestAnimationFrame(tick);
-        }
-    }
-
-    tick();
-}

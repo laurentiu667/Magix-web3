@@ -580,16 +580,16 @@ body {
 .message-erreur--1.active-animation {
   
     position: absolute;
-    top: 39.5%;
+    top: 67.8%;
     left: 42%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 400px;
     height: 50px;
     transform: skew(-20deg);
     background-color: #222222;
     box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
     border-radius: 5px;
-    animation: animation 1.6s cubic-bezier(.15,1,.88,-0.01);      
+    animation: animation 3s cubic-bezier(.15,1,.88,-0.01);      
     z-index: 5000;
     display: flex; 
     align-items: center;
@@ -599,7 +599,7 @@ body {
 .style-div-erreur-before {
  
     position: absolute; 
-    width: 300px;
+    width: 400px;
     height: 50px;
     border-radius: 5px;
     background-color: #D43232;
@@ -607,13 +607,13 @@ body {
     box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
     top: 10px; 
     left: -10px;
- 
+    
     z-index: 4999; /* S'assure qu'il reste derrière */
     display: flex;
     align-items: center;
     justify-content: center;
     color: #222222;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 

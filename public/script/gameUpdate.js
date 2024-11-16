@@ -95,14 +95,14 @@ const avertirjoueurdangerTemps = (temps) => {
 };
 
 
-const afficher_tour_joueur = (texte, couleurediv) => {
+export const afficher_tour_joueur_ou_erreur = (texte, couleurediv) => {
   
     afficher_tour.classList.add("active-animation");
     afficher_tour_message.innerHTML = texte;
     afficher_tour_message.style.backgroundColor = couleurediv;
     setTimeout(() => {
         afficher_tour.classList.remove("active-animation");
-    }, 1500);
+    }, 2950);
     
 }
 
@@ -125,9 +125,9 @@ const jouerAnimationTour = (data) => {
         dernierTour = data.yourTurn;
 
         if (data.yourTurn) {
-            afficher_tour_joueur("votre tour", "#3278D4");
+            afficher_tour_joueur_ou_erreur("votre tour", "#3278D4");
         } else {
-            afficher_tour_joueur("tour de l’adversaire", "#D43232" );
+            afficher_tour_joueur_ou_erreur("tour de l’adversaire", "#D43232" );
         }
     }
 }
@@ -158,7 +158,7 @@ const mettreAJourLesBoards = (data) => {
                 imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
             }
             let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG, carte.state);
+            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG, carte.state, data.yourTurn);
         });
 
         board_joueur.innerHTML = '';
@@ -170,7 +170,7 @@ const mettreAJourLesBoards = (data) => {
                 imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
             }
             let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state);
+            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state, data.yourTurn);
         });
     
         board_ennemi.innerHTML = '';
@@ -179,7 +179,7 @@ const mettreAJourLesBoards = (data) => {
                 imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
             }
             let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG, carte.state);
+            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG, carte.state, data.yourTurn);
         });
         ennemi_card_board_count.innerHTML = '';
         for (let i = 0; i < data.opponent.handSize; i++) {

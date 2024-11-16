@@ -21,13 +21,14 @@
 
 
 
-    <div class="user-not-exist">
-        sorry but the user do not exist
-    </div>
+    
    
     <div class="container-login">
    
         <div class="left-login">
+            <div class="user-not-exist">
+                sorry but the user do not exist
+            </div>
             
             <div class="wrapper-left-login">
                 <div class="texte-container-login">

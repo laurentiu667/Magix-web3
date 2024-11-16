@@ -9,9 +9,10 @@ let mycardUID = null;
 let messageErreur = document.querySelector(".messageErreur");
 
 import { gameUpdate } from "./gameUpdate.js";
+import { afficher_tour_joueur_ou_erreur } from "./gameUpdate.js";
 
 export class Cards {
-    constructor(cardATK, cardBASEHP, cardCOST, cardHP, cardID, cardMECHANICS, cardUID, divAppend, cardIMG, cardSTATE) {
+    constructor(cardATK, cardBASEHP, cardCOST, cardHP, cardID, cardMECHANICS, cardUID, divAppend, cardIMG, cardSTATE, yourTurn) {
         this.cardATK = cardATK;
         this.cardBASEHP = cardBASEHP;
         this.cardCOST = cardCOST;
@@ -22,6 +23,7 @@ export class Cards {
         this.divAppend = divAppend;
         this.cardIMG = cardIMG;
         this.cardSTATE = cardSTATE;
+        this.yourTurn = yourTurn;
         this.creationCarteDiv();
     }
 
@@ -68,7 +70,7 @@ export class Cards {
                 console.log("Carte du joueur sélectionnée : " + mycardUID);
             }
 
-            if (this.cardSTATE === "IDLE"){
+            if (this.cardSTATE === "IDLE" && this.yourTurn === true){
                 carteDiv.classList.toggle("idle");
             }
 
@@ -76,7 +78,7 @@ export class Cards {
                 
                 if(mycardUID != null ){
                     AttaquerUneCarte(mycardUID, 0);
-                    console.log("hero attaquer");
+                    
                 } else {
                     
                 }
@@ -126,11 +128,11 @@ const jouerUneCarte = (cardUID) => {
     .then(response => response.json())
     .then(data => {
         if (data == "NOT_ENOUGH_ENERGY"){
-            // animationMessageErreur("Pas assez d'énergie");
+            afficher_tour_joueur_ou_erreur("Pas assez d'énergie", "#D43232");
         } else if (data == "NOT_YOUR_TURN"){
-            // animationMessageErreur("Ce n'est pas votre tour");
+            afficher_tour_joueur_ou_erreur("Ce n'est pas votre tour", "#D43232");
         } else if (data == "BOARD_IS_FULL"){
-            // animationMessageErreur("Le board est plein");
+            afficher_tour_joueur_ou_erreur("Le board est plein", "#D43232");
         } else {
             gameUpdate(data);
             // ici je dois update le game mais ca bug et ca me ban si je le met ici 
@@ -156,18 +158,15 @@ const AttaquerUneCarte = (cardUID, targetUID, carteDiv) => {
     .then(data => {
 
         
-        if(data == "MUST_ATTACK_TAUNT_FIRST" || data == "OPPONENT_CARD_HAS_STEALTH"){
-            // cartePeutPasEtreAttaquee(carteDiv)
-        }
-
+    
         if (data == "MUST_ATTACK_TAUNT_FIRST"){
-            // animationMessageErreur("Vous devez attaquer la carte avec Taunt en premier");
+            afficher_tour_joueur_ou_erreur("Vous devez attaquer la carte avec Taunt en premier", "#D43232");
         } else if (data == "OPPONENT_CARD_NOT_FOUND"){
-            // animationMessageErreur("Carte de l'adversaire non trouvée");
+            afficher_tour_joueur_ou_erreur("Carte de l'adversaire non trouvée", "#D43232");
         } else if (data == "OPPONENT_CARD_HAS_STEALTH"){
-            // animationMessageErreur("Carte de l'adversaire a Stealth");
+            afficher_tour_joueur_ou_erreur("Carte de l'adversaire a Stealth", "#D43232");
         } else if (data == "CARD_IS_SLEEPING"){
-            // animationMessageErreur("Carte sleeping");
+            afficher_tour_joueur_ou_erreur("Carte sleeping", "#D43232");
         }
         else{
             // reini les cartes sélectionnées
