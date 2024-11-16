@@ -83,7 +83,7 @@ require_once("partial/layout/header.php");
                                     <div class="container-message-card">
 
                                         <div class="card-remaining">
-                                            <div class="text-cr">Card Remaining</div>
+                                            <div class="text-cr">Card</div>
                                             <div class="number-card"></div>
 
                                         </div>
@@ -165,7 +165,7 @@ require_once("partial/layout/header.php");
                                     <div class="container-message-card">
 
                                         <div class="card-remaining">
-                                            <div class="text-cr">Card Remaining</div>
+                                            <div class="text-cr">Cards</div>
                                             <div class="number-card number-card-ennemi"> </div>
 
                                         </div>

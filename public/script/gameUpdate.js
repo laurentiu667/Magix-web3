@@ -29,95 +29,35 @@ let afficher_tour_message = document.querySelector(".style-div-erreur-before");
 
 // let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
-
+import { jeux_peut_commencer } from "./game.js";
 
 let imagesMap = {}; // hashmap => uid => randomIMG
+
+let faireAnimationUnefois = false; // Indicateur d'animation pour éviter les répétitions
+let dernierTour = null; // Suivi du dernier état de `yourTurn`
 
 
 export const gameUpdate = (data) => {
 
 
     if (data === "WAITING") {
-        console.log(data);
-    } else if (data === "LAST_GAME_WON") {
        
-    } else if (data === "LAST_GAME_LOST") {
-        
-    } else {
+    } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
+
+    }  
+    else {
       
-        // METTRE A JOUR LES INFOS DU JOUEUR
-        joueur_vie.innerHTML = data.hp;
-        joueur_mana.innerHTML = data.mp;
-        ennemi_vie.innerHTML = data.opponent.hp;
-        ennemi_mana.innerHTML = data.opponent.mp;
-        ennemi_nom.innerHTML = data.opponent.username;
-        joueur_message.innerHTML = data.welcomeText
-        ennemi_message.innerHTML = data.opponent.welcomeText
-        joueur_card_number.innerHTML = data.remainingCardsCount
-        ennemi_card_number.innerHTML = data.opponent.remainingCardsCount
+        if(jeux_peut_commencer){
+            mettreAjourEtatJoueur(data);
 
-        
-        if (data.yourTurn) {
-            avertirjoueurdangerTemps(data.remainingTurnTime);
-            temps_restant_ennemi.innerHTML = "wait for your turn";
-        
-         
-        
-            temps_restant.innerHTML = data.remainingTurnTime;
-        } else {
-           
-        
-            danger_alert.classList.remove("animation-extra-danger");
-            temps_restant_ennemi.innerHTML = data.remainingTurnTime;
-            temps_restant.innerHTML = "wait for your turn";
-        }
-        
-
-        // temps.innerHTML = data.remainingTurnTime;
-        mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
-    
-        console.log(data);
-        
-        deck_container.innerHTML = ''; 
-        data.hand.forEach(carte => {
+            jouerAnimationTour(data);
             
-            if (!imagesMap[carte.uid]) {
+            mettreAJourTempsJoueur(data);
+            
+            mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
 
-                // comme si je faisais { uid: 1, randomIMG: 1 }
-                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
-            }
-            let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG, carte.state);
-        });
-
-        board_joueur.innerHTML = '';
-        data.board.forEach(carte => {
-          
-            if (!imagesMap[carte.uid]) {
-
-                // comme si je faisais { uid: 1, randomIMG: 1 }
-                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
-            }
-            let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state);
-        });
-    
-        board_ennemi.innerHTML = '';
-        data.opponent.board.forEach(carte => {
-            if (!imagesMap[carte.uid]) {
-                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
-            }
-            let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG, carte.state);
-        });
-        ennemi_card_board_count.innerHTML = '';
-        for (let i = 0; i < data.opponent.handSize; i++) {
-            let divCarteEnnemiCounter = document.createElement("div");
-            divCarteEnnemiCounter.classList.add("carteEnnemiCount");
-            ennemi_card_board_count.appendChild(divCarteEnnemiCounter);
+            mettreAJourLesBoards(data);
         }
-
-        
 
     }
 };
@@ -155,11 +95,96 @@ const avertirjoueurdangerTemps = (temps) => {
 };
 
 
-const afficher_tour_joueur = (texte) => {
+const afficher_tour_joueur = (texte, couleurediv) => {
+  
     afficher_tour.classList.add("active-animation");
     afficher_tour_message.innerHTML = texte;
-
+    afficher_tour_message.style.backgroundColor = couleurediv;
     setTimeout(() => {
         afficher_tour.classList.remove("active-animation");
-    }, 3000);
+    }, 1500);
+    
+}
+
+const mettreAjourEtatJoueur = (data) => {
+     // METTRE A JOUR LES INFOS DU JOUEUR
+     joueur_vie.innerHTML = data.hp;
+     joueur_mana.innerHTML = data.mp;
+     ennemi_vie.innerHTML = data.opponent.hp;
+     ennemi_mana.innerHTML = data.opponent.mp;
+     ennemi_nom.innerHTML = data.opponent.username;
+     joueur_message.innerHTML = data.welcomeText
+     ennemi_message.innerHTML = data.opponent.welcomeText
+     joueur_card_number.innerHTML = data.remainingCardsCount
+     ennemi_card_number.innerHTML = data.opponent.remainingCardsCount
+}
+
+const jouerAnimationTour = (data) => {
+    // seulement si le tour a changé
+    if (data.yourTurn !== dernierTour) {
+        dernierTour = data.yourTurn;
+
+        if (data.yourTurn) {
+            afficher_tour_joueur("votre tour", "#3278D4");
+        } else {
+            afficher_tour_joueur("tour de l’adversaire", "#D43232" );
+        }
+    }
+}
+
+const mettreAJourTempsJoueur = (data) => {
+    if (data.yourTurn) {
+
+           
+        avertirjoueurdangerTemps(data.remainingTurnTime);
+        temps_restant_ennemi.innerHTML = "wait for your turn";
+        temps_restant.innerHTML = data.remainingTurnTime;
+    } else {
+       
+    
+        danger_alert.classList.remove("animation-extra-danger");
+        temps_restant_ennemi.innerHTML = data.remainingTurnTime;
+        temps_restant.innerHTML = "wait for your turn";
+    }
+}
+
+const mettreAJourLesBoards = (data) => {
+    deck_container.innerHTML = ''; 
+        data.hand.forEach(carte => {
+            
+            if (!imagesMap[carte.uid]) {
+
+                // comme si je faisais { uid: 1, randomIMG: 1 }
+                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
+            }
+            let randomIMG = imagesMap[carte.uid];
+            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG, carte.state);
+        });
+
+        board_joueur.innerHTML = '';
+        data.board.forEach(carte => {
+          
+            if (!imagesMap[carte.uid]) {
+
+                // comme si je faisais { uid: 1, randomIMG: 1 }
+                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
+            }
+            let randomIMG = imagesMap[carte.uid];
+            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state);
+        });
+    
+        board_ennemi.innerHTML = '';
+        data.opponent.board.forEach(carte => {
+            if (!imagesMap[carte.uid]) {
+                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
+            }
+            let randomIMG = imagesMap[carte.uid];
+            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG, carte.state);
+        });
+        ennemi_card_board_count.innerHTML = '';
+        for (let i = 0; i < data.opponent.handSize; i++) {
+            let divCarteEnnemiCounter = document.createElement("div");
+            divCarteEnnemiCounter.classList.add("carteEnnemiCount");
+            ennemi_card_board_count.appendChild(divCarteEnnemiCounter);
+        }
 }

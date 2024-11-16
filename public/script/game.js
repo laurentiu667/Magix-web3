@@ -24,30 +24,20 @@ import { gameUpdate } from "./gameUpdate.js";
 
 let animationUnefois = false;
 
-
-
 let jeux_en_cours = true;
+
+export let jeux_peut_commencer = false;
 
 window.addEventListener("load", () => {
     let background = localStorage.getItem("theme");
     container_game.style.backgroundImage = `url(Images/${background}.gif)`;
 
+    endturn.addEventListener("click", () => {endTurn()});
 
-    endturn.addEventListener("click", () => {
-        console.log("endturn");
-        
-        endTurn();
-    });
-    hero.addEventListener("click", () => {
-        console.log("hero");
-        
-        heroPower();
-    });
-    surrender.addEventListener("click", () => {
-        console.log("surrender");
-        
-        surrenderGame();
-    });
+    hero.addEventListener("click", () => { heroPower()});
+
+    surrender.addEventListener("click", () => {surrenderGame()});
+
     if(jeux_en_cours == true){
         setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
     } 
@@ -60,98 +50,16 @@ const state = () => {
     })
     .then(response => response.json())
     .then(data => {
-
-    
         if(data === "WAITING"){
-            animation_rideau.innerHTML = "En attente d'un adversaire";
-            animation_rideau.classList.add("animation");
+            animationTrouverAdversaire();
           
-      
         } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
-            jeux_en_cours = false;
-            setTimeout(() => {
-        
-                deck_container.classList.remove("animation");
-                ennemi_card_board_count.classList.remove("animation");
-               
-            }, 500);
-
-            setTimeout(() => {
-                left_game.classList.remove("animation");
-                right_game.classList.remove("animation");
-
-            }, 800);
-            setTimeout(() => {
-                board_ennemi.classList.remove("animation");
-                board_joueur.classList.remove("animation");
-
-            }, 1200);
-            setTimeout(() => {
-                animation_versus_div.style.display = "flex";
-                nom_joueur_animation.classList.remove("animation");
-                nom_ennemi_animation.classList.remove("animation");
-                animation_versus_text.classList.remove("animation");
-
-                
-                nom_joueur_animation.classList.add("animation_engame");
-                nom_ennemi_animation.classList.add("animation_engame");
-
-                animation_versus_text.classList.add("animation_engame");
-
-              
-                if(data === "LAST_GAME_WON"){
-                    animation_versus_text.innerHTML = "gagné contre";
-                } else {
-                    animation_versus_text.innerHTML = "perdu contre";
-                }
-
-
-                
-              
-            }, 1500);
-            setTimeout(() => {
-                window.location.href = "menu.php";
-            }, 3500);
+            enleverAnimationBoard(data);
         }
         else {
+            ajouterAnimationBoard(data);
 
-         
-    
-            animation_rideau.style.display = "none";
-          
-           
-            if(animationUnefois == false){
-                //settimeout pour laisser le temps à la carte de se jouer
-                nom_joueur_animation.classList.add("animation");
-                nom_ennemi_animation.classList.add("animation");
-
-                animation_versus_text.classList.add("animation");
-
-                nom_ennemi_animation.innerHTML = data.opponent.username;
-                animation_versus_text.innerHTML = "VS";
-                nom_joueur_animation.innerHTML = username_player.innerHTML;
-                setTimeout(() => {
-                    animation_versus_div.style.display = "none";
-                    deck_container.classList.add("animation");
-                    ennemi_card_board_count.classList.add("animation");
-                   
-                    
-
-                }, 2300);
-
-                setTimeout(() => {
-                    left_game.classList.add("animation");
-                    right_game.classList.add("animation");
-
-                }, 2800);
-                setTimeout(() => {
-                    board_ennemi.classList.add("animation");
-                    board_joueur.classList.add("animation");
-
-                }, 2200);
-                
-                animationUnefois = true;
-            }
+            
             if(jeux_en_cours == true){
                 gameUpdate(data);
             } 
@@ -214,4 +122,91 @@ const surrenderGame = () => {
     });
 }
 
+const animationTrouverAdversaire = () => {
+    animation_rideau.innerHTML = "En attente d'un adversaire";
+    animation_rideau.classList.add("animation");
+  
+}
+const enleverAnimationBoard = (data) => {
+    jeux_en_cours = false;
+    setTimeout(() => {
 
+        deck_container.classList.remove("animation");
+        ennemi_card_board_count.classList.remove("animation");
+       
+    }, 500);
+
+    setTimeout(() => {
+        left_game.classList.remove("animation");
+        right_game.classList.remove("animation");
+
+    }, 800);
+    setTimeout(() => {
+        board_ennemi.classList.remove("animation");
+        board_joueur.classList.remove("animation");
+
+    }, 1200);
+    setTimeout(() => {
+        animation_versus_div.style.display = "flex";
+        nom_joueur_animation.classList.remove("animation");
+        nom_ennemi_animation.classList.remove("animation");
+        animation_versus_text.classList.remove("animation");
+
+        
+        nom_joueur_animation.classList.add("animation_engame");
+        nom_ennemi_animation.classList.add("animation_engame");
+
+        animation_versus_text.classList.add("animation_engame");
+
+      
+        if(data === "LAST_GAME_WON"){
+            animation_versus_text.innerHTML = "gagné contre";
+        } else {
+            animation_versus_text.innerHTML = "perdu contre";
+        }
+
+
+        
+      
+    }, 1500);
+    setTimeout(() => {
+        window.location.href = "menu.php";
+    }, 3500);
+}
+
+const ajouterAnimationBoard = (data) => {
+  
+    animation_rideau.style.display = "none";
+        
+    if(animationUnefois == false){
+        //settimeout pour laisser le temps à la carte de se jouer
+        nom_joueur_animation.classList.add("animation");
+        nom_ennemi_animation.classList.add("animation");
+
+        animation_versus_text.classList.add("animation");
+
+        nom_ennemi_animation.innerHTML = data.opponent.username;
+        animation_versus_text.innerHTML = "VS";
+        nom_joueur_animation.innerHTML = username_player.innerHTML;
+        setTimeout(() => {
+            animation_versus_div.style.display = "none";
+            deck_container.classList.add("animation");
+            ennemi_card_board_count.classList.add("animation");
+        }, 2300);
+
+        setTimeout(() => {
+            left_game.classList.add("animation");
+            right_game.classList.add("animation");
+
+            // pour dire dans gameUpdate que on peut mettre a jour les données quand le jeux a commencer apres l animation versus
+            jeux_peut_commencer = true;
+        }, 2800);
+        setTimeout(() => {
+            board_ennemi.classList.add("animation");
+            board_joueur.classList.add("animation");
+
+        }, 2200);
+        
+        animationUnefois = true;
+    }
+}
