@@ -18,6 +18,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 .blur-wrapper{
     width: 100%;
@@ -555,4 +556,51 @@ body {
 }
 
 
+.message-erreur--1{
+    transform: translateX(-100vw);
+}
+.message-erreur--1.active-animation {
+    width: 300px;
+    height: 50px;
+    transform: skew(-20deg);
+    background-color: #222222;
+    box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skew(-20deg); 
+    z-index: 5000;
+    border-radius: 5px;
+  
+    animation: animation 3s cubic-bezier(.15,1,.88,-0.01);
+  
+}
 
+.style-div-erreur-before {
+    position: absolute; 
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #D43232;
+    border: 2px solid #222222;
+    box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
+    top: 10px; 
+    left: -10px;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222222;
+    font-size: 1.5em;
+}
+
+
+@keyframes animation{
+    0%{
+        transform: translateX(100vw);
+    }
+   
+    100%{
+        transform: translateX(-100vw);
+    }
+}

@@ -12,7 +12,7 @@
 body{
 
     background-color: var(--body-bg);
-
+    overflow: hidden;
 }
 .container-login{
     width: 100%;
@@ -93,11 +93,11 @@ body{
 }
 .effet-lumiere--1{
     top: 100%;
-    background-color: hsla(0, 100%, 50%, 0.322);
+    background-color: hsla(0, 100%, 50%, 0.219);
 }
 .effet-lumiere--2{
     top: 0%;
-    background-color: hsla(29, 100%, 50%, 0.322);
+    background-color: hsla(253, 100%, 50%, 0.322);
 }
 
 
@@ -211,4 +211,3 @@ body{
       
     }
 }
-

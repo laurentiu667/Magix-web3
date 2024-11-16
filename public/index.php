@@ -18,6 +18,9 @@
     <title>Login</title>
 </head>
 <body>
+
+
+
     <div class="user-not-exist">
         sorry but the user do not exist
     </div>
@@ -56,8 +59,8 @@
          
         </div>
         <div class="right-login" id="slideIMG">
-            <!-- <div class="effet-lum--glob effet-lumiere--1"></div>
-            <div class="effet-lum--glob effet-lumiere--2"></div> -->
+            <div class="effet-lum--glob effet-lumiere--1"></div>
+            <div class="effet-lum--glob effet-lumiere--2"></div>
 
             <div class="login-t1">Ton voyage a commencé, Ténébreux</div>
             <div class="login-image-right"></div>

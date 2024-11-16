@@ -28,8 +28,12 @@ require_once("partial/layout/header.php");
 
     </div>
     <div class="danger-alert"></div>
-
+    <div class="message-erreur--1">
+        <div class="style-div-erreur-before">VOTRE TOUR</div>
+    </div>
+    
     <div class="container-game">
+  
 
         <div class="blur-wrapper">
 

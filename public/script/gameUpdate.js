@@ -24,12 +24,15 @@ let temps_restant = document.querySelector(".temps-restant")
 let temps_restant_ennemi = document.querySelector(".temps-restant-ennemi")
 
 let danger_alert = document.querySelector(".danger-alert");
+let afficher_tour = document.querySelector(".message-erreur--1");
+let afficher_tour_message = document.querySelector(".style-div-erreur-before");
 
 // let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
 
 
 let imagesMap = {}; // hashmap => uid => randomIMG
+
 
 export const gameUpdate = (data) => {
 
@@ -54,18 +57,21 @@ export const gameUpdate = (data) => {
         ennemi_card_number.innerHTML = data.opponent.remainingCardsCount
 
         
-        if (data.yourTurn){
+        if (data.yourTurn) {
             avertirjoueurdangerTemps(data.remainingTurnTime);
             temps_restant_ennemi.innerHTML = "wait for your turn";
+        
+         
+        
             temps_restant.innerHTML = data.remainingTurnTime;
         } else {
-            
-            danger_alert.classList.remove("animation-extra-danger");
            
-       
+        
+            danger_alert.classList.remove("animation-extra-danger");
             temps_restant_ennemi.innerHTML = data.remainingTurnTime;
             temps_restant.innerHTML = "wait for your turn";
         }
+        
 
         // temps.innerHTML = data.remainingTurnTime;
         mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
@@ -149,3 +155,11 @@ const avertirjoueurdangerTemps = (temps) => {
 };
 
 
+const afficher_tour_joueur = (texte) => {
+    afficher_tour.classList.add("active-animation");
+    afficher_tour_message.innerHTML = texte;
+
+    setTimeout(() => {
+        afficher_tour.classList.remove("active-animation");
+    }, 3000);
+}
