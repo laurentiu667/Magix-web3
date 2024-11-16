@@ -26,36 +26,38 @@
    
         <div class="left-login">
             
-            <div class="texte-container-login">
-
-            </div>
-
-            <div class="form-container">
-                
-                
-                <div class="connection">
-
-                    <div class="username-container">
-                        <p>USERNAME</p>
-                        <input type="text" name="username" id="username">
-                    </div>
-
-                    <div class="password-container">
-                        <p>PASSWORD</p>
-                        <input type="password" name="password" id="password">
-                    </div>
-
-                    <button type="submit" id="submit" class="submit-button">LOGIN</button>
+            <div class="wrapper-left-login">
+                <div class="texte-container-login">
 
                 </div>
-                
+
+                <div class="form-container">
+                    
+                    
+                    <div class="connection">
+
+                        <div class="username-container">
+                            <p>USERNAME</p>
+                            <input type="text" name="username" id="username">
+                        </div>
+
+                        <div class="password-container">
+                            <p>PASSWORD</p>
+                            <input type="password" name="password" id="password">
+                        </div>
+
+                        <button type="submit" id="submit" class="submit-button">LOGIN</button>
+
+                    </div>
+                    
+                </div>
             </div>
             
          
         </div>
         <div class="right-login" id="slideIMG">
-            <div class="effet-lum--glob effet-lumiere--1"></div>
-            <div class="effet-lum--glob effet-lumiere--2"></div>
+            <!-- <div class="effet-lum--glob effet-lumiere--1"></div>
+            <div class="effet-lum--glob effet-lumiere--2"></div> -->
 
             <div class="login-t1">Ton voyage a commencé, Ténébreux</div>
             <div class="login-image-right"></div>
