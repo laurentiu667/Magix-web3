@@ -9,6 +9,7 @@
 ?>  
     <script defer src="script/menu.js"></script>
     <script type="module" defer src="script/typeGame.js"></script>
+    <script type="module" defer src="script/logout.js"></script>
     <link  rel="stylesheet" href="style/css/menu.css">
 
     <div class="container-theme">
