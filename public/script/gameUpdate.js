@@ -26,6 +26,7 @@ let temps_restant_ennemi = document.querySelector(".temps-restant-ennemi")
 let danger_alert = document.querySelector(".danger-alert");
 let afficher_tour = document.querySelector(".message-erreur--1");
 let afficher_tour_message = document.querySelector(".style-div-erreur-before");
+let message_erreur__1 = document.querySelector(".message-erreur--1");
 
 // let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
@@ -44,8 +45,12 @@ export const gameUpdate = (data) => {
        
     } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
 
-    }  
+    } else if (data == "WRONG_TURN") {
+        afficher_tour_joueur_ou_erreur("Ce n’est pas votre tour", "#D43232");
+    }
     else {
+        console.log(data);
+        
       
         if(jeux_peut_commencer){
             mettreAjourEtatJoueur(data);
@@ -100,6 +105,7 @@ export const afficher_tour_joueur_ou_erreur = (texte, couleurediv) => {
     afficher_tour.classList.add("active-animation");
     afficher_tour_message.innerHTML = texte;
     afficher_tour_message.style.backgroundColor = couleurediv;
+    message_erreur__1.style.border = `2px solid ${couleurediv}`;
     setTimeout(() => {
         afficher_tour.classList.remove("active-animation");
     }, 2950);

@@ -11,6 +11,7 @@ require_once("partial/layout/header.php");
 <link rel="stylesheet" href="style/css/card.css">
 <link rel="stylesheet" href="style/css/cardeffect.css">
 <link rel="stylesheet" href="style/css/arenaProto.css">
+<link rel="stylesheet" href="style/css/loading.css">
 
 <script type="module" defer src="script/game.js"></script>
 
@@ -19,7 +20,14 @@ require_once("partial/layout/header.php");
 
 
     <div class="animation-rideau">
-       
+        <div class="wrapper">
+            <div class="first-loading">
+                <div class="primary-load"></div>
+            </div>
+            <div class="second-loading">
+                <div class="primary-load"></div>
+            </div>
+        </div>
     </div>
     <div class="animation-versus">
         <div class="animation-joueur"></div>
@@ -28,11 +36,15 @@ require_once("partial/layout/header.php");
 
     </div>
     <div class="danger-alert"></div>
-    <div class="message-erreur--1">
-        <div class="style-div-erreur-before">VOTRE TOUR</div>
-    </div>
+   
     
     <div class="container-game">
+        <div class="message-skew-erreur">
+            <div class="message-erreur--1">
+                <div class="style-div-erreur-before">VOTRE TOUR</div>
+            </div>
+        </div>
+        
   
 
         <div class="blur-wrapper">

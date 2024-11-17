@@ -394,6 +394,7 @@ body {
 
 
 .animation-rideau{
+    background-color: black;
     content: '';
     position: absolute;
     bottom: 0;
@@ -401,7 +402,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 100;
-    transition: all 2s ease-in-out;
+    transition: all 3.3s ease-in-out;
 
     display: flex;
     align-items: center;
@@ -410,11 +411,13 @@ body {
     color: rgb(0, 0, 0);
     font-size: 1em;
     text-transform: uppercase;
+    opacity: 1;
 }
 .animation-rideau.animation{
     width: 100%;
     height: 100%;
-    font-size: 6em;
+    opacity: 0;
+
 }
 
 .animation-versus{
@@ -571,21 +574,19 @@ body {
     }
 }
 
-
+.message-skew-erreur{
+    position: absolute;
+    top: 70.2%;
+    left: 50%;
+    transform: translate(-50%, -50%) skew(-20deg);
+    z-index: 6000;
+}
 .message-erreur--1{
     transform: translateX(-100vw);
-
-
 }
 .message-erreur--1.active-animation {
-  
-    position: absolute;
-    top: 67.8%;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 50px;
-    transform: skew(-20deg);
+    width: 300px;
+    height: 40px;
     background-color: #222222;
     box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
     border-radius: 5px;
@@ -594,20 +595,21 @@ body {
     display: flex; 
     align-items: center;
     justify-content: center;
+    border: 2px solid ;
 }
 
 .style-div-erreur-before {
- 
+    
     position: absolute; 
-    width: 400px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
     background-color: #D43232;
-    border: 2px solid #222222;
+ 
     box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
-    top: 10px; 
-    left: -10px;
-    
+    top: 5px; 
+    left: -5px;
+ 
     z-index: 4999; /* S'assure qu'il reste derrière */
     display: flex;
     align-items: center;

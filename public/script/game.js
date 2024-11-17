@@ -125,7 +125,7 @@ const surrenderGame = () => {
 }
 
 const animationTrouverAdversaire = () => {
-    animation_rideau.innerHTML = "En attente d'un adversaire";
+   
     animation_rideau.classList.add("animation");
   
 }
