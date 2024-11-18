@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root{
     --space-cadet: #202342ff;
     --violet: #7032FFff;
@@ -122,7 +122,7 @@
    
     width: 60%;
     height: 70%;
-    
+    font-family: "Poppins" !important;
     content: '';
     position: absolute;
     top: 50%;
@@ -148,11 +148,10 @@
     background-color: var(--couleur-chat);
     border: 3px solid #222222;
     border-radius: 10px;
-    overflow-y: auto; /* Activer le défilement vertical */
+    overflow-y: hidden;
     gap: 1em;
     padding: 1em 0 1em 0;
-    scrollbar-width: thin; /* Style standard pour Firefox */
-    scrollbar-color: var(--couleur-chat) #222222; /* Couleurs pour Firefox : pouce et arrière-plan */
+    
 }
 
 
@@ -208,17 +207,19 @@
     align-items: center;
     justify-content: center;
 
-    
 
 }
 .message--class-global{
     width: 95%;
-    height: 90%;
+    height: 85%;
   
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    gap: 1em;
+    gap: 2em;
+    padding: 1em 0 1em 0;
+    scrollbar-width: thin; /* Style standard pour Firefox */
+    scrollbar-color: var(--couleur-chat) #222222; /* Couleurs pour Firefox : pouce et arrière-plan */
 }
 .user-mess-container{
   
@@ -263,7 +264,7 @@
 .mess--user-username-real-time{
     position: absolute;
     content: "";
-    top: -15px;
+    top: -23px;
     left: 5px;
     color: #222222;
  
@@ -272,7 +273,7 @@
 }
 
 .chat-form{
-    height: 10%;
+    height: 15%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -438,15 +439,39 @@
         background-color: black;
     }
 }
+
+@media only screen and (max-width: 728px){
+    .user-mess-container{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+  
+    .heure-user{
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+    }
+    .mess--user-username-real-time{
+        font-size: 0.75em;
+        top: -15px;
+    }
+    .mess--user-real-time{
+        font-size: 0.80em;
+    }
+    .message--class-global{
+        gap: 1em;
+    }
+    .heure-user{
+        font-size: 0.75em;
+    }
+}
 @media only screen and (max-width: 1300px) {
     .mess--user-real-time{
 
         /* changer le width des messages*/
         width: min(100%, 100%);
     }
-    .user-mess-container-reverse{
-        flex-direction:initial;
-    }
+    
     .message--class-button-send{
         display: none;
     }
