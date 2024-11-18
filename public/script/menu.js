@@ -1,4 +1,4 @@
-const iframe = document.querySelector("#iframe");
+const iframe = document.querySelector(".iframe-container");
 
 
 let themebutton = document.querySelector("#theme");
@@ -7,9 +7,7 @@ let dashboard = document.querySelector("#dashboard");
 
 window.addEventListener("load", () => {
     
-    if (iframe) {
-        applyStyles(iframe);
-    }
+   
    
     openTheChat();
     theme();
@@ -55,7 +53,7 @@ const openTheChat = () => {
     openchat.addEventListener("click", () => {
      
         if (!openedchat) {
-            iframecontainer.style.display = "block";
+            iframecontainer.style.display = "flex";
             console.log(3432423);
             
             openedchat = true;
@@ -64,27 +62,4 @@ const openTheChat = () => {
             openedchat = false;
         }
     });
-};
-
-const applyStyles = iframe => {
-    let styles = {
-            fontColor : "white",
-            backgroundColor : "transparent",
-            fontGoogleName : "Poppins",
-            fontSize : "20px",
-            hideIcons : false,
-            inputBackgroundColor : "transparent",
-            inputFontColor : "black",
-            height : "100%",
-            padding: "5px",
-            memberListFontColor : "black",
-            borderColor : "black",
-            memberListBackgroundColor : "white",
-            hideScrollBar: true, // pour cacher le scroll bar
-        }
-        
-        setTimeout(() => {
-            iframe.contentWindow.postMessage(JSON.stringify(styles), "*");	
-    }, 100);
-
 };

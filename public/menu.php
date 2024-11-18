@@ -10,6 +10,7 @@
     <script defer src="script/menu.js"></script>
     <script type="module" defer src="script/typeGame.js"></script>
     <script type="module" defer src="script/logout.js"></script>
+    <script type="module" defer src="script/chat.js"></script>
     <link  rel="stylesheet" href="style/css/menu.css">
 
     <div class="container-theme">
@@ -40,9 +41,32 @@
    </div>
   
    <div class="iframe-container">
-    <iframe id="iframe" style="width:100%;height:600px;" onload="applyStyles(this)" 
-                    src="https://magix.apps-de-cours.com/server/chat/<?= $_SESSION["key"] ?>">  
-        </iframe>
+    
+        <div class="wrapper-iframe">
+            <div class="fermer-chat"></div>
+            <div class="top-message-container"></div>
+            <div class="bottom-message-users-container">
+                <div class="message--class-global">
+
+                    <!-- <div class="test user-mess-container1">
+                        <div class="heure-user">
+                            <span>[</span>
+                            <span class="heure-input">12:23</span>
+                            <span>]</span>
+                        </div>
+                        <div class="mess--user-real-time">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate deserunt, eius explicabo nesciunt eum maxime ex velit illum accusantium.</div>
+                    </div> -->
+
+                    
+                </div>
+                <form class="chat-form">
+                    <div class="container-send--message">
+                        <input type="text" class="message--class-input" placeholder="message">
+                        <button type="submit" class="message--class-button-send">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
    </div>
 
 <?php
