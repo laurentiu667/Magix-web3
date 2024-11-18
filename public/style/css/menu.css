@@ -129,6 +129,7 @@
     background-color: #222222;
     border: 3px solid #3278D4;
     border-radius: 10px;
+    display: none;
 }
 
 .wrapper-iframe {
@@ -167,7 +168,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1em;
+
     padding: 1em 0 1em 0;
     
 
@@ -219,6 +220,7 @@
     color: white;
     text-transform: lowercase;
     position: relative;
+    box-shadow: inset -13px -11px 24.6px 0px hsla(0, 0%, 0%, 0.25);
 }
 .mess--user-username-real-time{
     position: absolute;
@@ -239,14 +241,15 @@
     justify-content: center;
 }
 .container-send--message{
-    width: 90%;
+    width: 95%;
     height: 80%;
     background-color: #222222;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1em;
+    justify-content: space-between;
+    padding: 0 10px 0 10px;
+
 }
 .message--class-input{
     border: none;
@@ -262,7 +265,7 @@
 }
 .message--class-button-send{
     width: 15%;
-    height: 80%;
+    height: 60%;
     border: none;
     background-color: #777777;
     border: 1px solid #000000;
@@ -270,6 +273,9 @@
     border-radius: 4px;
     font-size: 1em;
     transition: all 1s ease;
+}
+.message--class-button-send-small-device{
+    display: none;
 }
 .message--class-button-send:hover{
     background-color: #c7c7c7;
@@ -402,5 +408,23 @@
     }
     .user-mess-container-reverse{
         flex-direction:initial;
+    }
+    .message--class-button-send{
+        display: none;
+    }
+    .message--class-button-send-small-device{
+        display: block;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-color: #777777;
+        border: 1px solid #000000;
+        box-shadow: inset 3px 3px 2px 2px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+        font-size: 1em;
+        background-image: url("/Images/send-mess.svg");
+        background-size: 60%;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }

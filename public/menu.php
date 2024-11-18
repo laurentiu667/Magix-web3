@@ -63,6 +63,7 @@
                     <div class="container-send--message">
                         <input type="text" class="message--class-input" placeholder="message">
                         <button type="submit" class="message--class-button-send">Envoyer</button>
+                        <button type="submit" class="message--class-button-send-small-device"></button>
                     </div>
                 </form>
             </div>

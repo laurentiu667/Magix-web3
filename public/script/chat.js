@@ -2,6 +2,7 @@ let frame_container = document.querySelector(".iframe-container");
 let message__class_global = document.querySelector(".message--class-global");
 let chatForm = document.querySelector(".chat-form");
 let messageInput = document.querySelector(".message--class-input");
+
 let lastMessageId = 0; // pas prendre son message qui bug le -1 
 
 window.addEventListener("load", () => {

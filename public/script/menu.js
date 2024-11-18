@@ -1,15 +1,22 @@
-const iframe = document.querySelector(".iframe-container");
+let iframe = document.querySelector(".iframe-container");
 
 
 let themebutton = document.querySelector("#theme");
 let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
-
+let fermetchat = document.querySelector(".fermer-chat");
+let ouvrirchat = document.querySelector("#openchat");
 window.addEventListener("load", () => {
     
    
    
-    openTheChat();
+    ouvrirchat.addEventListener("click", () => {
+        openTheChat();
+    });
+    fermetchat.addEventListener("click", () => {
+        fermerlechat();
+    });
+
     theme();
     choisirTheme();
 
@@ -46,20 +53,11 @@ const theme = () => {
 
 
 const openTheChat = () => {
-    let openedchat = false;
-    const openchat = document.querySelector("#openchat");
-    const iframecontainer = document.querySelector(".iframe-container");
-      
-    openchat.addEventListener("click", () => {
-     
-        if (!openedchat) {
-            iframecontainer.style.display = "flex";
-            console.log(3432423);
-            
-            openedchat = true;
-        } else {
-            iframecontainer.style.display = "none";
-            openedchat = false;
-        }
-    });
+    iframe.style.display = "block";
 };
+
+const fermerlechat = () => {
+  
+    
+    iframe.style.display = "none";
+}
