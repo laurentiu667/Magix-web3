@@ -2,8 +2,13 @@ let frame_container = document.querySelector(".iframe-container");
 let message__class_global = document.querySelector(".message--class-global");
 let chatForm = document.querySelector(".chat-form");
 let messageInput = document.querySelector(".message--class-input");
+let left_container_user_connected = document.querySelector(".left-container-user-connected");
 
 let lastMessageId = 0; // pas prendre son message qui bug le -1 
+
+
+let user_connected_array_old = [];
+let user_connected_array_new = [];
 
 window.addEventListener("load", () => {
     stateMessage(); 
@@ -27,8 +32,39 @@ const stateMessage = () => {
     .then(response => response.json())
     .then(data => {
         let msgs = data.messages.msgs;
-       console.log(msgs);
-       
+        let userConnected = data.messages.connectedUsers;
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Parcourir les anciens utilisateurs et identifier ceux qui doivent être supprimés
+        user_connected_array_old.forEach(oldUser => {
+            if (!userConnected.some(newUser => newUser.username === oldUser)) {
+                // en gros on prends l index du newUser et on le compare avec l index du old array
+                // si le nom n est pas pareille alors prendre olduser et le supprimer
+                const userDiv = document.querySelector(`.user-connected-div[data-username="${oldUser}"]`);
+                if (userDiv) {
+                    userDiv.remove(); // Supprimer le div correspondant
+                }
+            }
+        });
+
+        // Ajouter les nouveaux utilisateurs connectés qui n'existent pas encore
+        userConnected.forEach(user => {
+            if (!user_connected_array_old.includes(user.username)) {
+                user_connected_array_old.push(user.username); // Ajouter à la liste
+
+                // Ajouter à l'affichage
+                let user_connected_div = document.createElement("div");
+                user_connected_div.classList.add("user-connected-div");
+                user_connected_div.setAttribute("data-username", user.username); // Assigner un attribut unique
+                user_connected_div.innerText = user.username;
+                left_container_user_connected.appendChild(user_connected_div);
+            }
+        });
+        // Mettre à jour la liste des anciens utilisateurs connectés
+        user_connected_array_old = userConnected.map(user => user.username);
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         msgs.forEach(element => {
             // si un nouveau id est plus grand que le dernier alors nouveau message
@@ -84,7 +120,6 @@ const stateMessage = () => {
 
             }
         });
-
       
         setTimeout(stateMessage, 1000); 
     })

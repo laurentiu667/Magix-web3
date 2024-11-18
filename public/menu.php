@@ -44,7 +44,10 @@
     
         <div class="wrapper-iframe">
             <div class="fermer-chat"></div>
-            <div class="top-message-container"></div>
+            <div class="top-message-container">
+                <div class="left-container-user-connected"></div>
+                <div class="list-user--in-game"></div>
+            </div>
             <div class="bottom-message-users-container">
                 <div class="message--class-global">
 
