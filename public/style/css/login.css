@@ -203,10 +203,13 @@ body{
     .connection{
         width: 70%;
     }
-    .username-container input, .password-container input, .submit-button{
+    .username-container input, .password-container input, {
         height: 45px;
         
       
+    }
+    .submit-button{
+        height: 65px;
     }
 }
 @media only screen and (max-width: 1200px){
