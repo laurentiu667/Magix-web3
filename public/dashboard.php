@@ -40,7 +40,7 @@
     <div class="container-dash">
     
         <div class="container-dashboard-choice">
-            <div class="dashboard-name">DASHBOARD</div>
+            <div class="dashboard-name"></div>
             <div class="container-choice-bottom">
                 <div class="choice-container">
 

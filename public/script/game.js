@@ -30,6 +30,7 @@ export let jeux_peut_commencer = false;
 
 import { afficher_tour_joueur_ou_erreur } from "./gameUpdate.js";
 
+
 window.addEventListener("load", () => {
     let background = localStorage.getItem("theme");
     container_game.style.backgroundImage = `url(Images/${background}.gif)`;
@@ -90,6 +91,7 @@ const endTurn = () => {
     .then(data => {
         if(jeux_en_cours == true){
             gameUpdate(data);
+  
         } 
         
     });
@@ -108,6 +110,8 @@ const heroPower = () => {
         else {
             if(jeux_en_cours == true){
                 gameUpdate(data);
+               
+
             } 
         }
         

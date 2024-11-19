@@ -8,15 +8,15 @@ $username = $_SESSION["username"];
 require_once("partial/layout/header.php");
 ?>
 
-<link rel="stylesheet" href="style/css/card.css">
-<link rel="stylesheet" href="style/css/cardeffect.css">
-<link rel="stylesheet" href="style/css/arenaProto.css">
-<link rel="stylesheet" href="style/css/loading.css">
+    <link rel="stylesheet" href="style/css/card.css">
+    <link rel="stylesheet" href="style/css/cardeffect.css">
+    <link rel="stylesheet" href="style/css/arenaProto.css">
+    <link rel="stylesheet" href="style/css/loading.css">
 
-<script type="module" defer src="script/game.js"></script>
+    <script type="module" defer src="script/game.js"></script>
 
-<script type="module" defer src="script/typeGame.js"></script>
-<script type="module" defer src="script/cards.js"></script>
+    <script type="module" defer src="script/typeGame.js"></script>
+    <script type="module" defer src="script/cards.js"></script>
 
 
     <div class="animation-rideau">
@@ -37,11 +37,13 @@ require_once("partial/layout/header.php");
     </div>
     <div class="danger-alert"></div>
    
-    
+   
+
+
     <div class="container-game">
         <div class="message-skew-erreur">
             <div class="message-erreur--1">
-                <div class="style-div-erreur-before">VOTRE TOUR</div>
+                <div class="style-div-erreur-before"></div>
             </div>
         </div>
         

@@ -28,6 +28,8 @@ let afficher_tour = document.querySelector(".message-erreur--1");
 let afficher_tour_message = document.querySelector(".style-div-erreur-before");
 let message_erreur__1 = document.querySelector(".message-erreur--1");
 
+
+
 // let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
 import { jeux_peut_commencer } from "./game.js";
@@ -61,6 +63,7 @@ export const gameUpdate = (data) => {
             mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
 
             mettreAJourLesBoards(data);
+          
         }
 
     }
@@ -108,8 +111,11 @@ export const afficher_tour_joueur_ou_erreur = (texte, couleurediv) => {
     setTimeout(() => {
         afficher_tour.classList.remove("active-animation");
     }, 2950);
+
+  
     
 }
+
 
 const mettreAjourEtatJoueur = (data) => {
      // METTRE A JOUR LES INFOS DU JOUEUR
