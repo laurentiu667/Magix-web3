@@ -59,7 +59,7 @@ const state = () => {
             enleverAnimationBoard(data);
         }
         else {
-            animationTrouverAdversaire();
+    
             ajouterAnimationBoard(data);
 
             
@@ -125,13 +125,10 @@ const surrenderGame = () => {
     });
 }
 
-const animationTrouverAdversaire = () => {
-   
-    animation_rideau.classList.add("animation");
-  
-}
+
 const enleverAnimationBoard = (data) => {
     jeux_en_cours = false;
+  
     setTimeout(() => {
 
         deck_container.classList.remove("animation");
@@ -178,10 +175,12 @@ const enleverAnimationBoard = (data) => {
 }
 
 const ajouterAnimationBoard = (data) => {
-    animation_rideau.style.transition = "all 0.1s ease-in-out";
+    animation_rideau.classList.add("animation");
+
     setTimeout(() => {
-        animation_rideau.display = "none";
-    }, 100);
+        animation_rideau.remove();
+
+    }, 500);
 
 
         
