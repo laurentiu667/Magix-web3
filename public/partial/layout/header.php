@@ -7,6 +7,6 @@
     
    
     <link rel="stylesheet" href="style/css/global.css">
-   
+    <script defer src="\script\userr.js"></script>
 </head>
 <body>
