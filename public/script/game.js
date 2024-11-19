@@ -53,12 +53,13 @@ const state = () => {
     .then(response => response.json())
     .then(data => {
         if(data === "WAITING"){
-            animationTrouverAdversaire();
+            
           
         } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
             enleverAnimationBoard(data);
         }
         else {
+            animationTrouverAdversaire();
             ajouterAnimationBoard(data);
 
             
@@ -177,8 +178,12 @@ const enleverAnimationBoard = (data) => {
 }
 
 const ajouterAnimationBoard = (data) => {
-  
-    animation_rideau.style.display = "none";
+    animation_rideau.style.transition = "all 0.1s ease-in-out";
+    setTimeout(() => {
+        animation_rideau.display = "none";
+    }, 100);
+
+
         
     if(animationUnefois == false){
         //settimeout pour laisser le temps à la carte de se jouer

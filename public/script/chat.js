@@ -9,6 +9,7 @@ let lastMessageId = 0; // pas prendre son message qui bug le -1
 
 let user_connected_array_old = [];
 let user_connected_array_new = [];
+import { User } from "./user.js";
 
 window.addEventListener("load", () => {
     stateMessage(); 
@@ -33,6 +34,8 @@ const stateMessage = () => {
     .then(data => {
         let msgs = data.messages.msgs;
         let userConnected = data.messages.connectedUsers;
+        console.log(userConnected);
+        
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,12 +56,7 @@ const stateMessage = () => {
             if (!user_connected_array_old.includes(user.username)) {
                 user_connected_array_old.push(user.username); // Ajouter à la liste
 
-                // Ajouter à l'affichage
-                let user_connected_div = document.createElement("div");
-                user_connected_div.classList.add("user-connected-div");
-                user_connected_div.setAttribute("data-username", user.username); // Assigner un attribut unique
-                user_connected_div.innerText = user.username;
-                left_container_user_connected.appendChild(user_connected_div);
+                let userClass = new User(user.username, user.trophies);
             }
         });
         // Mettre à jour la liste des anciens utilisateurs connectés

@@ -410,7 +410,7 @@ body {
     font-size: 1em;
     text-transform: uppercase;
     opacity: 1;
-    transition: all 3.3s ease-in-out;
+  
 }
 .animation-rideau.animation{
     width: 100%;

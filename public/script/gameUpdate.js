@@ -34,7 +34,6 @@ import { jeux_peut_commencer } from "./game.js";
 
 let imagesMap = {}; // hashmap => uid => randomIMG
 
-let faireAnimationUnefois = false; // Indicateur d'animation pour éviter les répétitions
 let dernierTour = null; // Suivi du dernier état de `yourTurn`
 
 
