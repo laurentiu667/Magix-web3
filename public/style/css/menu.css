@@ -530,3 +530,8 @@
 }
 
 
+@media only screen and (max-width: 1450px) {
+    #partie_lancer_pvp, #entrainement, #theme{
+        display: none;
+    }
+}

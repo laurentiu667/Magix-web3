@@ -12,7 +12,7 @@
 body{
 
     background-color: var(--body-bg);
-    overflow: hidden;
+  
 }
 .container-login{
     width: 100%;
@@ -81,24 +81,26 @@ body{
     
 }
 .effet-lum--glob{
-    width: clamp(200px, 80%, 500px);
+    width: clamp(200px, 100%, 800px);
     height: clamp(200px, 30%, 300px);
    
   
     position: absolute;
    
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     filter: blur(100px); 
     
 }
 .effet-lumiere--1{
-    top: 100%;
-    background-color: hsla(236, 71%, 20%, 0.733);
+
+    top: 0%;
+    background-color: hsla(0, 71%, 20%, 0.288);
 }
 .effet-lumiere--2{
-    top: 0%;
-    background-color: hsla(253, 100%, 50%, 0.322);
+
+    bottom: 0%;
+    background-color: hsla(0, 71%, 20%, 0.288);
 }
 
 
@@ -203,7 +205,7 @@ body{
     .connection{
         width: 70%;
     }
-    .username-container input, .password-container input, {
+    .username-container input, .password-container input {
         height: 45px;
         
       
@@ -212,6 +214,7 @@ body{
         height: 65px;
     }
 }
+
 @media only screen and (max-width: 1200px){
     
     .container-login{
