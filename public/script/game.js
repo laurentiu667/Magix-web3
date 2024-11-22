@@ -9,9 +9,6 @@ let left_game = document.querySelector(".left-game");
 let right_game = document.querySelector(".right-game");
 
 let animation_rideau = document.querySelector(".animation-rideau");
-let animationError = document.querySelector(".animationError");
-
-
 let nom_joueur_animation = document.querySelector(".animation-joueur");
 let nom_ennemi_animation = document.querySelector(".animation-ennemi");
 let animation_versus_text = document.querySelector(".animation-versus-text");
@@ -20,10 +17,10 @@ let animation_versus_div = document.querySelector(".animation-versus");
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
 let username_player = document.querySelector(".name-player"); 
 let container_game = document.querySelector(".container-game");
+
 import { gameUpdate } from "./gameUpdate.js";
 
 let animationUnefois = false;
-
 let jeux_en_cours = true;
 
 export let jeux_peut_commencer = false;
@@ -32,8 +29,8 @@ import { afficher_tour_joueur_ou_erreur } from "./gameUpdate.js";
 
 
 window.addEventListener("load", () => {
-    let background = localStorage.getItem("theme");
-    container_game.style.backgroundImage = `url(Images/${background}.gif)`;
+ 
+    ajouterbackGroundGame();
 
     endturn.addEventListener("click", () => {endTurn()});
 
@@ -46,6 +43,17 @@ window.addEventListener("load", () => {
     } 
 
 });
+
+const ajouterbackGroundGame = () => {
+    let background = localStorage.getItem("theme");
+    if (background == null){
+        // mettre un theme par defaut
+        container_game.style.backgroundImage = `url(Images/bg3.gif)`;
+    } else {
+        // sinon mettre le theme choisi
+        container_game.style.backgroundImage = `url(Images/${background}.gif)`;
+    }
+}
 
 const state = () => {
     fetch("AjaxGame.php", {   
@@ -197,7 +205,7 @@ const ajouterAnimationBoard = (data) => {
 
         nom_ennemi_animation.innerHTML = data.opponent.username;
         animation_versus_text.innerHTML = "VS";
-        nom_joueur_animation.innerHTML = username_player.innerHTML;
+        nom_joueur_animation.innerHTML = localStorage.getItem("username");
         setTimeout(() => {
             animation_versus_div.style.display = "none";
             deck_container.classList.add("animation");

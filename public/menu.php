@@ -4,8 +4,10 @@
     $action = new MenuAction();
     $data = $action->execute();
 
+    $data["titlepage"] = "Menu";
 
     require_once("partial/layout/header.php");
+
 ?>  
     <script defer src="script/menu.js"></script>
     <script type="module" defer src="script/typeGame.js"></script>
@@ -30,6 +32,7 @@
             </div>
             <div class="list-menu">
                 <ul>
+                    
                     <li id="partie_lancer_pvp">commencer une partie</li>
                     <li id="entrainement">entrainement</li>
                     <li id="openchat">chat en ligne</li>

@@ -4,8 +4,9 @@
     $action = new AjaxDashboardAction();
     $data = $action->execute();
 
-
+    $data["titlepage"] = "Dashboard";
     require_once("partial/layout/header.php");
+    
 ?>  
 
 <script type="module" defer src="script/dashboard.js"></script>

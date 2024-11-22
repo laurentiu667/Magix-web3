@@ -50,7 +50,7 @@ export const gameUpdate = (data) => {
         afficher_tour_joueur_ou_erreur("Ce n’est pas votre tour", "#D43232");
     }
     else {
-        console.log(data);
+      
         
       
         if(jeux_peut_commencer){

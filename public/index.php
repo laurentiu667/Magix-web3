@@ -3,8 +3,9 @@
 
     $action = new loginAction();
     $data = $action->execute();
-
+    $data["titlepage"] = "Login";
     require_once("partial/layout/header.php");
+
 ?>
 
 <link rel="stylesheet" href="style\css\login.css">
@@ -53,10 +54,13 @@
             <div class="effet-lum--glob effet-lumiere--1"></div>
             <div class="effet-lum--glob effet-lumiere--2"></div>
 
-            <div class="login-t1">Ton voyage a commencé, Ténébreux</div>
-            <div class="login-image-right"></div>
-            <div class="login-t2">Maintenant, choisis ton chemin et porte le poids de tes fardeaux</div>
-            <div class="login-t3">L'Anneau Elden t'attend, un prix pour ceux qui sauront persévérer</div>
+            <div class="wrapper-right-login">
+                <div class="login-t1">Ton voyage a commencé, Ténébreux</div>
+                <div class="login-image-right"></div>
+                <div class="login-t2">Maintenant, choisis ton chemin et porte le poids de tes fardeaux</div>
+                <div class="login-t3">L'Anneau Elden t'attend, un prix pour ceux qui sauront persévérer</div>
+            </div>
+            
                 
         </div>
     </div>

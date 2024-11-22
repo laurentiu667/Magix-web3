@@ -25,7 +25,6 @@
                 echo "Erreur: " . $e->getMessage();
             }
         }
-        
 
         public static function getParties(){
             try{
@@ -85,8 +84,6 @@
             } catch (PDOException $e) {
                 echo "Erreur: " . $e->getMessage();
             }
-        }
-
-        
+        }   
     }
 ?>

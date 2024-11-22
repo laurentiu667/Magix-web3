@@ -19,9 +19,6 @@ export class User {
         user_connected_div.addEventListener("mouseout", () => removeHoverInfoUserCreateDiv(user_connected_div));
         user_connected_div.addEventListener("click", () => clickUserDiv(user_connected_div, this.trophies));
     }
-
-
-        
 }
 
 const hoverInfoUserCreateDiv = (divHovered, trophiesUserHovered) => {

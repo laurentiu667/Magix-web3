@@ -4,8 +4,9 @@ require_once("action/AjaxGameAction.php");
 $action = new AjaxGameAction();
 $data = $action->execute();
 $username = $_SESSION["username"];
-
+$data["titlepage"] = "Partie en cours";
 require_once("partial/layout/header.php");
+
 ?>
 
     <link rel="stylesheet" href="style/css/card.css">
@@ -89,9 +90,7 @@ require_once("partial/layout/header.php");
                                 <div class="container-info-user-game-side">
 
                                     <div class="name-player">
-                                        <?php
-                                            echo $username;
-                                        ?>
+                                        
                                     </div>
 
                                     <div class="container-message-card">
