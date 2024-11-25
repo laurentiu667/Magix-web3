@@ -6,6 +6,9 @@ let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
 let fermetchat = document.querySelector(".fermer-chat");
 let ouvrirchat = document.querySelector("#openchat");
+
+
+
 window.addEventListener("load", () => {
     
    
@@ -17,6 +20,8 @@ window.addEventListener("load", () => {
         fermerlechat();
     });
 
+ 
+
     theme();
     choisirTheme();
 
@@ -26,9 +31,11 @@ window.addEventListener("load", () => {
 
 });
 
+
+
 const choisirTheme = () => {    
 
-    Array.from(themecontainer.children).forEach(element => { // Utilise `children` pour n'obtenir que les éléments enfants
+    Array.from(themecontainer.children).forEach(element => {
         element.addEventListener("click", () => {
             // conserver dans localstorage
             localStorage.setItem("theme", element.id);

@@ -1,12 +1,12 @@
 
 const entrainement = document.querySelector("#entrainement");
 const partie_pvp = document.querySelector("#partie_lancer_pvp");
-
+let inputUserObserve = document.querySelector("#inputUserObserve");
 window.addEventListener("load", () => {
   
     if (entrainement) {
         entrainement.addEventListener("click", () => {
-            
+            localStorage.removeItem("usernameObserve");
             typeGame("TRAINING");
         });
     }
@@ -15,10 +15,18 @@ window.addEventListener("load", () => {
         partie_pvp.addEventListener("click", () => {
             let audio = new Audio('Audio/gamestart.mp3');
             audio.play();
+            localStorage.removeItem("usernameObserve");
             typeGame("PVP");
         });
     }
-    
+    inputUserObserve.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            getUsername();
+            typeGame("PVP");
+
+        }
+
+    });
 });
 
 const typeGame = (namegame) => {
@@ -36,4 +44,12 @@ const typeGame = (namegame) => {
         console.log("Type de game: " + data);
     })
     
+}
+const getUsername = () => {
+
+    localStorage.setItem("usernameObserve", inputUserObserve.value);
+
+    console.log(localStorage.getItem("usernameObserve"));
+    
+
 }

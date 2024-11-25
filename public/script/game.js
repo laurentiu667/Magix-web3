@@ -32,6 +32,8 @@ window.addEventListener("load", () => {
  
     ajouterbackGroundGame();
 
+ 
+
     endturn.addEventListener("click", () => {endTurn()});
 
     hero.addEventListener("click", () => { heroPower()});
@@ -39,7 +41,7 @@ window.addEventListener("load", () => {
     surrender.addEventListener("click", () => {surrenderGame()});
 
     if(jeux_en_cours == true){
-        setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
+        setTimeout(state, 1000); 
     } 
 
 });
@@ -56,40 +58,51 @@ const ajouterbackGroundGame = () => {
 }
 
 const state = () => {
+    let form = new FormData();
+    
+    // Ajout du nom à observer si présent
+    if (localStorage.getItem("usernameObserve") != null) {
+        form.append("usernameObserve", localStorage.getItem("usernameObserve"));
+        console.log("Observing username:", localStorage.getItem("usernameObserve"));
+    }
+
     fetch("AjaxGame.php", {   
-        method: "POST"    
+        method: "POST",
+        body: form    
     })
     .then(response => response.json())
     .then(data => {
-        if(data === "WAITING"){
+        if (data === "WAITING") {
+            
+        } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST") {
+            enleverAnimationBoard(data);
+            localStorage.removeItem("usernameObserve");
+           
+        } else if(data == "NOT_IN_GAME"){
+            localStorage.removeItem("usernameObserve");
+        } else {
+
+            console.log(data);
             
           
-        } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
-            enleverAnimationBoard(data);
-        }
-        else {
-    
             ajouterAnimationBoard(data);
 
-            
-            if(jeux_en_cours == true){
+            if (jeux_en_cours) {
                 gameUpdate(data);
-            } 
-          
+            }
         } 
-        if(jeux_en_cours == true){
+        if (jeux_en_cours) {
             setTimeout(state, 1000);
-        } 
-      
+        }
     })
     .catch(error => {
         console.error("Erreur lors de la récupération de l'état:", error);
-        if(jeux_en_cours == true){
+        if (jeux_en_cours) {
             setTimeout(state, 1000);
-        } 
-      
+        }
     });
 };
+
 
 
 
@@ -187,6 +200,13 @@ const enleverAnimationBoard = (data) => {
 }
 
 const ajouterAnimationBoard = (data) => {
+
+    if (localStorage.getItem("username") != null) {
+        username_player.innerHTML = localStorage.getItem("username") 
+    } else {
+        username_player.innerHTML = localStorage.getItem("usernameObserve")
+    }
+
     animation_rideau.classList.add("animation");
 
     setTimeout(() => {
@@ -205,7 +225,13 @@ const ajouterAnimationBoard = (data) => {
 
         nom_ennemi_animation.innerHTML = data.opponent.username;
         animation_versus_text.innerHTML = "VS";
-        nom_joueur_animation.innerHTML = localStorage.getItem("username");
+
+        // sinon prendre getitem usernameObserve
+        if (localStorage.getItem("username") != null) {
+            nom_joueur_animation.innerHTML = localStorage.getItem("username");
+        } else {
+            nom_joueur_animation.innerHTML = localStorage.getItem("usernameObserve");
+        }
         setTimeout(() => {
             animation_versus_div.style.display = "none";
             deck_container.classList.add("animation");
@@ -216,7 +242,7 @@ const ajouterAnimationBoard = (data) => {
             left_game.classList.add("animation");
             right_game.classList.add("animation");
 
-            // pour dire dans gameUpdate que on peut mettre a jour les données quand le jeux a commencer apres l animation versus
+         
             jeux_peut_commencer = true;
         }, 2800);
         setTimeout(() => {

@@ -10,15 +10,19 @@
         }
     
         protected function executeAction() {
+            $usernameObserve = $_POST["usernameObserve"] ?? null; 
             $data = [
                 "key" => $_SESSION["key"],
             ];
-         
             
-            $result = parent::callAPI("games/state", $data);
-
-    
-
+            if (!empty($usernameObserve)) {
+                $data["username"] = $usernameObserve;
+                $result = parent::callAPI("games/observe", $data); 
+            } else {
+                $result = parent::callAPI("games/state", $data); 
+            }
+        
+       
             if (isset($result->opponent->username)) {
                 $_SESSION["ennemi"] = $result->opponent->username;
             } elseif ($result === "LAST_GAME_WON") {
@@ -30,10 +34,8 @@
                     $_SESSION["partie_perdu"] = true;
                 }
             }
-
-            
-           
+        
             return compact("result");
-            
         }
+        
     }

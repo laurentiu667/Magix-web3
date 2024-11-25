@@ -38,6 +38,7 @@
                     <li id="openchat">chat en ligne</li>
                     <li id="theme">theme</li>
                     <li id="dashboard">dashboard</li>
+                    <li> <input type="text" name="inputUserObserve" id="inputUserObserve"> </li>
                     <li id="deconnexion">quitter</li>
                 </ul>
             </div>
