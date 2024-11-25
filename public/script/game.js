@@ -18,6 +18,8 @@ let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count")
 let username_player = document.querySelector(".name-player"); 
 let container_game = document.querySelector(".container-game");
 
+let container_button_game_side_game = document.querySelector(".container-button-game-side-game");
+
 import { gameUpdate } from "./gameUpdate.js";
 
 let animationUnefois = false;
@@ -39,6 +41,12 @@ window.addEventListener("load", () => {
     hero.addEventListener("click", () => { heroPower()});
 
     surrender.addEventListener("click", () => {surrenderGame()});
+
+
+    // enlever les boutons si on observe
+    if(localStorage.getItem("usernameObserve") != null){
+        container_button_game_side_game.style.display = "none";
+    }
 
     if(jeux_en_cours == true){
         setTimeout(state, 1000); 
@@ -201,12 +209,12 @@ const enleverAnimationBoard = (data) => {
 
 const ajouterAnimationBoard = (data) => {
 
-    if (localStorage.getItem("username") != null) {
-        username_player.innerHTML = localStorage.getItem("username") 
+    if (localStorage.getItem("usernameObserve") != null) {
+        username_player.innerHTML = localStorage.getItem("usernameObserve");
+      
     } else {
-        username_player.innerHTML = localStorage.getItem("usernameObserve")
+        username_player.innerHTML = localStorage.getItem("username");
     }
-
     animation_rideau.classList.add("animation");
 
     setTimeout(() => {
@@ -227,10 +235,11 @@ const ajouterAnimationBoard = (data) => {
         animation_versus_text.innerHTML = "VS";
 
         // sinon prendre getitem usernameObserve
-        if (localStorage.getItem("username") != null) {
-            nom_joueur_animation.innerHTML = localStorage.getItem("username");
-        } else {
+        if (localStorage.getItem("usernameObserve") != null) {
             nom_joueur_animation.innerHTML = localStorage.getItem("usernameObserve");
+          
+        } else {
+            nom_joueur_animation.innerHTML = localStorage.getItem("username");
         }
         setTimeout(() => {
             animation_versus_div.style.display = "none";

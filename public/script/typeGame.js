@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
     inputUserObserve.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
             getUsername();
-            typeGame("PVP");
+            window.location.href = "game.php";
 
         }
 

@@ -72,6 +72,9 @@
     letter-spacing: 2px;
     transition: all 0.1s ease-out;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .list-menu ul li:hover{
     font-size: 1.25em;
@@ -530,8 +533,23 @@
 }
 
 
+#inputUserObserve {
+    width: 250px;
+    background-color: var(--couleur-chat);
+    height: 40px;
+    border-radius: 4px;
+    padding-left: 10px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    
+}
+
 @media only screen and (max-width: 1450px) {
-    #partie_lancer_pvp, #entrainement, #theme{
+    #partie_lancer_pvp, #entrainement, #theme, #inputUserObservediv{
         display: none;
     }
 }
+
+
+
