@@ -82,7 +82,8 @@ body {
 
 }
 .side-game{
-    width: 300px;
+    max-width: 250px;
+    min-width: 250px;
     height: 100%;
     display: flex;
     align-items: flex-end;
@@ -302,7 +303,8 @@ body {
     height: fit-content;
     justify-self: center;
     align-self: center;
-    font-size: 2rem;
+    font-size: calc(0.75em + 1vw);
+    text-wrap: wrap;
   
 
 }

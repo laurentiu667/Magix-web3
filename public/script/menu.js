@@ -6,10 +6,13 @@ let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
 let fermetchat = document.querySelector(".fermer-chat");
 let ouvrirchat = document.querySelector("#openchat");
+let nom_joueur = document.querySelector(".nom-joueur");
 
 
 
 window.addEventListener("load", () => {
+
+    nom_joueur.innerHTML = "bienvenue " + localStorage.getItem("username");
     
    
    

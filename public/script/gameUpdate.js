@@ -51,8 +51,6 @@ export const gameUpdate = (data) => {
     }
     else {
       
-        
-      
         if(jeux_peut_commencer){
             mettreAjourEtatJoueur(data);
 

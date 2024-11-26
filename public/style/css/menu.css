@@ -40,11 +40,15 @@
 
 
 
-.version{
+.nom-joueur{
     display: grid;
     place-items: center;
     text-align: center;
-    color: rgb(160, 160, 160);
+    color: rgb(191, 191, 191);
+    font-size: calc(1em + 1vw);
+    text-shadow: 
+    
+        4px 4px 2px rgba(0, 0, 0, 0.5)
    
 }
 
@@ -124,7 +128,7 @@
    
     width: 60%;
     height: 70%;
-    /* font-family: "Poppins" !important; */
+    font-family: "Poppins" !important;
     content: '';
     position: absolute;
     top: 50%;
@@ -184,9 +188,51 @@
     scrollbar-color: var(--couleur-chat) #222222; /* Couleurs pour Firefox : pouce et arrière-plan */
 }
 .list-user--in-game{
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: thin; /* Style standard pour Firefox */
+    scrollbar-color: var(--couleur-chat) #222222; /* Couleurs pour Firefox : pouce et arrière-plan */
+    padding: 0.25em;
+    gap: 0.25em;
 }
+.container-user-in-game{
+    width: 100%;
+    height: 50px;
+    background-color: #178043;
+    border: 3px solid #222222;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+}
+.gb-fpc{
+    height: 25px;
+    display: grid;
+    grid-template-columns: 1fr 25px;
+}
+.first-player-container{
+    border-bottom: 2px solid #222222;
+}
+.health-in-game{
+    border-left: 2px solid #222222;
+    font-size: .5em;
+    display: grid;
+    place-items: center;
+}
+.name-in-game{
 
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: calc(0.5em + 0.1vw);
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    padding-left: .25em;
+}
 .user-connected-div{
     width: fit-content;
     padding: 0.5em;
@@ -338,8 +384,8 @@
 }
 .fermer-chat{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -15px;
+    right: -15px;
     width: 40px;
     height: 40px;
     border-radius: 10px;
@@ -352,6 +398,7 @@
     background-size: 60%;
     transition: all 1s ease;
     cursor: pointer;
+    z-index: 1000;
 }
 .fermer-chat:hover{
     background-color: #c7c7c7;

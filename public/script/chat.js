@@ -3,6 +3,7 @@ let message__class_global = document.querySelector(".message--class-global");
 let chatForm = document.querySelector(".chat-form");
 let messageInput = document.querySelector(".message--class-input");
 let left_container_user_connected = document.querySelector(".left-container-user-connected");
+let list_user__in_game = document.querySelector(".list-user--in-game");
 
 let lastMessageId = 0; // pas prendre son message qui bug le -1 
 
@@ -34,7 +35,17 @@ const stateMessage = () => {
     .then(data => {
         let msgs = data.messages.msgs;
         let userConnected = data.messages.connectedUsers;
-        console.log(userConnected);
+        let games = data.messages.games;
+        list_user__in_game.innerHTML = "";
+        games.forEach(element => {
+            console.log(element);
+            
+
+          
+            createGamesViews(element);
+            
+        });
+        
         
 
 
@@ -127,6 +138,50 @@ const stateMessage = () => {
 
 
 
+const createGamesViews = (games) => {
+    let container_user_in_game = document.createElement("div");
+    container_user_in_game.classList.add("container-user-in-game");
+
+    let first_player_container = document.createElement("div");
+    let second_player_container = document.createElement("div");
+    first_player_container.classList.add("gb-fpc", "first-player-container");
+    second_player_container.classList.add("gb-fpc", "second-player-container");
+    
+
+    let name_in_game = document.createElement("div");
+    let health_in_game = document.createElement("div");
+    name_in_game.classList.add("name-in-game"); 
+    health_in_game.classList.add("health-in-game");
+
+    let name_in_game_second = document.createElement("div");
+    let health_in_game_second = document.createElement("div");
+
+    name_in_game_second.classList.add("name-in-game");
+    health_in_game_second.classList.add("health-in-game");
+
+    name_in_game.innerText = games.p1;
+    health_in_game.innerText = games.p1Hp;
+
+    name_in_game_second.innerText = games.p2;
+    health_in_game_second.innerText = games.p2Hp;
+
+
+
+    first_player_container.appendChild(name_in_game);
+    first_player_container.appendChild(health_in_game);
+
+    second_player_container.appendChild(name_in_game_second);
+    second_player_container.appendChild(health_in_game_second);
+
+    container_user_in_game.appendChild(first_player_container);
+    container_user_in_game.appendChild(second_player_container);
+    
+    list_user__in_game.appendChild(container_user_in_game);
+
+}
+
+
+
 // Fonction pour envoyer un message
 const sendMessage = (message) => {
     let form = new FormData();
@@ -140,4 +195,5 @@ const sendMessage = (message) => {
         
     });
 };
+
 
