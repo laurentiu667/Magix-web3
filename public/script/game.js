@@ -18,6 +18,7 @@ let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count")
 let username_player = document.querySelector(".name-player"); 
 let container_game = document.querySelector(".container-game");
 
+let container_button_game_side_gameChild = document.querySelectorAll(".container-button-game-side-game");
 let container_button_game_side_game = document.querySelector(".container-button-game-side-game");
 
 import { gameUpdate } from "./gameUpdate.js";
@@ -45,7 +46,15 @@ window.addEventListener("load", () => {
 
     // enlever les boutons si on observe
     if(localStorage.getItem("usernameObserve") != null){
-        container_button_game_side_game.style.display = "none";
+        // get les childs 
+        container_button_game_side_gameChild.forEach(element => {
+            element.style.display = "none";
+        });
+
+        container_button_game_side_game.style.display = "flex";
+        container_button_game_side_game.innerHTML = "Observation";
+
+
     }
 
     if(jeux_en_cours == true){

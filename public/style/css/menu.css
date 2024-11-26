@@ -27,7 +27,7 @@
     background-image: url(/Images/title.svg);
     background-position:bottom;
     background-repeat: no-repeat;
-    background-size: clamp(300px, 70vw, 700px);
+    background-size: clamp(300px, 80vw, 800px);
   
 }
 .wrapper-menu{
@@ -61,7 +61,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 1em;
-    font-size: 1em;
+    font-size: 1.1em;
 
 }
 .list-menu ul li:hover{
@@ -192,14 +192,14 @@
     padding: 0.5em;
     border-radius: 50px;
     height: 30px;
-    font-size: 0.5em;
+    font-size: 0.7em;
     background-color: #222222;
     border: 3px solid var(--couleur-chat);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    text-transform: uppercase;
+  
     position: relative;
    
 }
@@ -540,9 +540,14 @@
     border-radius: 4px;
     padding-left: 10px;
     text-transform: uppercase;
-    border: none;
+    border: 2px solid #222222;
     outline: none;
+    color: black;
     
+    
+}
+#inputUserObserve::placeholder{
+    color: #222222;
 }
 
 @media only screen and (max-width: 1450px) {

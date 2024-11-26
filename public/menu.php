@@ -34,17 +34,17 @@
                 <ul>
                     
                     <li id="partie_lancer_pvp">commencer une partie</li>
-                    <li id="entrainement">entrainement</li>
+                    <li id="entrainement">entraînement</li>
                     <li id="openchat">chat en ligne</li>
-                    <li id="theme">theme</li>
-                    <li id="dashboard">dashboard</li>
+                    <li id="theme">thème</li>
+                    <li id="dashboard">tableau de bord</li>
                     <li id="inputUserObservediv"> 
                         <input type="text" placeholder="username à observer..." name="inputUserObserve" id="inputUserObserve">
                     </li>
                     <li id="deconnexion">quitter</li>
                 </ul>
             </div>
-            <div class="version">VERSION - IN PRODUCTION</div>
+            <div class="version">VERSION - EN PRODUCTION</div>
        </div>
    </div>
   
