@@ -141,21 +141,25 @@ body {
 }
 .image-subject{
     width: 100%;
-    height: 100%;
-    background-image: url(/Images/playericone.png);
+    height: 80%;
+    background-image: url(/Images/playericone.webp);
+    background-color: red;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom: 1px solid black;
+    
 }
 .image-subject-ennemi{
     width: 100%;
-    height: 100%;
-    background-image: url(/Images/ennemiicone.png);
+    height: 80%;
+    background-image: url(/Images/ennemiicone.webp);
+    background-color: red;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     border-bottom: 1px solid black;
+    
 }
 .mana-health-side-game{
     display: flex;
@@ -445,6 +449,9 @@ body {
     width: 100%;
     text-align: center;
     transform: translateX(100vw);
+    text-shadow: 
+    2px 2px 0px rgb(0, 0, 0), 
+    4px 4px 0px rgba(255, 255, 255, 0.7);
   
 }
 .animation-ennemi{
@@ -452,10 +459,16 @@ body {
   
     text-align: center;
     transform: translateX(-100vw);
+    text-shadow: 
+    2px 2px 0px rgb(0, 0, 0), 
+    4px 4px 0px rgba(255, 255, 255, 0.7);
   
 }
 .animation_versus_text{
     opacity: 0;
+    text-shadow: 
+    2px 2px 0px rgb(0, 0, 0), 
+    4px 4px 0px rgba(255, 255, 255, 0.7);
 }
 .animation-joueur.animation{
  
@@ -467,6 +480,7 @@ body {
 }
 .animation_versus_text.animation{
     animation: versus_opacity 2s ease;
+    
 }
 @keyframes versus_opacity{
     0%{
