@@ -12,6 +12,7 @@
 
             
             $usager_choisi = $_POST["usager"] ?? null; // Vérifie si l'usager est dans la requête
+
             
             $result = [
                 'parties' => UserDataBase::getParties(),

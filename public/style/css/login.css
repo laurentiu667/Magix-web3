@@ -241,3 +241,19 @@ body{
       
     }
 }
+
+.disablecache{
+    width: fit-content;
+    padding: 0.15em;
+    border: 1px solid black;
+    font-size: 0.5em;
+    border-radius: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-wrap: wrap;
+    text-transform: uppercase;
+}

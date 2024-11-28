@@ -114,7 +114,7 @@ body {
     height: 100%;
 }
 .top-side{
-    height: 50%;
+    height: 40%;
     display: flex;
     flex-direction: column;
 
@@ -122,7 +122,7 @@ body {
 
 }
 .bottom-side{
-    height: 50%;
+    height: 60%;
     display:flex;
     align-items: center;
     justify-content: space-between;
@@ -130,35 +130,35 @@ body {
 
 }
 .image-side-game{
-    height: 100%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .mana-health-side-game{
-    height: 70%;
+    height: 30%;
 
 }
 .image-subject{
-    width: 100%;
+    width: 80%;
     height: 80%;
-    background-image: url(/Images/playericone.webp);
-    background-color: red;
+    background-image: url(/Images/cartes/image-10.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom: 1px solid black;
+
     
 }
 .image-subject-ennemi{
-    width: 100%;
+    width: 80%;
     height: 80%;
-    background-image: url(/Images/ennemiicone.webp);
-    background-color: red;
+    background-image: url(/Images/cartes/image-10.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-bottom: 1px solid black;
+ 
     
 }
 .mana-health-side-game{
@@ -197,11 +197,25 @@ body {
     border: 1px solid black;
     background-color: white;
 }
+.container-hm{
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+}
 .number-health{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
 }
 .number-mana{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
 }
 .cercle-health{
     width: 20px;
@@ -298,7 +312,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     text-align: center;
     gap: 0.2em;
 }
@@ -594,7 +608,7 @@ body {
     top: 70.2%;
     left: 50%;
     transform: translate(-50%, -50%) skew(-20deg);
-    z-index: 6000;
+    z-index: 4999;
 }
 .message-erreur--1{
     transform: translateX(-100vw);
@@ -606,7 +620,7 @@ body {
     box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
     border-radius: 5px;
     animation: animation 3s cubic-bezier(.15,1,.88,-0.01);      
-    z-index: 5000;
+    z-index: 4999;
     display: flex; 
     align-items: center;
     justify-content: center;
@@ -625,7 +639,7 @@ body {
     top: 5px; 
     left: -5px;
  
-    z-index: 4999; /* S'assure qu'il reste derrière */
+    z-index: 4998; /* S'assure qu'il reste derrière */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -644,3 +658,19 @@ body {
     }
 }
 
+
+
+.openchatgame{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #178043;
+    border: 3px solid #222222;
+    background-image: url("/Images/send-mess.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    cursor: pointer;
+}

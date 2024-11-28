@@ -86,9 +86,9 @@ body{
     gap: 0.5em;
     color: white;
     position: absolute;
-    top: 20%; /* Centre verticalement */
-    left: 50%; /* Centre horizontalement */
-    transform: translate(-100vw, -50%); /* Centrage parfait au milieu */
+    top: 20%; 
+    left: 20%; 
+    transform: translate(-100vw, -50%); 
     z-index: 1;
     height: fit-content;
     width: 0;

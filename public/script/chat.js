@@ -1,20 +1,31 @@
-let frame_container = document.querySelector(".iframe-container");
+
 let message__class_global = document.querySelector(".message--class-global");
 let chatForm = document.querySelector(".chat-form");
 let messageInput = document.querySelector(".message--class-input");
-let left_container_user_connected = document.querySelector(".left-container-user-connected");
 let list_user__in_game = document.querySelector(".list-user--in-game");
-
-let lastMessageId = 0; // pas prendre son message qui bug le -1 
-
-
+let lastMessageId = -1; // pas prendre son message qui bug le -1 
+let ouvrirchat = document.querySelector(".open-chat-button");
+let fermetchat = document.querySelector(".fermer-chat");
+let iframe = document.querySelector(".iframe-container");
 let user_connected_array_old = [];
-let user_connected_array_new = [];
+let themecontainer = document.querySelector(".container-theme");
+
 import { User } from "./user.js";
 
 window.addEventListener("load", () => {
     stateMessage(); 
 
+
+    ouvrirchat.addEventListener("click", () => {
+        openTheChat();
+        themecontainer.style.display = "none";
+     
+        
+    });
+    fermetchat.addEventListener("click", () => {
+        fermerlechat();
+       
+    });
 
     chatForm.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -27,6 +38,18 @@ window.addEventListener("load", () => {
     
 });
 
+const openTheChat = () => {
+    iframe.classList.add("active");
+    iframe.style.zIndex = "5000";
+    iframe.style.opacity = "1";
+};
+
+export const fermerlechat = () => {
+  
+    iframe.classList.remove("active");
+    iframe.style.zIndex = "0";
+    iframe.style.opacity = "0";
+}
 const stateMessage = () => {
     fetch("AjaxChat.php", {   
         method: "POST"
@@ -38,10 +61,6 @@ const stateMessage = () => {
         let games = data.messages.games;
         list_user__in_game.innerHTML = "";
         games.forEach(element => {
-            console.log(element);
-            
-
-          
             createGamesViews(element);
             
         });

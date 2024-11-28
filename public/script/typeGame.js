@@ -41,15 +41,11 @@ const typeGame = (namegame) => {
     .then(data => {
    
         window.location.href = "game.php";
-        console.log("Type de game: " + data);
+    
     })
     
 }
 const getUsername = () => {
 
     localStorage.setItem("usernameObserve", inputUserObserve.value);
-
-    console.log(localStorage.getItem("usernameObserve"));
-    
-
 }

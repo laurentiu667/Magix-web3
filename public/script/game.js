@@ -1,4 +1,3 @@
-
 let endturn = document.querySelector(".img-div-button-game-endturn");
 let hero = document.querySelector(".img-div-button-game-hero");
 let surrender = document.querySelector(".img-div-button-game-forfeit");
@@ -21,21 +20,21 @@ let container_game = document.querySelector(".container-game");
 let container_button_game_side_gameChild = document.querySelectorAll(".container-button-game-side-game");
 let container_button_game_side_game = document.querySelector(".container-button-game-side-game");
 
-import { gameUpdate } from "./gameUpdate.js";
 
 let animationUnefois = false;
 let jeux_en_cours = true;
 
+
+let url; // Déclarée une seule fois
+let form = null; // Initialisation une fois
 export let jeux_peut_commencer = false;
 
-import { afficher_tour_joueur_ou_erreur } from "./gameUpdate.js";
-
+import { afficher_tour_joueur_ou_erreur, gameUpdate } from "./gameUpdate.js";
+import { fermerlechat } from "./chat.js";
 
 window.addEventListener("load", () => {
  
     ajouterbackGroundGame();
-
- 
 
     endturn.addEventListener("click", () => {endTurn()});
 
@@ -43,20 +42,17 @@ window.addEventListener("load", () => {
 
     surrender.addEventListener("click", () => {surrenderGame()});
 
-
     // enlever les boutons si on observe
     if(localStorage.getItem("usernameObserve") != null){
         // get les childs 
         container_button_game_side_gameChild.forEach(element => {
             element.style.display = "none";
         });
-
         container_button_game_side_game.style.display = "flex";
         container_button_game_side_game.innerHTML = "Observation";
-
-
     }
-
+   
+    initialiserGameouObserve();
     if(jeux_en_cours == true){
         setTimeout(state, 1000); 
     } 
@@ -74,54 +70,53 @@ const ajouterbackGroundGame = () => {
     }
 }
 
-const state = () => {
-    let form = new FormData();
-    
-    // Ajout du nom à observer si présent
+const initialiserGameouObserve = () => {
     if (localStorage.getItem("usernameObserve") != null) {
-        form.append("usernameObserve", localStorage.getItem("usernameObserve"));
-        console.log("Observing username:", localStorage.getItem("usernameObserve"));
+        if (url !== "AjaxObserve.php") { 
+            form = new FormData();
+            form.append("usernameObserve", localStorage.getItem("usernameObserve"));
+            form.append("isObserving", true);
+            url = "AjaxObserve.php";
+        }
+    } else {
+        if (url !== "AjaxGame.php") { 
+            form = null; 
+            url = "AjaxGame.php";
+        }
     }
-
-    fetch("AjaxGame.php", {   
-        method: "POST",
-        body: form    
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data === "WAITING") {
-            
-        } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST") {
-            enleverAnimationBoard(data);
-            localStorage.removeItem("usernameObserve");
-           
-        } else if(data == "NOT_IN_GAME"){
-            localStorage.removeItem("usernameObserve");
-        } else {
-
-            console.log(data);
-            
-          
-            ajouterAnimationBoard(data);
-
-            if (jeux_en_cours) {
-                gameUpdate(data);
-            }
-        } 
-        if (jeux_en_cours) {
-            setTimeout(state, 1000);
-        }
-    })
-    .catch(error => {
-        console.error("Erreur lors de la récupération de l'état:", error);
-        if (jeux_en_cours) {
-            setTimeout(state, 1000);
-        }
-    });
 };
 
+const state = () => {
+    fetch(url, {
+        method: "POST",
+        body: form,
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data === "WAITING") {
+                // Partie en attente
+            } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST") {
+                localStorage.removeItem("usernameObserve");
+                enleverAnimationBoard(data);
+                fermerlechat();
+            } else if (data === "NOT_IN_GAME") {
+                localStorage.removeItem("usernameObserve");
+                enleverAnimationBoard(data);
+                fermerlechat();
+            } else {
+                ajouterAnimationBoard(data);
+                
+                if (jeux_en_cours) {
+                    gameUpdate(data);
+                }
+            }
 
-
+            if (jeux_en_cours) {
+                setTimeout(state, 1000);
+            }
+        })
+        
+};
 
 const endTurn = () => {
     fetch("AjaxEndTurn.php", {})
@@ -148,12 +143,8 @@ const heroPower = () => {
         else {
             if(jeux_en_cours == true){
                 gameUpdate(data);
-               
-
             } 
         }
-        
-        
     });
 }
 const surrenderGame = () => {
@@ -166,7 +157,6 @@ const surrenderGame = () => {
     
     });
 }
-
 
 const enleverAnimationBoard = (data) => {
     jeux_en_cours = false;
@@ -207,9 +197,6 @@ const enleverAnimationBoard = (data) => {
             animation_versus_text.innerHTML = "perdu contre";
         }
 
-
-        
-      
     }, 1500);
     setTimeout(() => {
         window.location.href = "menu.php";

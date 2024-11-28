@@ -66,16 +66,16 @@ function stateDashboard() {
         const parties = data.parties;
      
         const joueur_nom = data.username;
-        console.log(joueur_nom);
+   
         
         
         // si data vide
         
         if(joueur_nom.length > 0) {
-            console.log(joueur_nom.length);
+          
             
             joueur_nom.forEach(element => {
-                console.log(element);
+             
                 
                 createDivForDesktop(element);
               
@@ -159,13 +159,14 @@ const afficherLesUsagers = (usagers) => {
             let checkboxUsager = document.createElement("div");
             checkboxUsager.className = "checkbox-usager";
 
-            liUsager.innerHTML = element.ennemi__nom || element; // si element.ennemi__nom existe alors met le sinon alors c est un type
+            console.log(element.ennemi__nom);
+            
+            
+            liUsager.innerHTML = element.nom || element;
             liUsager.appendChild(checkboxUsager);
             container.appendChild(liUsager);
 
-           
-
-            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.ennemi__nom || element));
+            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.ennemi__nom || element.nom));
         });
     };
 
@@ -175,7 +176,7 @@ const afficherLesUsagers = (usagers) => {
 };
 
 const clickedUsagerType = (checkboxUsager, usager_ennemi) => {
-    console.log(usager_ennemi);
+
     
     // verifier si l element cliquer a deja la classe active
     const isActive = checkboxUsager.classList.contains("active");

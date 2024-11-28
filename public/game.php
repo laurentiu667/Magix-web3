@@ -9,21 +9,22 @@ require_once("partial/layout/header.php");
 
 ?>
 
-    <link rel="stylesheet" href="style/css/card.css">
-    <link rel="stylesheet" href="style/css/cardeffect.css">
-    <link rel="stylesheet" href="style/css/arenaProto.css">
-    <link rel="stylesheet" href="style/css/loading.css">
+<link rel="stylesheet" href="style/css/card.css">
+<link rel="stylesheet" href="style/css/cardeffect.css">
+<link rel="stylesheet" href="style/css/arenaProto.css">
+<link rel="stylesheet" href="style/css/loading.css">
+<link  rel="stylesheet" href="style/css/chat.css">
 
-    <script type="module" defer src="script/game.js"></script>
+<script type="module" defer src="script/game.js"></script>
+<script type="module" defer src="script/chat.js"></script>
+<script type="module" defer src="script/typeGame.js"></script>
+<script type="module" defer src="script/cards.js"></script>
 
-    <script type="module" defer src="script/typeGame.js"></script>
-    <script type="module" defer src="script/cards.js"></script>
 
-
-    <div class="animation-rideau">
-        <div class="wrapper">
-            <div class="first-loading">
-                <div class="primary-load"></div>
+<div class="animation-rideau">
+    <div class="wrapper">
+        <div class="first-loading">
+            <div class="primary-load"></div>
             </div>
             <div class="second-loading">
                 <div class="primary-load"></div>
@@ -34,12 +35,67 @@ require_once("partial/layout/header.php");
         <div class="animation-joueur"></div>
         <div class="animation-versus-text"></div>
         <div class="animation-ennemi"></div>
-
+        
     </div>
     <div class="danger-alert"></div>
-   
-   
-
+    
+    
+    <div class="iframe-container">
+        <div class="fermer-chat"></div>
+        <div class="wrapper-iframe">
+                
+    
+                    <div class="top-message-container">
+                        <div class="left-container-user-connected"></div>
+                        <div class="list-user--in-game">
+    
+                            <!-- <div class="container-user-in-game">
+    
+                                <div class="gb-fpc first-player-container">
+    
+                                    <div class="name-in-game"></div>
+                                    <div class="health-in-game"></div>
+    
+                                </div>
+    
+                                <div class="gb-fpc second-player-container">
+    
+                                    <div class="name-in-game name-in-game-second"></div>
+                                    <div class="health-in-game name-in-game-second"></div>
+    
+                                </div>
+    
+                            </div> -->
+                            
+    
+                        </div>
+                    </div>
+    
+                    <div class="bottom-message-users-container">
+                        <div class="message--class-global">
+    
+                            <!-- <div class="test user-mess-container1">
+                                <div class="heure-user">
+                                    <span>[</span>
+                                    <span class="heure-input">12:23</span>
+                                    <span>]</span>
+                                </div>
+                                <div class="mess--user-real-time">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate deserunt, eius explicabo nesciunt eum maxime ex velit illum accusantium.</div>
+                            </div> -->
+    
+                            
+                        </div>
+                        <form class="chat-form">
+                            <div class="container-send--message">
+                                <input type="text" class="message--class-input" placeholder="message">
+                                <button type="submit" class="message--class-button-send">Envoyer</button>
+                                <button type="submit" class="message--class-button-send-small-device"></button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+    </div>
+    
 
     <div class="container-game">
         <div class="message-skew-erreur">
@@ -73,14 +129,16 @@ require_once("partial/layout/header.php");
                                         <div class="mana-progress"></div>
                                     </div>
 
-                                    <div class="number-health">
-                                        <div class="cercle-health"></div>
-                                        <p class="number-cercle-health"></p>
-                                    </div>
+                                    <div class="container-hm">
+                                        <div class="number-health">
+                                            <div class="cercle-health"></div>
+                                            <p class="number-cercle-health"></p>
+                                        </div>
 
-                                    <div class="number-mana">
-                                        <div class="cercle-mana"></div>
-                                        <p class="number-cercle-mana"></p>
+                                        <div class="number-mana">
+                                            <div class="cercle-mana"></div>
+                                            <p class="number-cercle-mana"></p>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -157,14 +215,16 @@ require_once("partial/layout/header.php");
                                         <div class="mana-progress mana-progress-ennemi"></div>
                                     </div>
 
-                                    <div class="number-health">
-                                        <div class="cercle-health"></div>
-                                        <p class="number-cercle-health number-cercle-health-ennemi"></p>
-                                    </div>
+                                    <div class="container-hm">
+                                        <div class="number-health">
+                                            <div class="cercle-health"></div>
+                                            <p class="number-cercle-health number-cercle-health-ennemi"></p>
+                                        </div>
 
-                                    <div class="number-mana">
-                                        <div class="cercle-mana"></div>
-                                        <p class="number-cercle-mana number-cercle-mana-ennemi"></p>
+                                        <div class="number-mana">
+                                            <div class="cercle-mana"></div>
+                                            <p class="number-cercle-mana number-cercle-mana-ennemi"></p>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -203,11 +263,11 @@ require_once("partial/layout/header.php");
 
             <div class="container-bottom-game">
 
-              
-                
                 <div class="hand-bottom-game"></div>
                     
-               
+
+                <div id="openchat" class="openchatgame open-chat-button"></div>
+
             </div>
 
         </div>

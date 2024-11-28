@@ -29,14 +29,12 @@ let afficher_tour_message = document.querySelector(".style-div-erreur-before");
 let message_erreur__1 = document.querySelector(".message-erreur--1");
 
 
-
-// let enneminom = document.querySelector(".nom-ennemi");
 import { Cards } from "./cards.js";
 import { jeux_peut_commencer } from "./game.js";
 
 let imagesMap = {}; // hashmap => uid => randomIMG
 
-let dernierTour = null; // Suivi du dernier état de `yourTurn`
+let dernierTour = null; 
 
 
 export const gameUpdate = (data) => {
@@ -50,7 +48,8 @@ export const gameUpdate = (data) => {
         afficher_tour_joueur_ou_erreur("Ce n’est pas votre tour", "#D43232");
     }
     else {
-      
+        
+        
         if(jeux_peut_commencer){
             mettreAjourEtatJoueur(data);
 
@@ -58,7 +57,7 @@ export const gameUpdate = (data) => {
             
             mettreAJourTempsJoueur(data);
             
-            mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp);
+            mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp, data.opponent.maxHp, data.opponent.maxMp);
 
             mettreAJourLesBoards(data);
           
@@ -67,7 +66,7 @@ export const gameUpdate = (data) => {
     }
 };
 
-const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manaennemi, maxhealth, maxmana) => {
+const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manaennemi, maxhealth, maxmana, maxhopponent, maxmopponent) => {
 
     // max health est à 100%
     // max mana est à 70%
@@ -75,8 +74,8 @@ const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manae
     let valeurDivProgressHealthJoueur = (healthjoueur / maxhealth) * 100; 
     let valeurDivProgressManaJoueur = (manajoueur / maxmana) * 100;
     
-    let valeurDivProgressHealthEnnemi = (healthennemi / maxhealth) * 100; 
-    let valeurDivProgressManaEnnemi = (manaennemi / maxmana) * 100;
+    let valeurDivProgressHealthEnnemi = (healthennemi / maxhopponent) * 100; 
+    let valeurDivProgressManaEnnemi = (manaennemi / maxmopponent) * 100;
 
     if (manajoueur >= maxmana){
         valeurDivProgressManaJoueur = 100;

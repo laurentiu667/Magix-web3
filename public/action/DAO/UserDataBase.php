@@ -46,20 +46,28 @@
             }
         }
 
-        public static function getNomDesUsagers(){
-            try{
-                // connection a la base de donnee
+        public static function getNomDesUsagers() {
+            try {
+                // Connexion à la base de données
                 $connection = Connection::getConnection();
-                // preparation de la requete
-                $sql = "SELECT DISTINCT ennemi__nom FROM parties_magix";
-                // preparation de la requete
+        
+                // Préparation de la requête
+                $sql = "
+                    SELECT DISTINCT joueur__nom AS nom FROM parties_magix
+                    UNION
+                    SELECT DISTINCT ennemi__nom AS nom FROM parties_magix
+                ";
+        
+                // Préparation de la requête
                 $statement = $connection->prepare($sql);
-                // execution de la requete
+        
+                // Exécution de la requête
                 $statement->execute();
-                // recuperation des resultats
+        
+                // Récupération des résultats
                 $result = $statement->fetchAll();
                 return $result;
-
+        
             } catch (PDOException $e) {
                 echo "Erreur: " . $e->getMessage();
             }

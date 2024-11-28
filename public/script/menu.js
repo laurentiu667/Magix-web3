@@ -1,30 +1,12 @@
-let iframe = document.querySelector(".iframe-container");
-
-
 let themebutton = document.querySelector("#theme");
 let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
-let fermetchat = document.querySelector(".fermer-chat");
-let ouvrirchat = document.querySelector("#openchat");
 let nom_joueur = document.querySelector(".nom-joueur");
-
-
 
 window.addEventListener("load", () => {
 
     nom_joueur.innerHTML = "bienvenue " + localStorage.getItem("username");
     
-   
-   
-    ouvrirchat.addEventListener("click", () => {
-        openTheChat();
-    });
-    fermetchat.addEventListener("click", () => {
-        fermerlechat();
-    });
-
- 
-
     theme();
     choisirTheme();
 
@@ -33,8 +15,6 @@ window.addEventListener("load", () => {
     });
 
 });
-
-
 
 const choisirTheme = () => {    
 
@@ -52,7 +32,7 @@ const theme = () => {
     let clicked = false;
     themebutton.addEventListener("click", () => {
         if (!clicked) {
-            themecontainer.style.display = "grid";
+            themecontainer.style.display = "flex";
             clicked = true;
         } else {    
             themecontainer.style.display = "none";
@@ -61,13 +41,3 @@ const theme = () => {
     });
 }
 
-
-const openTheChat = () => {
-    iframe.style.display = "block";
-};
-
-const fermerlechat = () => {
-  
-    
-    iframe.style.display = "none";
-}

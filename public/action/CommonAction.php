@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("action/DAO/UserDataBase.php");
+
 abstract class CommonAction {
     protected static $VISIBILITY_PUBLIC = 0;
     protected static $VISIBILITY_MEMBER = 1;
@@ -34,31 +34,12 @@ abstract class CommonAction {
 		} else {
 			$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
 		}
-
-		if (empty($_SESSION["username"])) {
-			$_SESSION["username"] = "bug alors";
-		} else {
-			$_SESSION["username"] = $_SESSION["username"];
-		}
-		if (empty($_SESSION["ennemi"])) {
-			$_SESSION["ennemi"] = "bug alors";
-		} else {
-			$_SESSION["ennemi"] = $_SESSION["ennemi"];
-		}
-
-		if (empty($_SESSION["partie_gagne"])) {
-			$_SESSION["partie_gagne"] = false;
-		} else {
-			UserDataBase::enregistrementPartie($_SESSION["username"], $_SESSION["ennemi"], $_SESSION["username"]);
-			$_SESSION["partie_gagne"] = false; 
-		}
 		
-		if (empty($_SESSION["partie_perdu"])) {
-			$_SESSION["partie_perdu"] = false;
-		} else {
-			UserDataBase::enregistrementPartie($_SESSION["username"], $_SESSION["ennemi"], $_SESSION["ennemi"]);
-			$_SESSION["partie_perdu"] = false; 
-		}
+	    // Initialisation des variables de session
+        $_SESSION["username"] = $_SESSION["username"] ?? "bug alors";
+        $_SESSION["ennemi"] = $_SESSION["ennemi"] ?? "bug alors";
+        $_SESSION["partie_gagne"] = $_SESSION["partie_gagne"] ?? false;
+        $_SESSION["partie_perdu"] = $_SESSION["partie_perdu"] ?? false;
 
         // si la page demande une plus grande visibilite que l utilisateur a alors rediriger vers index.php
         if ($this->pageVisibility > $_SESSION["visibility"]) {

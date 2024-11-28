@@ -58,28 +58,20 @@ export class Cards {
         mechanics.innerHTML = this.cardMECHANICS;
         cardeWrapper.appendChild(mechanics);
 
-        
-
-
         // Ajout des divs dans le board
         if (this.divAppend === "board_joueur") {
             board_joueur.appendChild(carteDiv);
         
             carteDiv.onclick = () => {
                 mycardUID = this.cardUID; 
-                console.log("Carte du joueur sélectionnée : " + mycardUID);
             }
-
             if (this.cardSTATE === "IDLE" && this.yourTurn === true){
                 carteDiv.classList.toggle("idle");
             }
-
             attack_hero.onclick = () => {
                 
                 if(mycardUID != null ){
                     AttaquerUneCarte(mycardUID, 0);
-                    
-                } else {
                     
                 }
             }
@@ -89,7 +81,7 @@ export class Cards {
             let mechanique = this.cardMECHANICS;
             carteDiv.onclick = () => {
                 targetUID = this.cardUID; 
-                console.log("Carte de l'ennemi ciblée : " + targetUID);
+                
                 if (mycardUID && targetUID) {
                     AttaquerUneCarte(mycardUID, targetUID, carteDiv);
                 }
@@ -102,14 +94,13 @@ export class Cards {
                     carteDiv.classList.toggle("stealth");
                 }
             });
-            
         } 
         else {
             deck_container.appendChild(carteDiv);
             
             carteDiv.onclick = () => {
                 jouerUneCarte(this.cardUID);
-                console.log("Carte jouée : " + this.cardUID);
+              
             }
         }
     }
@@ -135,16 +126,13 @@ const jouerUneCarte = (cardUID) => {
             afficher_tour_joueur_ou_erreur("Le board est plein", "#D43232");
         } else {
             gameUpdate(data);
-            // ici je dois update le game mais ca bug et ca me ban si je le met ici 
-            console.log("voici le data apres avoir play une carte " + data);
+            
         }
-     
-        
     });
 };
 
 // Fonction pour attaquer une carte
-const AttaquerUneCarte = (cardUID, targetUID, carteDiv) => {
+const AttaquerUneCarte = (cardUID, targetUID) => {
     let form = new FormData();
     form.append("cardUID", cardUID);
     form.append("targetUID", targetUID);
@@ -156,9 +144,6 @@ const AttaquerUneCarte = (cardUID, targetUID, carteDiv) => {
     })
     .then(response => response.json())
     .then(data => {
-
-        
-    
         if (data == "MUST_ATTACK_TAUNT_FIRST"){
             afficher_tour_joueur_ou_erreur("Vous devez attaquer la carte avec Taunt en premier", "#D43232");
         } else if (data == "OPPONENT_CARD_NOT_FOUND"){
@@ -173,20 +158,6 @@ const AttaquerUneCarte = (cardUID, targetUID, carteDiv) => {
             mycardUID = null;
             targetUID = null;
             gameUpdate(data);
-           
-            console.log("voici le data apres avoir attaquer une carte " + data);
         }
-        
     });
 };
-
-// si je fais en sorte de afficher que les cartes necessaire au lieu de tout effacer
-// const cartePeutPasEtreAttaquee = (carte) => {
-//     console.log("carte peut pas etre attaquee");
-    
-//     carte.classList.add("attaqued");
-
-//     setTimeout(() => {
-//         carte.classList.remove("attaqued");
-//     }, 700); // Durée de l'animation en millisecondes
-// };

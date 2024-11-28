@@ -16,7 +16,7 @@
 
         <div class="choice-usager-container">
 
-            <div class="usager-div-name">Usager</div>
+            <div class="usager-div-name">Ennemi</div>
             <div class="choice-usager">
             
             </div>
@@ -49,16 +49,19 @@
 
                     <div class="click-choice">Trier par : <span class="value-trier"></span></div>
                 </div>
-                <button id="confirmer-choix-board">Confirmer</button>
+                <button id="confirmer-choix-board" onclick="document.getElementById('sectionstats').scrollIntoView({behavior: 'smooth'});">
+                    Confirmer
+                </button>
+
             </div>
         </div>
-        <div class="dash-stats">
+        <div id="sectionstats" class="dash-stats">
             <div class="wrapper-stats">
 
                 <div class="header-table">
                    
                     <div class="vous">
-                        <div>VOUS</div>
+                        <div>JOUEUR</div>
                     </div>
                     <div class="ennemi">
                         <div>ENNEMI</div>
