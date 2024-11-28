@@ -21,8 +21,6 @@
                 parent::callAPI("chat/new", $data);
             }
 
-         
-    
             $messages = parent::callAPI("chat", $data);
 
             $username = $_SESSION["username"];

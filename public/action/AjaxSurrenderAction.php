@@ -10,9 +10,6 @@
 
         protected function executeAction() {
 
-      
-            
-    
             $data = [
                 "key" => $_SESSION["key"],
                 "type" => "SURRENDER"
@@ -22,6 +19,5 @@
            
             return compact("result");
             
-        
         }
     }

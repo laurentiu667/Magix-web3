@@ -1,7 +1,7 @@
 
 const entrainement = document.querySelector("#entrainement");
 const partie_pvp = document.querySelector("#partie_lancer_pvp");
-let inputUserObserve = document.querySelector("#inputUserObserve");
+
 window.addEventListener("load", () => {
   
     if (entrainement) {
@@ -19,14 +19,7 @@ window.addEventListener("load", () => {
             typeGame("PVP");
         });
     }
-    inputUserObserve.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            getUsername();
-            window.location.href = "game.php";
-
-        }
-
-    });
+    
 });
 
 const typeGame = (namegame) => {
@@ -39,13 +32,9 @@ const typeGame = (namegame) => {
     })
     .then(response => response.json())
     .then(data => {
-   
+        
         window.location.href = "game.php";
     
     })
     
-}
-const getUsername = () => {
-
-    localStorage.setItem("usernameObserve", inputUserObserve.value);
 }

@@ -4,8 +4,6 @@
     $action = new MenuAction();
     $data = $action->execute();
     
-    $data["titlepage"] = "Menu";
-    
     require_once("partial/layout/header.php");
     
     ?>  
@@ -16,8 +14,6 @@
     <link  rel="stylesheet" href="style/css/menu.css">
     <link  rel="stylesheet" href="style/css/chat.css">
     
-    
-    
     <div class="iframe-container">
          <div class="fermer-chat"></div>
          <div class="wrapper-iframe">
@@ -27,40 +23,11 @@
                  <div class="left-container-user-connected"></div>
                  <div class="list-user--in-game">
     
-                     <!-- <div class="container-user-in-game">
-    
-                         <div class="gb-fpc first-player-container">
-    
-                             <div class="name-in-game"></div>
-                             <div class="health-in-game"></div>
-    
-                         </div>
-    
-                         <div class="gb-fpc second-player-container">
-    
-                             <div class="name-in-game name-in-game-second"></div>
-                             <div class="health-in-game name-in-game-second"></div>
-    
-                         </div>
-    
-                     </div> -->
-                     
-    
                  </div>
              </div>
     
              <div class="bottom-message-users-container">
                  <div class="message--class-global">
-    
-                     <!-- <div class="test user-mess-container1">
-                         <div class="heure-user">
-                             <span>[</span>
-                             <span class="heure-input">12:23</span>
-                             <span>]</span>
-                         </div>
-                         <div class="mess--user-real-time">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate deserunt, eius explicabo nesciunt eum maxime ex velit illum accusantium.</div>
-                     </div> -->
-    
                      
                  </div>
                  <form class="chat-form">

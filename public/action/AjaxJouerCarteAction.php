@@ -13,13 +13,11 @@
             $type = $_POST['type'];       
             $uid = $_POST['cardUID'] ?? null;    
             $targetUid = $_POST['targetUID'] ?? null;  
-        
             
             $data = [
                 "key" => $key,
                 "type" => $type,
             ];
-        
             
             if ($type === 'PLAY' || $type === 'ATTACK') {
                 $data["uid"] = $uid;

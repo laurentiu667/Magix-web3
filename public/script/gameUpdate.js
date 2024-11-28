@@ -35,11 +35,7 @@ import { jeux_peut_commencer } from "./game.js";
 let imagesMap = {}; // hashmap => uid => randomIMG
 
 let dernierTour = null; 
-
-
 export const gameUpdate = (data) => {
-
-
     if (data === "WAITING") {
        
     } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
@@ -48,8 +44,6 @@ export const gameUpdate = (data) => {
         afficher_tour_joueur_ou_erreur("Ce n’est pas votre tour", "#D43232");
     }
     else {
-        
-        
         if(jeux_peut_commencer){
             mettreAjourEtatJoueur(data);
 
@@ -60,9 +54,7 @@ export const gameUpdate = (data) => {
             mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp, data.opponent.maxHp, data.opponent.maxMp);
 
             mettreAJourLesBoards(data);
-          
         }
-
     }
 };
 
@@ -98,7 +90,6 @@ const avertirjoueurdangerTemps = (temps) => {
     } 
 };
 
-
 export const afficher_tour_joueur_ou_erreur = (texte, couleurediv) => {
   
     afficher_tour.classList.add("active-animation");
@@ -108,12 +99,7 @@ export const afficher_tour_joueur_ou_erreur = (texte, couleurediv) => {
     setTimeout(() => {
         afficher_tour.classList.remove("active-animation");
     }, 2950);
-
-  
-    
 }
-
-
 const mettreAjourEtatJoueur = (data) => {
      // METTRE A JOUR LES INFOS DU JOUEUR
      joueur_vie.innerHTML = data.hp;

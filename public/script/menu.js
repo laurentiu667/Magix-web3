@@ -2,7 +2,7 @@ let themebutton = document.querySelector("#theme");
 let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
 let nom_joueur = document.querySelector(".nom-joueur");
-
+let inputUserObserve = document.querySelector("#inputUserObserve");
 window.addEventListener("load", () => {
 
     nom_joueur.innerHTML = "bienvenue " + localStorage.getItem("username");
@@ -14,6 +14,13 @@ window.addEventListener("load", () => {
         window.location.href = "dashboard.php";
     });
 
+    inputUserObserve.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            getUsername();
+            window.location.href = "game.php";
+        }
+    });
+    
 });
 
 const choisirTheme = () => {    
@@ -41,3 +48,7 @@ const theme = () => {
     });
 }
 
+const getUsername = () => {
+
+    localStorage.setItem("usernameObserve", inputUserObserve.value);
+}

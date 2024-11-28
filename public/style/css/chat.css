@@ -63,8 +63,8 @@
     justify-content: flex-start;
     gap: 0.5em;
     padding: 1em;
-    height: fit-content;
-    overflow-y: auto;
+    height: 100%;
+    overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: var(--couleur-chat) var(--couleur-chat-second);
 }
@@ -362,9 +362,16 @@
     .bottom-message-users-container{
         height: 80%;
     }
+    .iframe-container.active{
+        width: 90% !important;
+        height: 90% !important;
+        opacity: 1;
+       
+        
+    }
 }
 .iframe-container.active{
-    width: 60%;
+    width: 70%;
     height: 70%;
     opacity: 1;
    

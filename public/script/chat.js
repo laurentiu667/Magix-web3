@@ -19,12 +19,9 @@ window.addEventListener("load", () => {
     ouvrirchat.addEventListener("click", () => {
         openTheChat();
         themecontainer.style.display = "none";
-     
-        
     });
     fermetchat.addEventListener("click", () => {
         fermerlechat();
-       
     });
 
     chatForm.addEventListener("submit", (event) => {
@@ -66,17 +63,13 @@ const stateMessage = () => {
         });
         
         
-
-
-        /////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Parcourir les anciens utilisateurs et identifier ceux qui doivent être supprimés
         user_connected_array_old.forEach(oldUser => {
             if (!userConnected.some(newUser => newUser.username === oldUser)) {
                 // en gros on prends l index du newUser et on le compare avec l index du old array
                 // si le nom n est pas pareille alors prendre olduser et le supprimer
                 const userDiv = document.querySelector(`.user-connected-div[data-username="${oldUser}"]`);
                 if (userDiv) {
-                    userDiv.remove(); // Supprimer le div correspondant
+                    userDiv.remove(); 
                 }
             }
         });
@@ -89,9 +82,9 @@ const stateMessage = () => {
                 let userClass = new User(user.username, user.trophies);
             }
         });
-        // Mettre à jour la liste des anciens utilisateurs connectés
+   
         user_connected_array_old = userConnected.map(user => user.username);
-        /////////////////////////////////////////////////////////////////////////////////////////////////////
+     
 
 
         msgs.forEach(element => {

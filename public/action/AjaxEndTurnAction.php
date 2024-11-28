@@ -11,13 +11,11 @@
            
             $key = $_SESSION['key'];            
             $type = "END_TURN";                
-           
          
             $data = [
                 "key" => $key,
                 "type" => $type,
             ];
-        
             
             $result = parent::callAPI("games/action", $data);
             return compact("result");

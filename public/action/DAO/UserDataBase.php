@@ -33,7 +33,6 @@
                 // preparation de la requete
                 $sql = "SELECT * FROM parties_magix ORDER BY date_partie DESC";
 
-
                 // preparation de la requete
                 $statement = $connection->prepare($sql);
                 // execution de la requete
@@ -57,7 +56,7 @@
                     UNION
                     SELECT DISTINCT ennemi__nom AS nom FROM parties_magix
                 ";
-        
+    
                 // Préparation de la requête
                 $statement = $connection->prepare($sql);
         
@@ -81,7 +80,6 @@
                 $sql = "SELECT * FROM parties_magix WHERE ennemi__nom = :nom";
                 // preparation de la requete
                 $statement = $connection->prepare($sql);
-
                 $statement->bindParam(':nom', $nom);
                 // execution de la requete
                 $statement->execute();
@@ -93,5 +91,45 @@
                 echo "Erreur: " . $e->getMessage();
             }
         }   
+
+        // public static function getPartieUserCount($userConnected){
+        //     try{
+        //         // connection a la base de donnee
+        //         $connection = Connection::getConnection();
+        //         // preparation de la requete
+        //         $sql = "SELECT COUNT(*) FROM parties_magix WHERE gagnant = ?";
+        //         // preparation de la requete
+        //         $statement = $connection->prepare($sql);
+        //         $statement->bindParam(1, $userConnected);
+        //         // execution de la requete
+        //         $statement->execute();
+        //         // recuperation des resultats
+        //         $result = $statement->fetchAll();
+        //         return $result;
+
+        //     } catch (PDOException $e) {
+        //         echo "Erreur: " . $e->getMessage();
+        //     }
+        // }
+        
+        // public static function getPartieUserTotal($userConnected){
+        //     try{
+        //         // connection a la base de donnee
+        //         $connection = Connection::getConnection();
+        //         // preparation de la requete
+        //         $sql = "SELECT COUNT(*) FROM parties_magix";
+        //         // preparation de la requete
+        //         $statement = $connection->prepare($sql);
+        //         $statement->bindParam(':userConnected', $userConnected);
+        //         // execution de la requete
+        //         $statement->execute();
+        //         // recuperation des resultats
+        //         $result = $statement->fetchAll();
+        //         return $result;
+
+        //     } catch (PDOException $e) {
+        //         echo "Erreur: " . $e->getMessage();
+        //     }
+        // }
     }
 ?>

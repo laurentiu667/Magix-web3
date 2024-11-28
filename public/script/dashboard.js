@@ -14,29 +14,20 @@ let ouverture = false;
 window.addEventListener("load", () => {
     value_trier.innerHTML = "Date";
     stateTrier();
-
     // reinitialiser le localstorage
     localStorage.removeItem("ennemi__choisi");
-
     return_home.addEventListener("click", retournerMenu);
     choice_container.addEventListener("click", () => choisirType());
-
     confirmer_choix_button.addEventListener("click", () => stateDashboard());
-   
 });
 
 function stateTrier(){
-  
-
     fetch("AjaxDashboard.php", {   
         method: "POST"
     })
     .then(response => response.json())
     .then(data => {
-        
-
         const ennemis_nom = data.ennemis;
-        
         // afficher les usagers dans le trier par usager
         afficherLesUsagers(ennemis_nom);
 
@@ -52,9 +43,6 @@ function stateDashboard() {
     let form = new FormData();
    
     let usager = localStorage.getItem("ennemi__choisi");
-
-
-
     form.append("usager", usager);
     fetch("AjaxDashboard.php", {   
         method: "POST",
@@ -62,24 +50,21 @@ function stateDashboard() {
     })
     .then(response => response.json())
     .then(data => {
-        
-        const parties = data.parties;
-     
-        const joueur_nom = data.username;
-   
-        
-        
+        let parties = data.parties;
+        let joueur_nom = data.username;
+        // let totalpartie = data.totalpartie;
+        // let totalpartieUserConnected = data.totalpartieGagner;
+
+        // localStorage.setItem("totalpartie", totalpartie);
+        // localStorage.setItem("totalpartieUserConnected", totalpartieUserConnected);
+
+        // console.log(localStorage.getItem("totalpartie"));
+        // console.log(localStorage.getItem("totalpartieUserConnected"));
+
         // si data vide
-        
         if(joueur_nom.length > 0) {
-          
-            
-            joueur_nom.forEach(element => {
-             
-                
+            joueur_nom.forEach(element => {     
                 createDivForDesktop(element);
-              
-                
             });
         } else if (parties.length > 0) {
             parties.forEach(element => {
@@ -92,9 +77,6 @@ function stateDashboard() {
     });
 }
 function createDivForDesktop(element){
-  
-
-    
     let div_stats = document.createElement("div");
     div_stats.className = "item-stats";
     

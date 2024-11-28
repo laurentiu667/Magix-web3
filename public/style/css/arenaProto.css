@@ -117,9 +117,6 @@ body {
     height: 40%;
     display: flex;
     flex-direction: column;
-
-
-
 }
 .bottom-side{
     height: 60%;
@@ -142,7 +139,8 @@ body {
 .image-subject{
     width: 80%;
     height: 80%;
-    background-image: url(/Images/cartes/image-10.jpg);
+    
+    background-image: url(/Images/cartes/image-1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -153,7 +151,9 @@ body {
 .image-subject-ennemi{
     width: 80%;
     height: 80%;
-    background-image: url(/Images/cartes/image-10.jpg);
+    
+    border: 3px solid black;
+    background-image: url(/Images/cartes/image-2.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -318,12 +318,14 @@ body {
 }
 
 .name-player{
-    height: fit-content;
+    
+    width: fit-content;
     justify-self: center;
     align-self: center;
-    font-size: calc(0.75em + 1vw);
-    text-wrap: wrap;
-  
+    font-size: 1.20em;
+    text-wrap: pretty;
+    
+    
 
 }
 .container-message-card{

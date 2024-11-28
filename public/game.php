@@ -1,19 +1,18 @@
 <?php
-require_once("action/AjaxGameAction.php");
 
-$action = new AjaxGameAction();
+require_once("action/GameAction.php");
+
+$action = new GameAction();
 $data = $action->execute();
 $username = $_SESSION["username"];
-$data["titlepage"] = "Partie en cours";
 require_once("partial/layout/header.php");
-
 ?>
 
 <link rel="stylesheet" href="style/css/card.css">
 <link rel="stylesheet" href="style/css/cardeffect.css">
 <link rel="stylesheet" href="style/css/arenaProto.css">
 <link rel="stylesheet" href="style/css/loading.css">
-<link  rel="stylesheet" href="style/css/chat.css">
+<link rel="stylesheet" href="style/css/chat.css">
 
 <script type="module" defer src="script/game.js"></script>
 <script type="module" defer src="script/chat.js"></script>
@@ -48,42 +47,14 @@ require_once("partial/layout/header.php");
                     <div class="top-message-container">
                         <div class="left-container-user-connected"></div>
                         <div class="list-user--in-game">
-    
-                            <!-- <div class="container-user-in-game">
-    
-                                <div class="gb-fpc first-player-container">
-    
-                                    <div class="name-in-game"></div>
-                                    <div class="health-in-game"></div>
-    
-                                </div>
-    
-                                <div class="gb-fpc second-player-container">
-    
-                                    <div class="name-in-game name-in-game-second"></div>
-                                    <div class="health-in-game name-in-game-second"></div>
-    
-                                </div>
-    
-                            </div> -->
-                            
-    
+
                         </div>
                     </div>
     
                     <div class="bottom-message-users-container">
                         <div class="message--class-global">
     
-                            <!-- <div class="test user-mess-container1">
-                                <div class="heure-user">
-                                    <span>[</span>
-                                    <span class="heure-input">12:23</span>
-                                    <span>]</span>
-                                </div>
-                                <div class="mess--user-real-time">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptate deserunt, eius explicabo nesciunt eum maxime ex velit illum accusantium.</div>
-                            </div> -->
-    
-                            
+                
                         </div>
                         <form class="chat-form">
                             <div class="container-send--message">
@@ -104,8 +75,6 @@ require_once("partial/layout/header.php");
             </div>
         </div>
         
-  
-
         <div class="blur-wrapper">
 
             <div class="container-top-game">
@@ -271,13 +240,6 @@ require_once("partial/layout/header.php");
             </div>
 
         </div>
-
-        
-
     </div>
-
-
-
-
 <?php
 require_once("partial/layout/footer.php");

@@ -25,15 +25,14 @@ let animationUnefois = false;
 let jeux_en_cours = true;
 
 
-let url; // Déclarée une seule fois
-let form = null; // Initialisation une fois
+let url; 
+let form = null; 
 export let jeux_peut_commencer = false;
 
 import { afficher_tour_joueur_ou_erreur, gameUpdate } from "./gameUpdate.js";
 import { fermerlechat } from "./chat.js";
 
 window.addEventListener("load", () => {
- 
     ajouterbackGroundGame();
 
     endturn.addEventListener("click", () => {endTurn()});
@@ -53,6 +52,7 @@ window.addEventListener("load", () => {
     }
    
     initialiserGameouObserve();
+    console.log(url)
     if(jeux_en_cours == true){
         setTimeout(state, 1000); 
     } 
@@ -81,12 +81,14 @@ const initialiserGameouObserve = () => {
     } else {
         if (url !== "AjaxGame.php") { 
             form = null; 
+            console.log("test");
             url = "AjaxGame.php";
         }
     }
 };
 
 const state = () => {
+    console.log(url, form)
     fetch(url, {
         method: "POST",
         body: form,

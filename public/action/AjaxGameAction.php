@@ -11,7 +11,6 @@ class AjaxGameAction extends CommonAction {
 
     protected function executeAction() {
        
-
         $data = [
             "key" => $_SESSION["key"],
         ];

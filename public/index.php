@@ -10,10 +10,6 @@
 
 <link rel="stylesheet" href="style\css\login.css">
 <script defer src="/script/login.js" ></script>
-
-
-    
-   
     <div class="container-login">
    
         <div class="left-login">
@@ -50,7 +46,6 @@
                 </div>
             </div>
             
-         
         </div>
         <div class="right-login" id="slideIMG">
             <div class="effet-lum--glob effet-lumiere--1"></div>

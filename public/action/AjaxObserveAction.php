@@ -1,6 +1,5 @@
 <?php
 require_once("action/CommonAction.php");
-require_once("action/AjaxTypeGameAction.php");
 require_once("action/DAO/UserDataBase.php");
 
 class AjaxObserveAction extends CommonAction {
@@ -12,7 +11,6 @@ class AjaxObserveAction extends CommonAction {
     protected function executeAction() {
         $usernameObserve = $_POST["usernameObserve"] ?? null; 
     
-
         $data = [
             "key" => $_SESSION["key"],
             "username" => $usernameObserve

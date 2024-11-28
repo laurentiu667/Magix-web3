@@ -16,8 +16,7 @@ class AjaxLogoutAction extends CommonAction {
         if ($result == "INVALID_KEY") {
             return ["error" => "INVALID_KEY"];
         } else {
-         
-            
+          
             $_SESSION["logout"] = true;
             return [
                 "message" => "SIGNED_OUT"

@@ -9,10 +9,7 @@
         }
 
         protected function executeAction() {
-
-      
             
-    
             $data = [
                 "key" => $_SESSION["key"],
                 "type" => "HERO_POWER"

@@ -19,14 +19,11 @@ abstract class CommonAction {
             session_unset();
             session_destroy();
             session_start();
-	
         }
-
         // si visibility est vide depuis le debut alors lui donner le plus bas niveau de visibilité
         if (empty($_SESSION["visibility"])) {
             $_SESSION["visibility"] = CommonAction::$VISIBILITY_PUBLIC;
         }
-		
 		
 		/// si la cle est vide alors la visibilite est public
 		if (empty($_SESSION["key"])) {
@@ -55,9 +52,6 @@ abstract class CommonAction {
     }
     
     abstract protected function executeAction();
-
-		
-	
 		// Fonction pour call le API ( connexion )
 		/**
 		 * data = ['key1' => 'value1', 'key2' => 'value2'];
@@ -93,10 +87,7 @@ abstract class CommonAction {
 				$result = json_encode($result);
 			}
 			}
-		
 			return json_decode($result);
 		}
-	
-  
 	}
 	
