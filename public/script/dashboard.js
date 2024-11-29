@@ -7,6 +7,7 @@ let container_choice_different_data = document.querySelector(".container-choice-
 
 let confirmer_choix_button = document.querySelector("#confirmer-choix-board");
 let value_trier = document.querySelector(".value-trier");
+let stats_cercle = document.querySelector(".stats-cercle");
 
 let ouverture = false;
 
@@ -14,6 +15,7 @@ let ouverture = false;
 window.addEventListener("load", () => {
     value_trier.innerHTML = "Date";
     stateTrier();
+    stateDashboard();
     // reinitialiser le localstorage
     localStorage.removeItem("ennemi__choisi");
     return_home.addEventListener("click", retournerMenu);
@@ -50,16 +52,17 @@ function stateDashboard() {
     })
     .then(response => response.json())
     .then(data => {
-        let parties = data.parties;
-        let joueur_nom = data.username;
-        // let totalpartie = data.totalpartie;
-        // let totalpartieUserConnected = data.totalpartieGagner;
+        const parties = data.parties;
+        const joueur_nom = data.username;
+        const totalpartie = data.totalpartie;
+        const totalpartieUserConnected = data.totalpartieGagner;
+     
 
-        // localStorage.setItem("totalpartie", totalpartie);
-        // localStorage.setItem("totalpartieUserConnected", totalpartieUserConnected);
 
-        // console.log(localStorage.getItem("totalpartie"));
-        // console.log(localStorage.getItem("totalpartieUserConnected"));
+        localStorage.setItem("totalpartie", totalpartie[0].count);
+        localStorage.setItem("totalpartieUserConnected", totalpartieUserConnected[0].count);
+
+        creerCercleStats();
 
         // si data vide
         if(joueur_nom.length > 0) {
@@ -76,6 +79,29 @@ function stateDashboard() {
         
     });
 }
+const creerCercleStats = () => {
+    let totalpartie = parseFloat(localStorage.getItem("totalpartie"));
+    let totalpartieUserConnected = parseFloat(localStorage.getItem("totalpartieUserConnected"));
+
+    console.log("Total parties:", totalpartie);
+    console.log("Total parties utilisateur connecté:", totalpartieUserConnected);
+
+    let degre = (totalpartie / totalpartieUserConnected) * 360;
+    console.log("Degrés calculés:", degre);
+
+    // Application du style
+    stats_cercle.style.background = `
+    conic-gradient(
+        #B6B6B6 0deg, 
+        #B6B6B6 ${degre}deg, 
+        #808080 ${degre}deg, 
+        #808080 360deg
+    )
+`;
+
+};
+
+
 function createDivForDesktop(element){
     let div_stats = document.createElement("div");
     div_stats.className = "item-stats";

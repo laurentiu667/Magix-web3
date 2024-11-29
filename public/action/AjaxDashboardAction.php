@@ -15,9 +15,9 @@
             $result = [
                 'parties' => UserDataBase::getParties(),
                 'ennemis' => UserDataBase::getNomDesUsagers(),
-                'username' => UserDataBase::getPartiesUsagerSpecifique($usager_choisi)
-                // 'totalpartie' => UserDataBase::getPartieUserTotal($_SESSION["username"]),
-                // 'totalpartieGagner' => UserDataBase::getPartieUserCount($_SESSION["username"])
+                'username' => UserDataBase::getPartiesUsagerSpecifique($usager_choisi),
+                'totalpartie' => UserDataBase::getPartieUserTotal($_SESSION["username"]),
+                'totalpartieGagner' => UserDataBase::getPartieUserCount($_SESSION["username"])
             ];
             
             return compact("result");

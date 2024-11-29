@@ -42,6 +42,12 @@
     
         <div class="container-dashboard-choice">
             <div class="dashboard-name"></div>
+            <div class="user-stats-container">
+                
+                <div class="stats-cercle">
+                    
+                </div>
+            </div>
             <div class="container-choice-bottom">
                 <div class="choice-container">
 

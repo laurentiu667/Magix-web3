@@ -53,6 +53,8 @@ const stateMessage = () => {
     })
     .then(response => response.json())
     .then(data => {
+        
+        
         let msgs = data.messages.msgs;
         let userConnected = data.messages.connectedUsers;
         let games = data.messages.games;

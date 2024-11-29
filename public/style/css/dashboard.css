@@ -47,7 +47,8 @@ body{
 .container-dashboard-choice{
     height: 100%;
     display: grid;
-    grid-template-rows: 1fr 400px;
+    grid-template-rows: 1fr 1fr 300px;
+    place-items: center;
 }
 
 
@@ -58,7 +59,7 @@ body{
     background-image: url(/Images/dashboard.svg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: clamp(200px, 80vw, 800px);
+    background-size: clamp(200px, 90vw, 900px);
     background-color: 100%;
    
 
@@ -70,6 +71,23 @@ body{
     align-items: center;
     justify-content: center;
     gap: .25em;
+}
+.user-stats-container{
+    background-color: #212529;
+    border: 3px solid var(--container__button_inside);
+    box-shadow: inset 10px 10px 100px rgba(255, 255, 255, 0.166);   
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stats-cercle{
+    width: calc(100px + 10vw);
+    height: calc(100px + 10vw);
+    border-radius: 50%;
+  
+    
 }
 .choice-container{
     width: 230px;
@@ -86,7 +104,7 @@ body{
     gap: 0.5em;
     color: white;
     position: absolute;
-    top: 20%; 
+
     left: 20%; 
     transform: translate(-100vw, -50%); 
     z-index: 1;
