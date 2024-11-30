@@ -83,19 +83,16 @@ const creerCercleStats = () => {
     let totalpartie = parseFloat(localStorage.getItem("totalpartie"));
     let totalpartieUserConnected = parseFloat(localStorage.getItem("totalpartieUserConnected"));
 
-    console.log("Total parties:", totalpartie);
-    console.log("Total parties utilisateur connecté:", totalpartieUserConnected);
+  
 
     let degre = (totalpartie / totalpartieUserConnected) * 360;
-    console.log("Degrés calculés:", degre);
 
-    // Application du style
     stats_cercle.style.background = `
     conic-gradient(
-        #B6B6B6 0deg, 
-        #B6B6B6 ${degre}deg, 
-        #808080 ${degre}deg, 
-        #808080 360deg
+        #D9D9D9 0deg, 
+        #D9D9D9 ${degre}deg, 
+        #178043 ${degre}deg, 
+        #178043 360deg
     )
 `;
 

@@ -30,10 +30,11 @@
     background-size: clamp(300px, 80vw, 800px);
   
 }
+
 .wrapper-menu{
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(10px);
+  
     display: grid;
     grid-template-rows: 2fr 3fr 1fr;
 }
@@ -56,8 +57,8 @@
 .list-menu{
     display: grid;
     place-items: center;
-    align-items: start;
-    margin-top: 160px;
+    align-items: center;
+
 }
 .list-menu ul {
     display: flex;
@@ -254,6 +255,5 @@
         display: none;
     }
 }
-
 
 

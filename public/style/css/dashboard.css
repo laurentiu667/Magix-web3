@@ -27,7 +27,7 @@ body{
     width: clamp(200px, 80vw, 800px);
     height: clamp(200px, 80vw, 800px);
     z-index: -1;
-    background-color: hsla(223, 100%, 50%, 0.274);
+    background-color: #1780437e;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -86,6 +86,7 @@ body{
     width: calc(100px + 10vw);
     height: calc(100px + 10vw);
     border-radius: 50%;
+    border: 2px solid #000000;
   
     
 }
