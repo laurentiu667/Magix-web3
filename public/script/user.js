@@ -11,7 +11,7 @@ export class User {
 
         let user_connected_div = document.createElement("div");
         user_connected_div.classList.add("user-connected-div");
-        user_connected_div.setAttribute("data-username", this.username); // Assigner un attribut unique
+        user_connected_div.setAttribute("data-username", this.username); 
         user_connected_div.innerText = this.username;
         left_container_user_connected.appendChild(user_connected_div);
 

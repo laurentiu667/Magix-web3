@@ -64,7 +64,6 @@ const stateMessage = () => {
             
         });
         
-        
         user_connected_array_old.forEach(oldUser => {
             if (!userConnected.some(newUser => newUser.username === oldUser)) {
                 // en gros on prends l index du newUser et on le compare avec l index du old array
@@ -96,9 +95,6 @@ const stateMessage = () => {
                 let user_mess_container = document.createElement("div");
                 user_mess_container.classList.add("user-mess-container");
 
-               
-
-                
                 let heure_user_container = document.createElement("div");
                 heure_user_container.classList.add("heure-user");
                 let firstspan = document.createElement("span");
@@ -196,7 +192,7 @@ const createGamesViews = (games) => {
 
 
 
-// Fonction pour envoyer un message
+// envoi d un message
 const sendMessage = (message) => {
     let form = new FormData();
     form.append("message", message);

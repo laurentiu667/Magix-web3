@@ -20,10 +20,15 @@ let container_game = document.querySelector(".container-game");
 let container_button_game_side_gameChild = document.querySelectorAll(".container-button-game-side-game");
 let container_button_game_side_game = document.querySelector(".container-button-game-side-game");
 
+let image_subject_ennemi = document.querySelector(".image-subject-ennemi");
+let image_subject = document.querySelector(".image-subject");
+
 
 let animationUnefois = false;
 let jeux_en_cours = true;
 
+const randomimgjoueur = Math.floor(Math.random() * 26) + 1;
+const randomimgjoueur2 = Math.floor(Math.random() * 26) + 1;
 
 let url; 
 let form = null; 
@@ -33,6 +38,10 @@ import { afficher_tour_joueur_ou_erreur, gameUpdate } from "./gameUpdate.js";
 import { fermerlechat } from "./chat.js";
 
 window.addEventListener("load", () => {
+    
+
+    localStorage.setItem("randomimgjoueur", randomimgjoueur);
+    localStorage.setItem("randomimgjoueur2", randomimgjoueur2);
     ajouterbackGroundGame();
 
     endturn.addEventListener("click", () => {endTurn()});
@@ -52,12 +61,19 @@ window.addEventListener("load", () => {
     }
    
     initialiserGameouObserve();
-    console.log(url)
+    appliqueruneimageaujoueur();
+    
     if(jeux_en_cours == true){
         setTimeout(state, 1000); 
     } 
 
 });
+const appliqueruneimageaujoueur = () => {
+
+    
+    image_subject.style.backgroundImage = `url(Images/cartes/image-${localStorage.getItem("randomimgjoueur")}.jpg)`;
+    image_subject_ennemi.style.backgroundImage = `url(Images/cartes/image-${localStorage.getItem("randomimgjoueur2")}.jpg)`;
+}
 
 const ajouterbackGroundGame = () => {
     let background = localStorage.getItem("theme");
@@ -81,7 +97,7 @@ const initialiserGameouObserve = () => {
     } else {
         if (url !== "AjaxGame.php") { 
             form = null; 
-            console.log("test");
+
             url = "AjaxGame.php";
         }
     }
@@ -95,6 +111,8 @@ const state = () => {
     })
         .then(response => response.json())
         .then(data => {
+            
+            
             if (data === "WAITING") {
                 // Partie en attente
             } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST") {
@@ -133,16 +151,22 @@ const endTurn = () => {
 }
 
 const heroPower = () => {
+    let pouvoirused = false;
     fetch("AjaxHeropower.php", {})
     .then(response => response.json())
     .then(data => {
         if(data == "HERO_POWER_ALREADY_USED"){
             afficher_tour_joueur_ou_erreur("Pouvoir déjà utilisé", "#D43232");
+        
         } 
         else if (data == "NOT_ENOUGH_ENERGY"){
+          
             afficher_tour_joueur_ou_erreur("Pas assez d'énergie", "#D43232");
         }
         else {
+           
+            
+            
             if(jeux_en_cours == true){
                 gameUpdate(data);
             } 

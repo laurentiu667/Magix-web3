@@ -27,7 +27,7 @@ let danger_alert = document.querySelector(".danger-alert");
 let afficher_tour = document.querySelector(".message-erreur--1");
 let afficher_tour_message = document.querySelector(".style-div-erreur-before");
 let message_erreur__1 = document.querySelector(".message-erreur--1");
-
+let img_div_button_game_hero = document.querySelector(".img-div-button-game-hero"); 
 
 import { Cards } from "./cards.js";
 import { jeux_peut_commencer } from "./game.js";
@@ -54,10 +54,19 @@ export const gameUpdate = (data) => {
             mettreajourbardevieetmana(data.hp, data.mp, data.opponent.hp, data.opponent.mp, data.maxHp, data.maxMp, data.opponent.maxHp, data.opponent.maxMp);
 
             mettreAJourLesBoards(data);
+            
+            mettreajourherodisponible(data);
         }
     }
 };
-
+const mettreajourherodisponible = (data) => {
+    if (data.heroPowerAlreadyUsed) {
+        img_div_button_game_hero.classList.add("hero-power-used");
+    } else if (data.heroPowerAlreadyUsed === false) {
+        img_div_button_game_hero.classList.remove("hero-power-used");
+        
+    } 
+}
 const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manaennemi, maxhealth, maxmana, maxhopponent, maxmopponent) => {
 
     // max health est à 100%

@@ -341,8 +341,7 @@
     
     .iframe-container{
     
-        width: 90%;
-        height: 90%;
+      
         
         content: '';
         position: absolute;

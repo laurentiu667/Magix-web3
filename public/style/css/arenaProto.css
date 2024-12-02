@@ -13,8 +13,7 @@ body {
     height: 100%;
     width: 100%;
    
-    /* background-image: url(/Images/bg9.gif); */
-  
+ 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -82,8 +81,8 @@ body {
 
 }
 .side-game{
-    max-width: 250px;
-    min-width: 250px;
+    max-width: 300px;
+    min-width: 300px;
     height: 100%;
     display: flex;
     align-items: flex-end;
@@ -140,7 +139,7 @@ body {
     width: 80%;
     height: 80%;
     
-    background-image: url(/Images/cartes/image-1.jpg);
+    border: 3px solid black;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -153,7 +152,7 @@ body {
     height: 80%;
     
     border: 3px solid black;
-    background-image: url(/Images/cartes/image-2.jpg);
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -284,6 +283,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.img-div-button-game-hero.hero-power-used{
+    filter: grayscale(1);
 }
 .img-div-button-game-forfeit{
 
