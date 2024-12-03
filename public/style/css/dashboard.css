@@ -51,7 +51,7 @@ html, body {
 .container-dashboard-choice{
     height: 100%;
     display: grid;
-    grid-template-rows: 300px 1fr;
+    grid-template-rows: 1fr 1fr;
     place-items: center;
 }
 

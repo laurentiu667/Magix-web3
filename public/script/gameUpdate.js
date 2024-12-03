@@ -27,7 +27,11 @@ let danger_alert = document.querySelector(".danger-alert");
 let afficher_tour = document.querySelector(".message-erreur--1");
 let afficher_tour_message = document.querySelector(".style-div-erreur-before");
 let message_erreur__1 = document.querySelector(".message-erreur--1");
-let img_div_button_game_hero = document.querySelector(".img-div-button-game-hero"); 
+
+const activeHeroButton = document.querySelector('.img-div-button-game-hero');
+const attackHeroButton = document.querySelector('.img-div-button-game-attackhero');
+const endTurnButton = document.querySelector('.img-div-button-game-endturn');
+const forfeitButton = document.querySelector('.img-div-button-game-forfeit');
 
 import { Cards } from "./cards.js";
 import { jeux_peut_commencer } from "./game.js";
@@ -54,16 +58,30 @@ export const gameUpdate = (data) => {
             mettreAJourLesBoards(data);
             
             mettreajourherodisponible(data);
+            mettreajourbuttonsgame(data)
         }
     }
 };
 const mettreajourherodisponible = (data) => {
     if (data.heroPowerAlreadyUsed) {
-        img_div_button_game_hero.classList.add("hero-power-used");
+        activeHeroButton.classList.add("active");
     } else if (data.heroPowerAlreadyUsed === false) {
-        img_div_button_game_hero.classList.remove("hero-power-used");
+        activeHeroButton.classList.remove("active");
         
     } 
+}
+const mettreajourbuttonsgame = (data) => {
+    if(!data.yourTurn){
+        attackHeroButton.classList.add("active");
+        endTurnButton.classList.add("active");
+        forfeitButton.classList.add("active");
+        activeHeroButton.classList.add("active");
+    } else {
+        attackHeroButton.classList.remove("active");
+        endTurnButton.classList.remove("active");
+        forfeitButton.classList.remove("active");
+
+    }
 }
 const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manaennemi, maxhealth, maxmana, maxhopponent, maxmopponent) => {
 
@@ -105,7 +123,7 @@ export const afficher_tour_joueur_ou_erreur = (texte, couleurediv) => {
     message_erreur__1.style.border = `2px solid ${couleurediv}`;
     setTimeout(() => {
         afficher_tour.classList.remove("active-animation");
-    }, 2950);
+    }, 3950);
 }
 const mettreAjourEtatJoueur = (data) => {
      // METTRE A JOUR LES INFOS DU JOUEUR

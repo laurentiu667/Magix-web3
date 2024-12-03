@@ -81,8 +81,8 @@ body {
 
 }
 .side-game{
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 250px;
+    min-width: 250px;
     height: 100%;
     display: flex;
     align-items: flex-end;
@@ -284,7 +284,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.img-div-button-game-hero.hero-power-used{
+.img-div-button-game-hero.active, .img-div-button-game-attackhero.active, .img-div-button-game-endturn.active, .img-div-button-game-forfeit.active{
     filter: grayscale(1);
 }
 .img-div-button-game-forfeit{
@@ -623,7 +623,7 @@ body {
     background-color: #222222;
     box-shadow: 5px 7px 4px hsla(0, 0%, 0%, 0.25);
     border-radius: 5px;
-    animation: animation 3s cubic-bezier(.15,1,.88,-0.01);      
+    animation: animation 4s cubic-bezier(.15,1,.88,-0.01);      
     z-index: 4999;
     display: flex; 
     align-items: center;

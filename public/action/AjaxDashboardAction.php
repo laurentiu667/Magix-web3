@@ -13,7 +13,7 @@
             $usager_choisi = $_POST["usager"] ?? null; 
 
             $result = [
-                'parties' => UserDataBase::getParties(),
+                'parties' => UserDataBase::getParties($_SESSION["username"]),	
                 'ennemis' => UserDataBase::getNomDesUsagers(),
                 'username' => UserDataBase::getPartiesUsagerSpecifique($usager_choisi),
                 'totalpartie' => UserDataBase::getPartieUserTotal($_SESSION["username"]),

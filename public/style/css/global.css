@@ -31,7 +31,7 @@ body{
   height: 100vh; 
 }
 
-body, input, button, .iframe-container{
+body, input, button{
   font-family: "EldenRingFont", "Poppins", sans-serif;
 }
 

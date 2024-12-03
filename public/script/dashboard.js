@@ -144,14 +144,13 @@ const afficherLesUsagers = (usagers) => {
             let checkboxUsager = document.createElement("div");
             checkboxUsager.className = "checkbox-usager";
 
-            console.log(element.ennemi__nom);
             
             
             liUsager.innerHTML = element.nom || element;
             liUsager.appendChild(checkboxUsager);
             container.appendChild(liUsager);
 
-            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.ennemi__nom || element.nom));
+            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.nom || element.ennemi__nom));
         });
     };
 
