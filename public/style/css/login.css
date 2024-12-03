@@ -21,6 +21,7 @@ body{
     
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 1em;
    
 }
 .left-login{
@@ -52,6 +53,8 @@ body{
     place-items: center;
     background-color: black;
     position: relative;
+    border-radius: 5px;
+    
 
 }
 .wrapper-left-login{
@@ -249,8 +252,8 @@ body{
     font-size: 0.5em;
     border-radius: 0px;
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 0px;
+    left: 0px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -145,13 +145,13 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
     .then(response => response.json())
     .then(data => {
         if (data == "MUST_ATTACK_TAUNT_FIRST"){
-            afficher_tour_joueur_ou_erreur("Vous devez attaquer la carte avec Taunt en premier", "#D43232");
+            afficher_tour_joueur_ou_erreur("attaquez taunt", "#D43232");
         } else if (data == "OPPONENT_CARD_NOT_FOUND"){
-            afficher_tour_joueur_ou_erreur("Carte de l'adversaire non trouvée", "#D43232");
+            afficher_tour_joueur_ou_erreur("carte adversaire pas trouvé", "#484848");
         } else if (data == "OPPONENT_CARD_HAS_STEALTH"){
-            afficher_tour_joueur_ou_erreur("Carte de l'adversaire a Stealth", "#D43232");
+            afficher_tour_joueur_ou_erreur("carte stealth adversaire pas trouvé ", "#e3ff64");
         } else if (data == "CARD_IS_SLEEPING"){
-            afficher_tour_joueur_ou_erreur("Carte sleeping", "#D43232");
+            afficher_tour_joueur_ou_erreur("Carte endormie", "#ff7300");
         }
         else{
             // reini les cartes sélectionnées

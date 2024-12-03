@@ -16,53 +16,54 @@
     padding: 0;
     box-sizing: border-box;
     text-transform: uppercase;
+
 }
-body{
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Évite le défilement horizontal */
+  }
+  
+  body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
-}
-.blob_shadow_blur{
-    width: clamp(200px, 80vw, 800px);
-    height: clamp(200px, 80vw, 800px);
-    z-index: -1;
-    background-color: #1780437e;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(100px);
-}
+    background-image: url(/Images/bg3.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh; 
+  }
+  
+
 .container-dash{
    
     position: relative;
     
     width: min(1400px, 100% - 2rem);
-    height: 100dvh; /* Ajustement pour éviter le débordement */
+    height: 100dvh;
 
   
     
 }
+
 .container-dashboard-choice{
     height: 100%;
     display: grid;
-    grid-template-rows: 1fr 1fr 300px;
+    grid-template-rows: 300px 1fr;
     place-items: center;
 }
 
 
 .dashboard-name{
     height: 100%;
-
     width: 100%;
-    background-image: url(/Images/dashboard.svg);
-    background-position: 50% 50%;
+    background-image: url(/Images/statistique.svg);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: clamp(200px, 90vw, 900px);
     background-color: 100%;
-   
-
 }
 .container-choice-bottom{
 
@@ -93,38 +94,36 @@ body{
 .choice-container{
     width: 230px;
     height: 50px;
+
     background-color: white;
-    border: 1px solid black;
-    border-radius: 40px;
-    display: grid;
-    place-items: center;
-  
-  
+    border: 2px solid black;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    flex-direction: column;
+    transition: all 0.3s ease;
 }
+
 .container-choice-different-data {
+    height: fit-content;
+    width: 230px;
     gap: 0.5em;
     color: white;
-    position: absolute;
-
     left: 20%; 
-    transform: translate(-100vw, -50%); 
     z-index: 1;
-    height: fit-content;
-    width: 0;
     background-color: var(--container__button);
-    border-radius: 4px;
+    border-radius: 2px;
+    border: 1px solid white;
     display: flex;
     flex-direction: column;
     padding: 1em;
-    transition: all 0.3s ease;
     font-size: 0.85em;
-    box-shadow: inset 5px 5px 20px rgb(0, 0, 0);
+    box-shadow: inset 5px 5px 40px rgb(0, 0, 0);
+    
 }
 
-.container-choice-different-data.active {
-    transform: translate(-50%, 50%);
-    width: 200px;
-}
 
 
 .choice-type-container{
@@ -175,6 +174,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 .choice-type{
     
@@ -229,9 +229,10 @@ body{
     color: white;
     outline: none;
     border: none;
-    width: 200px;
-    height: 40px;
+    width: 230px;
+    height: 50px;
     border-radius: 2px;
+    border: 2px solid #000000;
 }
 #confirmer-choix-board:hover{
     cursor: pointer;
@@ -243,7 +244,7 @@ body{
     border-top-left-radius: 4px;
     width: 100%;
     height: 700px;
-
+    border: 2px solid black;
     overflow-y:hidden;
     display: flex;
     
@@ -282,11 +283,12 @@ body{
 
 .header-table > div > div {
     width: 80%;
-    height: 80%;
+    height: 100%;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid black;
 }
 
 
@@ -370,13 +372,13 @@ body{
 @media screen and (max-width: 460px){
 
     .choice-container{
-        width: 150px;
-        height: 30px;
+
+        
         font-size: 0.75em;
     }
     #confirmer-choix-board{
-        width: 160px;
-        height: 25px;
+        
+        
         font-size: 0.6em;
     }
 
@@ -398,7 +400,7 @@ body{
     }
     .dash-stats{
         height: 500px;
-        
+       
     }
     .item-stats{
         scroll-snap-align: center;
@@ -505,7 +507,13 @@ body{
  
  
  
-
+    .text-joueur.gagnant {
+        background-color: rgb(129, 255, 129);
+    }
+    
+    .text-joueur.perdant {
+        background-color: rgb(255, 133, 133);
+    }
  
 
 

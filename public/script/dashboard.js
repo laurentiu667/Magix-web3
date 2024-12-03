@@ -3,13 +3,13 @@ let return_home = document.querySelector(".return-home");
 let choice_usager = document.querySelector(".choice-usager");
 let choice_type = document.querySelector(".choice-type");
 let choice_container = document.querySelector(".click-choice");
+let choice_containerdiv = document.querySelector(".choice-container");
 let container_choice_different_data = document.querySelector(".container-choice-different-data");
 
 let confirmer_choix_button = document.querySelector("#confirmer-choix-board");
 let value_trier = document.querySelector(".value-trier");
 let stats_cercle = document.querySelector(".stats-cercle");
 
-let ouverture = false;
 
 
 window.addEventListener("load", () => {
@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
     // reinitialiser le localstorage
     localStorage.removeItem("ennemi__choisi");
     return_home.addEventListener("click", retournerMenu);
-    choice_container.addEventListener("click", () => choisirType());
+    
     confirmer_choix_button.addEventListener("click", () => stateDashboard());
 });
 
@@ -37,9 +37,6 @@ function stateTrier(){
 }
 
 function stateDashboard() {
-
-    // effacer les autres div quand je clique sur confirmer
-
     container_dash.innerHTML = "";
 
     let form = new FormData();
@@ -62,7 +59,7 @@ function stateDashboard() {
         localStorage.setItem("totalpartie", totalpartie[0].count);
         localStorage.setItem("totalpartieUserConnected", totalpartieUserConnected[0].count);
 
-        creerCercleStats();
+
 
         // si data vide
         if(joueur_nom.length > 0) {
@@ -79,24 +76,7 @@ function stateDashboard() {
         
     });
 }
-const creerCercleStats = () => {
-    let totalpartie = parseFloat(localStorage.getItem("totalpartie"));
-    let totalpartieUserConnected = parseFloat(localStorage.getItem("totalpartieUserConnected"));
 
-  
-
-    let degre = (totalpartie / totalpartieUserConnected) * 360;
-
-    stats_cercle.style.background = `
-    conic-gradient(
-        #D9D9D9 0deg, 
-        #D9D9D9 ${degre}deg, 
-        #178043 ${degre}deg, 
-        #178043 360deg
-    )
-`;
-
-};
 
 
 function createDivForDesktop(element){
@@ -212,18 +192,7 @@ const clickedUsagerType = (checkboxUsager, usager_ennemi) => {
     }
 };
 
-function choisirType() {
-    
-    activerDernierCheckBox();
-    if (!ouverture) {
-        container_choice_different_data.classList.add("active");
-  
-    } else {
-        container_choice_different_data.classList.remove("active");
-    }
-    // Bascule l'état de "ouverture"
-    ouverture = !ouverture;
-}
+
 
 function activerDernierCheckBox() {
     let checkboxes = document.querySelectorAll(".checkbox-usager");

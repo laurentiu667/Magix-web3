@@ -38,8 +38,6 @@ let dernierTour = null;
 export const gameUpdate = (data) => {
     if (data === "WAITING") {
        
-    } else if (data === "LAST_GAME_WON" || data === "LAST_GAME_LOST"){
-
     } else if (data == "WRONG_TURN") {
         afficher_tour_joueur_ou_erreur("Ce n’est pas votre tour", "#D43232");
     }
@@ -140,14 +138,14 @@ const mettreAJourTempsJoueur = (data) => {
 
            
         avertirjoueurdangerTemps(data.remainingTurnTime);
-        temps_restant_ennemi.innerHTML = "wait for your turn";
+        temps_restant_ennemi.innerHTML = "pas votre tour";
         temps_restant.innerHTML = data.remainingTurnTime;
     } else {
        
     
         danger_alert.classList.remove("animation-extra-danger");
         temps_restant_ennemi.innerHTML = data.remainingTurnTime;
-        temps_restant.innerHTML = "wait for your turn";
+        temps_restant.innerHTML = "pas votre tour";
     }
 }
 

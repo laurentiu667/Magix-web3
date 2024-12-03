@@ -21,7 +21,7 @@
 
     height: 100%;
     width: 100%;
-
+  
 }
 .title-menu{
     background-image: url(/Images/title.svg);
@@ -34,8 +34,9 @@
 .wrapper-menu{
     height: 100%;
     width: 100%;
-  
+    backdrop-filter: blur(2px);
     display: grid;
+
     grid-template-rows: 2fr 3fr 1fr;
 }
 
