@@ -104,7 +104,6 @@ const initialiserGameouObserve = () => {
 };
 
 const state = () => {
-    console.log(url, form)
     fetch(url, {
         method: "POST",
         body: form,

@@ -1,13 +1,11 @@
 let buttonSubmit = document.querySelector("#submit");
 
-
 window.addEventListener("load", () => {
   
     buttonSubmit.addEventListener("click", () => {
         createConnectionForm();
     });
 
-    // pour faire en sorte de enter au lieu de cliquer sur le button
     document.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
             createConnectionForm();

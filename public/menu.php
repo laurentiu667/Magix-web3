@@ -72,6 +72,5 @@
         </div>
    </div>
    
-
-   <?php
-    require_once("partial/layout/footer.php");
+<?php
+require_once("partial/layout/footer.php");

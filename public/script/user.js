@@ -6,9 +6,7 @@ export class User {
         this.creationUserDiv();
     }
 
-    // CREATION DES CARTES DIV
     creationUserDiv(){
-
         let user_connected_div = document.createElement("div");
         user_connected_div.classList.add("user-connected-div");
         user_connected_div.setAttribute("data-username", this.username); 
@@ -20,7 +18,6 @@ export class User {
         user_connected_div.addEventListener("click", () => clickUserDiv(user_connected_div, this.trophies));
     }
 }
-
 const hoverInfoUserCreateDiv = (divHovered, trophiesUserHovered) => {
 
     let container_trophies =  document.createElement("div");

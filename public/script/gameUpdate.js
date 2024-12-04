@@ -2,7 +2,6 @@ let board_joueur = document.querySelector(".container-hand-joueur");
 let board_ennemi = document.querySelector(".container-hand-ennemi");
 let deck_container = document.querySelector(".hand-bottom-game"); 
 let ennemi_card_board_count = document.querySelector(".ennemi-card-board-count"); 
-// let temps = document.querySelector(".temps");
 
 let joueur_vie = document.querySelector(".number-cercle-health");
 let joueur_mana = document.querySelector(".number-cercle-mana");
@@ -13,7 +12,6 @@ let joueur_message = document.querySelector(".message-div")
 let ennemi_message = document.querySelector(".message-div-ennemi")
 let ennemi_card_number = document.querySelector(".number-card-ennemi")
 let joueur_card_number = document.querySelector(".number-card")
-
 
 let healthbarjoueur = document.querySelector(".health-progress")
 let manabarjoueur = document.querySelector(".mana-progress")
@@ -85,9 +83,6 @@ const mettreajourbuttonsgame = (data) => {
 }
 const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manaennemi, maxhealth, maxmana, maxhopponent, maxmopponent) => {
 
-    // max health est à 100%
-    // max mana est à 70%
-
     let valeurDivProgressHealthJoueur = (healthjoueur / maxhealth) * 100; 
     let valeurDivProgressManaJoueur = (manajoueur / maxmana) * 100;
     
@@ -108,7 +103,6 @@ const mettreajourbardevieetmana = (healthjoueur, manajoueur, healthennemi, manae
 }
 const avertirjoueurdangerTemps = (temps) => {
     danger_alert.style.zIndex = 0;
-
 
     if (temps <= 10){
         danger_alert.classList.add("animation-extra-danger");
@@ -139,7 +133,7 @@ const mettreAjourEtatJoueur = (data) => {
 }
 
 const jouerAnimationTour = (data) => {
-    // seulement si le tour a changé
+
     if (data.yourTurn !== dernierTour) {
         dernierTour = data.yourTurn;
 
@@ -169,41 +163,36 @@ const mettreAJourTempsJoueur = (data) => {
 
 const mettreAJourLesBoards = (data) => {
     deck_container.innerHTML = ''; 
-        data.hand.forEach(carte => {
-            
-            if (!imagesMap[carte.uid]) {
-
-                // comme si je faisais { uid: 1, randomIMG: 1 }
-                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
-            }
-            let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG, carte.state, data.yourTurn);
-        });
-
-        board_joueur.innerHTML = '';
-        data.board.forEach(carte => {
-          
-            if (!imagesMap[carte.uid]) {
-
-                // comme si je faisais { uid: 1, randomIMG: 1 }
-                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
-            }
-            let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state, data.yourTurn);
-        });
-    
-        board_ennemi.innerHTML = '';
-        data.opponent.board.forEach(carte => {
-            if (!imagesMap[carte.uid]) {
-                imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
-            }
-            let randomIMG = imagesMap[carte.uid];
-            let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG, carte.state, data.yourTurn);
-        });
-        ennemi_card_board_count.innerHTML = '';
-        for (let i = 0; i < data.opponent.handSize; i++) {
-            let divCarteEnnemiCounter = document.createElement("div");
-            divCarteEnnemiCounter.classList.add("carteEnnemiCount");
-            ennemi_card_board_count.appendChild(divCarteEnnemiCounter);
+    data.hand.forEach(carte => {
+        
+        if (!imagesMap[carte.uid]) {
+            imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
         }
+        let randomIMG = imagesMap[carte.uid];
+        let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "deck_container", randomIMG, carte.state, data.yourTurn);
+    });
+    board_joueur.innerHTML = '';
+    data.board.forEach(carte => {
+      
+        if (!imagesMap[carte.uid]) {
+            imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
+        }
+        let randomIMG = imagesMap[carte.uid];
+        let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_joueur", randomIMG, carte.state, data.yourTurn);
+    });
+
+    board_ennemi.innerHTML = '';
+    data.opponent.board.forEach(carte => {
+        if (!imagesMap[carte.uid]) {
+            imagesMap[carte.uid] = Math.floor(Math.random() * 26) + 1;
+        }
+        let randomIMG = imagesMap[carte.uid];
+        let card = new Cards(carte.atk, carte.baseHP, carte.cost, carte.hp, carte.id, carte.mechanics, carte.uid, "board_ennemi", randomIMG, carte.state, data.yourTurn);
+    });
+    ennemi_card_board_count.innerHTML = '';
+    for (let i = 0; i < data.opponent.handSize; i++) {
+        let divCarteEnnemiCounter = document.createElement("div");
+        divCarteEnnemiCounter.classList.add("carteEnnemiCount");
+        ennemi_card_board_count.appendChild(divCarteEnnemiCounter);
+    }
 }

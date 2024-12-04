@@ -3,7 +3,7 @@ let message__class_global = document.querySelector(".message--class-global");
 let chatForm = document.querySelector(".chat-form");
 let messageInput = document.querySelector(".message--class-input");
 let list_user__in_game = document.querySelector(".list-user--in-game");
-let lastMessageId = -1; // pas prendre son message qui bug le -1 
+let lastMessageId = -1; 
 let ouvrirchat = document.querySelector(".open-chat-button");
 let fermetchat = document.querySelector(".fermer-chat");
 let iframe = document.querySelector(".iframe-container");
@@ -14,7 +14,6 @@ import { User } from "./user.js";
 
 window.addEventListener("load", () => {
     stateMessage(); 
-
 
     ouvrirchat.addEventListener("click", () => {
         openTheChat();
@@ -75,10 +74,10 @@ const stateMessage = () => {
             }
         });
 
-        // Ajouter les nouveaux utilisateurs connectés qui n'existent pas encore
+        // ajouter les nouveaux qui n existe pas encore
         userConnected.forEach(user => {
             if (!user_connected_array_old.includes(user.username)) {
-                user_connected_array_old.push(user.username); // Ajouter à la liste
+                user_connected_array_old.push(user.username); // ajout a la liste
 
                 let userClass = new User(user.username, user.trophies);
             }
@@ -86,8 +85,6 @@ const stateMessage = () => {
    
         user_connected_array_old = userConnected.map(user => user.username);
      
-
-
         msgs.forEach(element => {
             // si un nouveau id est plus grand que le dernier alors nouveau message
             if (element.id > lastMessageId) {
@@ -99,7 +96,7 @@ const stateMessage = () => {
                 heure_user_container.classList.add("heure-user");
                 let firstspan = document.createElement("span");
                 firstspan.innerText = "["
-                // ici rentrer l heure du message
+             
                 let secondspan = document.createElement("span");
                 secondspan.classList.add("heure-input");
 
@@ -122,31 +119,20 @@ const stateMessage = () => {
                 if (element.fromUser === data.username) {
                     // ajouter une autre class a user_mess_container comme user-mess-container-reverse en plus de sa classe actuelle
                     user_mess_container.classList.add("user-mess-container-reverse");
-                 
-
                 }
 
                 user_mess_container.appendChild(heure_user_container);
                 user_mess_container.appendChild(mess__user_real_time);
                 message__class_global.appendChild(user_mess_container);
 
-
                 // scroll en bas automatiquement
                 message__class_global.scrollTop = message__class_global.scrollHeight;
-
-            
-
-
             }
         });
-      
         setTimeout(stateMessage, 1000); 
     })
     
 };
-
-
-
 
 const createGamesViews = (games) => {
     let container_user_in_game = document.createElement("div");
@@ -175,8 +161,6 @@ const createGamesViews = (games) => {
     name_in_game_second.innerText = games.p2;
     health_in_game_second.innerText = games.p2Hp;
 
-
-
     first_player_container.appendChild(name_in_game);
     first_player_container.appendChild(health_in_game);
 
@@ -189,8 +173,6 @@ const createGamesViews = (games) => {
     list_user__in_game.appendChild(container_user_in_game);
 
 }
-
-
 
 // envoi d un message
 const sendMessage = (message) => {

@@ -8,15 +8,13 @@ let container_choice_different_data = document.querySelector(".container-choice-
 
 let confirmer_choix_button = document.querySelector("#confirmer-choix-board");
 let value_trier = document.querySelector(".value-trier");
-let stats_cercle = document.querySelector(".stats-cercle");
-
+let victoire = document.querySelector(".victoire");
 
 
 window.addEventListener("load", () => {
     value_trier.innerHTML = "Date";
     stateTrier();
     stateDashboard();
-    // reinitialiser le localstorage
     localStorage.removeItem("ennemi__choisi");
     return_home.addEventListener("click", retournerMenu);
     
@@ -30,7 +28,6 @@ function stateTrier(){
     .then(response => response.json())
     .then(data => {
         const ennemis_nom = data.ennemis;
-        // afficher les usagers dans le trier par usager
         afficherLesUsagers(ennemis_nom);
 
     });
@@ -53,15 +50,10 @@ function stateDashboard() {
         const joueur_nom = data.username;
         const totalpartie = data.totalpartie;
         const totalpartieUserConnected = data.totalpartieGagner;
-     
-
 
         localStorage.setItem("totalpartie", totalpartie[0].count);
         localStorage.setItem("totalpartieUserConnected", totalpartieUserConnected[0].count);
-
-
-
-        // si data vide
+        winrate();
         if(joueur_nom.length > 0) {
             joueur_nom.forEach(element => {     
                 createDivForDesktop(element);
@@ -77,8 +69,6 @@ function stateDashboard() {
     });
 }
 
-
-
 function createDivForDesktop(element){
     let div_stats = document.createElement("div");
     div_stats.className = "item-stats";
@@ -89,7 +79,6 @@ function createDivForDesktop(element){
     let textjoueur = document.createElement("div");
     textjoueur.className = "text-joueur";
 
-
     let ennemi = document.createElement("div");
     ennemi.className = "ennemi-items";
     let textennemi = document.createElement("div");
@@ -98,7 +87,6 @@ function createDivForDesktop(element){
     let date = document.createElement("div");
     date.className = "date-items";
     let textdate = document.createElement("div");
-
 
     let gagnant = document.createElement("div");
     gagnant.className = "gagnant-items";
@@ -134,26 +122,31 @@ function createDivForDesktop(element){
   
     container_dash.appendChild(div_stats);
 }
+const winrate = () => {
+    let totalpartie = parseFloat(localStorage.getItem("totalpartie"));
+    let totalpartieUserConnected = parseFloat(localStorage.getItem("totalpartieUserConnected"));
+
+  
+
+    const result = ((totalpartieUserConnected / totalpartie)) * 100;
+    const roundedUpResult = Math.ceil(result);
+
+    victoire.innerHTML = roundedUpResult + "%";
+}
 const afficherLesUsagers = (usagers) => {
     let liType = ["Date"];
-
 
     const ajouterUsagers = (elements, container) => {
         elements.forEach(element => {
             let liUsager = document.createElement("li");
             let checkboxUsager = document.createElement("div");
             checkboxUsager.className = "checkbox-usager";
-
-            
-            
             liUsager.innerHTML = element.nom || element;
             liUsager.appendChild(checkboxUsager);
             container.appendChild(liUsager);
-
-            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.nom || element.ennemi__nom));
+            liUsager.addEventListener("click", () => clickedUsagerType(checkboxUsager, element.nom || element ));
         });
     };
-
  
     ajouterUsagers(liType, choice_type);
     ajouterUsagers(usagers, choice_usager);
@@ -161,37 +154,23 @@ const afficherLesUsagers = (usagers) => {
 
 const clickedUsagerType = (checkboxUsager, usager_ennemi) => {
 
-    
-    // verifier si l element cliquer a deja la classe active
     const isActive = checkboxUsager.classList.contains("active");
 
-    // chaque fois qu on touche un on enleve la classe pour tous
     document.querySelectorAll(".checkbox-usager").forEach(checkbox => {
         checkbox.classList.remove("active");
     });
 
-
-
-    // si l element cliquer contient active alors on enleve et on retire let localstorage
     if (isActive) {
-        
         checkboxUsager.classList.remove("active");
-        
         localStorage.removeItem("ennemi__choisi");
         value_trier.innerHTML = "Date";
-
-        // si aucun active alors on active le dernier qui est la date
         activerDernierCheckBox();
     } else {
-        // sinon alors on peut activer la classe tu connais mgl
         checkboxUsager.classList.add("active");
-        // tu enregiste et voila le tour est jouer
         localStorage.setItem("ennemi__choisi", usager_ennemi);
         value_trier.innerHTML = localStorage.getItem("ennemi__choisi");
     }
 };
-
-
 
 function activerDernierCheckBox() {
     let checkboxes = document.querySelectorAll(".checkbox-usager");

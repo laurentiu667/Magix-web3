@@ -8,6 +8,7 @@
     </title>
 
     <link rel="stylesheet" href="style/css/global.css">
- 
+    <link rel="icon" href="/Images/forfeit.png" type="image/png">
+
 </head>
 <body>

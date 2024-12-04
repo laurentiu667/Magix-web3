@@ -14,18 +14,18 @@ abstract class CommonAction {
     }
     
     public function execute() {
-        // si logout est true alors empty n est pas vide
+      
         if (!empty($_SESSION["logout"])) {
             session_unset();
             session_destroy();
             session_start();
         }
-        // si visibility est vide depuis le debut alors lui donner le plus bas niveau de visibilité
+        
         if (empty($_SESSION["visibility"])) {
             $_SESSION["visibility"] = CommonAction::$VISIBILITY_PUBLIC;
         }
 		
-		/// si la cle est vide alors la visibilite est public
+	
 		if (empty($_SESSION["key"])) {
 			$_SESSION["visibility"] = CommonAction::$VISIBILITY_PUBLIC;
 		} else {
@@ -33,12 +33,12 @@ abstract class CommonAction {
 		}
 		
 	    // Initialisation des variables de session
-        $_SESSION["username"] = $_SESSION["username"] ?? "bug alors";
-        $_SESSION["ennemi"] = $_SESSION["ennemi"] ?? "bug alors";
+        $_SESSION["username"] = $_SESSION["username"] ?? "erreur";
+        $_SESSION["ennemi"] = $_SESSION["ennemi"] ?? "erreur";
         $_SESSION["partie_gagne"] = $_SESSION["partie_gagne"] ?? false;
         $_SESSION["partie_perdu"] = $_SESSION["partie_perdu"] ?? false;
 
-        // si la page demande une plus grande visibilite que l utilisateur a alors rediriger vers index.php
+    
         if ($this->pageVisibility > $_SESSION["visibility"]) {
             header("location:index.php");
             exit;

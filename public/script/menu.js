@@ -20,17 +20,13 @@ window.addEventListener("load", () => {
             window.location.href = "game.php";
         }
     });
-    
 });
-
 const choisirTheme = () => {    
 
     Array.from(themecontainer.children).forEach(element => {
         element.addEventListener("click", () => {
-            // conserver dans localstorage
             localStorage.setItem("theme", element.id);
             themecontainer.style.display = "none";
-
         });
     });
 }

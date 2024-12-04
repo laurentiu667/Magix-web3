@@ -149,7 +149,7 @@ const AttaquerUneCarte = (cardUID, targetUID) => {
         } else if (data == "OPPONENT_CARD_NOT_FOUND"){
             afficher_tour_joueur_ou_erreur("carte adversaire pas trouvé", "#484848");
         } else if (data == "OPPONENT_CARD_HAS_STEALTH"){
-            afficher_tour_joueur_ou_erreur("carte stealth adversaire pas trouvé ", "#e3ff64");
+            afficher_tour_joueur_ou_erreur("carte stealth, non-attaquable ", "#e3ff64");
         } else if (data == "CARD_IS_SLEEPING"){
             afficher_tour_joueur_ou_erreur("Carte endormie", "#ff7300");
         }

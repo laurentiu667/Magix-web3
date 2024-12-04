@@ -66,7 +66,7 @@ body{
 }
 .wrapper-right-login{
     width: 100%;
-    height: 1000px;
+    height: 100%;
   
     display: grid;
     
@@ -245,18 +245,3 @@ body{
     }
 }
 
-.disablecache{
-    width: fit-content;
-    padding: 0.15em;
-    border: 1px solid black;
-    font-size: 0.5em;
-    border-radius: 0px;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-wrap: wrap;
-    text-transform: uppercase;
-}
