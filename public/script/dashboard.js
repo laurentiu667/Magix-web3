@@ -19,6 +19,8 @@ window.addEventListener("load", () => {
     return_home.addEventListener("click", retournerMenu);
     
     confirmer_choix_button.addEventListener("click", () => stateDashboard());
+
+   
 });
 
 function stateTrier(){
@@ -133,6 +135,7 @@ const winrate = () => {
 
     victoire.innerHTML = roundedUpResult + "%";
 }
+
 const afficherLesUsagers = (usagers) => {
     let liType = ["Date"];
 

@@ -3,6 +3,10 @@ let themecontainer = document.querySelector(".container-theme");
 let dashboard = document.querySelector("#dashboard");
 let nom_joueur = document.querySelector(".nom-joueur");
 let inputUserObserve = document.querySelector("#inputUserObserve");
+let type_carte = document.querySelector(".type-carte");
+let carteShow = document.querySelector("#cartes");
+let clickedcarte = false;
+
 window.addEventListener("load", () => {
 
     nom_joueur.innerHTML = "bienvenue " + localStorage.getItem("username");
@@ -20,6 +24,9 @@ window.addEventListener("load", () => {
             window.location.href = "game.php";
         }
     });
+    carteShow.addEventListener("click", () => {
+        legendeCarteShow();
+    });
 });
 const choisirTheme = () => {    
 
@@ -30,7 +37,15 @@ const choisirTheme = () => {
         });
     });
 }
-
+const legendeCarteShow = () => {
+    if (!clickedcarte) {
+        type_carte.classList.add("show");
+        clickedcarte = true;
+    } else {
+        type_carte.classList.remove("show");
+        clickedcarte = false;
+    }
+};
 const theme = () => {
     let clicked = false;
     themebutton.addEventListener("click", () => {

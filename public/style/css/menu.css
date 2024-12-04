@@ -258,3 +258,42 @@
 }
 
 
+.type-carte{
+    z-index: 10000;
+    position: absolute;
+    height: 80%;
+    width: fit-content;
+
+    top: 50%;
+    left: -10%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    transition: all 1s ease;
+}
+.type-carte.show{
+    left: 10%;
+}
+
+.type-carte > div {
+    width: 15vw;
+    height: 100%;
+    
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+}
+.taunt{
+    background-image: url(/Images/taunt-show.png);
+}
+.stealth{
+    background-image: url(/Images/stealth-show.png);
+}
+.idle{
+    background-image: url(/Images/idle-show.png);
+}

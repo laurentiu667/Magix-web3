@@ -13,6 +13,13 @@
     <script type="module" defer src="script/chat.js"></script>
     <link  rel="stylesheet" href="style/css/menu.css">
     <link  rel="stylesheet" href="style/css/chat.css">
+
+
+    <div class="type-carte">
+        <div class="taunt"></div>
+        <div class="stealth"></div>
+        <div class="idle"></div>
+    </div>
     
     <div class="iframe-container">
          <div class="fermer-chat"></div>
@@ -62,6 +69,7 @@
                     <li id="openchat" class="open-chat-button">chat en ligne</li>
                     <li id="theme">thème</li>
                     <li id="dashboard">tableau de bord</li>
+                    <li id="cartes">Légende des cartes</li>
                     <li id="inputUserObservediv"> 
                         <input type="text" placeholder="joueur à observer..." name="inputUserObserve" id="inputUserObserve">
                     </li>
