@@ -20,6 +20,7 @@
     border-radius: 10px;
     opacity: 0;
     transition: all 0.5s ease;
+    font-family: "Poppins";
     
 }
         
@@ -126,7 +127,6 @@
     align-items: center;
     justify-content: center;
     color: white;
-  
     position: relative;
    
 }
@@ -243,7 +243,7 @@
     color: white;
     font-size: 1em;
 
-    
+    font-family: "Poppins";
     
 }
 .message--class-button-send{
@@ -256,6 +256,7 @@
     border-radius: 4px;
     font-size: 1em;
     transition: all 1s ease;
+    font-family: "Poppins";
 }
 .message--class-button-send-small-device{
     display: none;

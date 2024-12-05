@@ -81,8 +81,8 @@ body {
 
 }
 .side-game{
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 250px;
+    min-width: 250px;
     height: 100%;
     display: flex;
     align-items: flex-end;
@@ -140,10 +140,10 @@ body {
     height: 80%;
     
     border: 3px solid black;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    border-bottom: 1px solid black;
+  
 
     
 }
@@ -153,10 +153,10 @@ body {
     
     border: 3px solid black;
 
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    border-bottom: 1px solid black;
+
  
     
 }

@@ -34,7 +34,7 @@
 .wrapper-menu{
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(5px);
     display: grid;
 
     grid-template-rows: 2fr 3fr 1fr;
@@ -174,7 +174,7 @@
     border: 3px solid #222222;
     border-radius: 4px;
     position: absolute;
-    top: 41%;
+    top: 82%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4000;
@@ -257,13 +257,11 @@
     }
 }
 
-
-.type-carte{
+.type-carte {
     z-index: 10000;
     position: absolute;
     height: 80%;
     width: fit-content;
-
     top: 50%;
     left: -10%;
     transform: translate(-50%, -50%);
@@ -272,28 +270,103 @@
     align-items: center;
     justify-content: center;
     gap: 2em;
-    transition: all 1s ease;
-}
-.type-carte.show{
+    transition: all 0.3s ease;
+  }
+  
+  .type-carte.show {
     left: 10%;
-}
-
-.type-carte > div {
-    width: 15vw;
+  }
+  
+  .type-carte > .card {
+    width: 10vw;
     height: 100%;
-    
+    position: relative;
+    perspective: 1000px; 
+    cursor: pointer;
+  }
+  
 
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    transition: transform 0.8s ease;
+  }
+  
+  .card-front {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 
-}
-.taunt{
+  }
+  
+  .card-back {
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg); 
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .card-back-taunt{
+    background-image: url(/Images/taunt-show-back.png);
+  }
+  .card-back-stealth{
+    background-image: url(/Images/stealth-show-back.png);
+  }
+  .card-back-idle{
+    background-image: url(/Images/idle-show-back.png);
+  }
+  
+
+  .card:active .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  .card:active .card-back {
+    transform: rotateY(0deg);
+  }
+  
+  .taunt {
     background-image: url(/Images/taunt-show.png);
-}
-.stealth{
+  }
+  .stealth {
     background-image: url(/Images/stealth-show.png);
-}
-.idle{
+  }
+  .idle {
     background-image: url(/Images/idle-show.png);
+  }
+  .audio-off-on{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 70px;
+    height: 70px;
+    z-index: 5000;
+}
+.audio-off-on:hover{
+    cursor: pointer;
+}
+
+.audio-off-on::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 70px; 
+    height: 5px;
+    background-color: white;
+    transform: rotate(45deg) translateY(-50%);
+    transition: width 1s ease; 
+}
+
+.audio-off-on.active::after {
+    width: 0px;
 }
